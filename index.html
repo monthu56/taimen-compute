@@ -10,7 +10,10 @@
 <meta name="description" content="Дообучение открытых AI-моделей под задачу: LLM под документы, ASR под ваш домен, аренда GPU. Фиксированная цена, метрика качества до старта."/>
 <meta name="robots" content="index, follow, max-image-preview:large"/>
 <meta name="theme-color" content="#0C2F36"/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230C2F36'/%3E%3Ctext%20x='32'%20y='43'%20font-family='monospace'%20font-size='28'%20font-weight='600'%20text-anchor='middle'%20fill='%23E8604C'%3Etc%3C/text%3E%3C/svg%3E"/>
+<link rel="icon" href="assets/logo/favicon.ico" sizes="32x32"/>
+<link rel="icon" type="image/png" sizes="16x16" href="assets/logo/favicon-16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32.png"/>
+<link rel="icon" type="image/svg+xml" href="assets/logo/taimen-mark-light.svg"/>
 <link rel="canonical" href="https://taimen.ai/"/>
 
 <!-- Open Graph -->
@@ -123,9 +126,8 @@ a:hover{color:var(--link-hover);text-decoration-color:currentColor}
 /* ---- Шапка ---- */
 .site-header{background:var(--surface-page);border-bottom:1px solid var(--border-subtle);position:sticky;top:0;z-index:10}
 .topbar{display:flex;align-items:center;justify-content:space-between;height:64px}
-.wordmark{font-size:20px;letter-spacing:-0.01em;white-space:nowrap;text-decoration:none}
-.wordmark b{font-weight:600;color:var(--teal-700)}
-.wordmark span{font-weight:400;color:var(--text-muted)}
+.wordmark{display:inline-flex;align-items:center;text-decoration:none}
+.wordmark img{height:28px;width:auto;display:block}
 .nav{display:flex;align-items:center;gap:28px}
 .nav a:not(.btn){font-size:14px;font-weight:500;text-decoration:none;color:var(--text-secondary)}
 .nav a:not(.btn):hover{color:var(--text-primary)}
@@ -244,7 +246,7 @@ a:hover{color:var(--link-hover);text-decoration-color:currentColor}
 
 <header class="site-header">
   <div class="container topbar">
-    <a href="#top" class="wordmark" aria-label="Taimen Compute — наверх"><b>taimen</b><span> compute</span></a>
+    <a href="#top" class="wordmark"><img src="assets/logo/taimen-lockup-h-light.svg" alt="Taimen Compute" width="152" height="56"/></a>
     <nav class="nav" aria-label="Основная навигация">
       <a href="#services">Что делаем</a>
       <a href="#process">Как работает</a>
