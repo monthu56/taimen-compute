@@ -126,8 +126,11 @@ a:hover{color:var(--link-hover);text-decoration-color:currentColor}
 /* ---- Шапка ---- */
 .site-header{background:var(--surface-page);border-bottom:1px solid var(--border-subtle);position:sticky;top:0;z-index:10}
 .topbar{display:flex;align-items:center;justify-content:space-between;height:64px}
-.wordmark{display:inline-flex;align-items:center;text-decoration:none}
-.wordmark img{height:28px;width:auto;display:block}
+.wordmark{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.wordmark img{height:44px;width:auto;display:block}
+.wordmark-text{font-size:21px;letter-spacing:-0.01em;white-space:nowrap}
+.wordmark-text b{font-weight:600;color:var(--teal-700)}
+.wordmark-text span{font-weight:400;color:var(--text-muted)}
 .nav{display:flex;align-items:center;gap:28px}
 .nav a:not(.btn){font-size:14px;font-weight:500;text-decoration:none;color:var(--text-secondary)}
 .nav a:not(.btn):hover{color:var(--text-primary)}
@@ -198,11 +201,14 @@ a:hover{color:var(--link-hover);text-decoration-color:currentColor}
 .faq .faq__a{margin:0;padding:0 0 18px;font-size:var(--text-md);line-height:var(--leading-body);color:var(--text-secondary);max-width:64ch}
 
 /* ---- Финальный CTA + форма ---- */
-.cta-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
+.cta-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
 @media (max-width:920px){.cta-grid{grid-template-columns:1fr}}
+.cta-copy{display:flex;flex-direction:column}
 .cta-copy h2{margin:0 0 16px;font-size:var(--text-3xl);font-weight:600;
   letter-spacing:var(--tracking-heading);line-height:var(--leading-heading);color:var(--text-inverse)}
 .cta-copy p{margin:0;font-size:var(--text-md);line-height:var(--leading-body);color:var(--text-inverse-muted);max-width:40ch}
+.cta-copy img{margin-top:auto;padding-top:40px;height:160px;width:auto}
+@media (max-width:920px){.cta-copy img{margin-top:40px;padding-top:0}}
 .form-card{background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:32px}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
 @media (max-width:600px){.form-grid{grid-template-columns:1fr}}
@@ -246,7 +252,10 @@ a:hover{color:var(--link-hover);text-decoration-color:currentColor}
 
 <header class="site-header">
   <div class="container topbar">
-    <a href="#top" class="wordmark"><img src="assets/logo/taimen-lockup-h-light.svg" alt="Taimen Compute" width="152" height="56"/></a>
+    <a href="#top" class="wordmark" aria-label="Taimen Compute — наверх">
+      <img src="assets/logo/taimen-mark-light.svg" alt="" width="1024" height="1024"/>
+      <span class="wordmark-text"><b>taimen</b><span> compute</span></span>
+    </a>
     <nav class="nav" aria-label="Основная навигация">
       <a href="#services">Что делаем</a>
       <a href="#process">Как работает</a>
@@ -273,7 +282,6 @@ a:hover{color:var(--link-hover);text-decoration-color:currentColor}
       <div class="hero__meta">
         <span>Работаем во Вьетнаме</span>
         <span>Данные не уходят третьим сторонам</span>
-        <span>Сейчас в работе: коммерческий ASR-проект</span>
       </div>
     </div>
   </section>
@@ -383,13 +391,6 @@ a:hover{color:var(--link-hover);text-decoration-color:currentColor}
             <p>Основатель строит и сопровождает ML-инфраструктуру и AI-продукты для корпоративных заказчиков.</p>
           </div>
         </div>
-        <div class="why-item">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <div>
-            <h3>Уже в работе</h3>
-            <p>Прямо сейчас обучаем ASR-модель для действующего коммерческого заказчика.</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -441,6 +442,7 @@ a:hover{color:var(--link-hover);text-decoration-color:currentColor}
         <p class="eyebrow eyebrow--inverse">Контакт</p>
         <h2>Обсудим вашу задачу?</h2>
         <p>Опишите задачу в двух-трёх строках — вернёмся с вопросами, оценкой по цене и срокам. Если нужны мощности в аренду — выберите это в форме.</p>
+        <img src="assets/logo/taimen-lockup-v-dark-ondark.svg" alt="Taimen Compute" width="1000" height="1000" loading="lazy"/>
       </div>
       <div class="form-card" id="lead-card">
         <form id="lead-form" class="form-grid" action="mailto:hello@taimen.ai" method="post" enctype="text/plain">
