@@ -1,0 +1,82 @@
+/* Taimen Compute — color tokens
+   Brand: river teal #0F5257 (teal-700), salmon #E8604C (salmon-500). */
+
+:root {
+  /* ---- Base ramps ---- */
+  /* River teal — primary */
+  --teal-50: #EEF6F7;
+  --teal-100: #D9ECEE;
+  --teal-200: #B0DADD;
+  --teal-300: #7CC1C7;
+  --teal-400: #45A5AD;
+  --teal-500: #1C8891;
+  --teal-600: #147078;
+  --teal-700: #0F5257; /* brand */
+  --teal-800: #0C4347;
+  --teal-900: #093538;
+  --teal-950: #062527;
+
+  /* Salmon — accent */
+  --salmon-50: #FDF2F0;
+  --salmon-100: #FBE1DC;
+  --salmon-200: #F6C1B8;
+  --salmon-300: #F19B8D;
+  --salmon-400: #EC7A67;
+  --salmon-500: #E8604C; /* brand */
+  --salmon-600: #D24732;
+  --salmon-700: #B03A29;
+  --salmon-800: #8E2F22;
+  --salmon-900: #75281D;
+
+  /* Ink — teal-tinted neutrals */
+  --ink-950: #131B1C;
+  --ink-900: #1D2829;
+  --ink-800: #2A3739;
+  --ink-700: #3B4A4C;
+  --ink-600: #526264;
+  --ink-500: #6B7A7C;
+  --ink-400: #8B9799;
+  --ink-300: #AFB9BA;
+  --ink-200: #CFD6D7;
+  --ink-100: #E4E9E9;
+  --ink-50: #F1F4F4;
+  --paper: #FAFAF8;
+
+  /* ---- Semantic: surfaces ---- */
+  --surface-page: var(--paper);
+  --surface-card: #FFFFFF;
+  --surface-sunken: var(--ink-50);
+  --surface-inverse: var(--teal-700);
+  --surface-inverse-deep: var(--teal-900);
+
+  /* ---- Semantic: text ---- */
+  --text-primary: var(--ink-900);
+  --text-secondary: var(--ink-600);
+  --text-muted: var(--ink-500);
+  --text-brand: var(--teal-700);
+  --text-inverse: #F2F8F8;
+  --text-inverse-muted: #9BC3C6;
+
+  /* ---- Semantic: accent & links ---- */
+  --accent: var(--salmon-500);
+  --accent-hover: var(--salmon-600);
+  --accent-active: var(--salmon-700);
+  --link: var(--teal-600);
+  --link-hover: var(--teal-800);
+
+  /* ---- Semantic: borders & focus ---- */
+  --border-subtle: #DDE3E3;
+  --border-strong: var(--ink-300);
+  --border-inverse: rgba(255, 255, 255, 0.18);
+  --focus-ring-color: var(--teal-500);
+
+  /* ---- Semantic: status ---- */
+  --success: #25784A;
+  --success-bg: #E4F2EA;
+  --warning: #9A6B10;
+  --warning-bg: #FBF0DA;
+  --error: #C03B28;
+  --error-bg: #FBE7E3;
+  --info: var(--teal-600);
+  --info-bg: var(--teal-50);
+}

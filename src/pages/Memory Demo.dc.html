@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/taimen-compute-design-system-27a98f89-01a7-49c6-8406-4261d0be7022/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/taimen-compute-design-system-27a98f89-01a7-49c6-8406-4261d0be7022/tokens/colors.css">
+  <script src="_ds/taimen-compute-design-system-27a98f89-01a7-49c6-8406-4261d0be7022/_ds_bundle.js"></script>
+  <style>
+    @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url('assets/fonts/sans-400-600-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+    @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url('assets/fonts/sans-400-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+2191,U+2193,U+2212}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/mono-400-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/mono-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+2191,U+2193,U+2212}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/mono-500-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/mono-500-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+2191,U+2193,U+2212}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/mono-600-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/mono-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+2191,U+2193,U+2212}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#FAFAF8;color:#1D2829;font-family:'IBM Plex Sans',-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+    a{color:#136572;text-decoration:underline;text-decoration-color:rgba(19,101,114,0.4);text-underline-offset:3px;transition:color 120ms cubic-bezier(0.2,0.7,0.3,1)}
+    a:hover{color:#0C4347;text-decoration-color:currentColor}
+    ::selection{background:#B0DADD;color:#131B1C}
+    @keyframes plIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes sheetUp{from{transform:translateY(14%);opacity:0}to{transform:none;opacity:1}}
+  </style>
+</helmet>
+
+<sc-if value="{{ desktopVisible }}" hint-placeholder-val="{{ true }}">
+<div>
+
+<div style="position:sticky;top:0;z-index:20;background:#0C2F36;border-bottom:1px solid rgba(255,255,255,0.12)">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="Memory Landing.dc.html" style="display:inline-flex;align-items:center;gap:11px;text-decoration:none">
+        <img src="assets/logo/taimen-mark-ondark-crop.svg" alt="" style="height:28px;width:auto;display:block"></img>
+        <span style="font-size:18px;letter-spacing:-0.01em;white-space:nowrap"><b style="font-weight:600;color:#F2F8F8">taimen</b><span style="font-weight:400;color:#8FB9BE"> memory</span></span>
+      </a>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.1em;color:#B0DADD;border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:3px 8px">DEMO</span>
+    </div>
+    <nav style="display:flex;align-items:center;gap:24px">
+      <a href="#how" style="font-size:14px;font-weight:500;text-decoration:none;color:#8FB9BE" style-hover="color:#F2F8F8">How it works</a>
+      <a href="#cases" style="font-size:14px;font-weight:500;text-decoration:none;color:#8FB9BE" style-hover="color:#F2F8F8">Use cases</a>
+      <a href="#pilot" style="font-size:14px;font-weight:500;text-decoration:none;color:#8FB9BE" style-hover="color:#F2F8F8">Pilot</a>
+      <a href="CRM Demo.dc.html" style="font-size:14px;font-weight:500;text-decoration:none;color:#8FB9BE" style-hover="color:#F2F8F8">CRM preview</a>
+      <button type="button" onClick="{{ enterMobile }}" title="Open the mobile app view" style="display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.25);color:#B0DADD;background:transparent;cursor:pointer" style-hover="color:#F2F8F8;border-color:#F2F8F8">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>APP
+      </button>
+    </nav>
+  </div>
+</div>
+
+<div style="background:#0C2F36;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.04) 0 1px,transparent 1px 48px),repeating-linear-gradient(90deg,rgba(255,255,255,0.04) 0 1px,transparent 1px 48px);padding:56px 0 64px">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#E8604C;margin:0 0 14px">Demo · verifiable memory</p>
+    <h1 style="margin:0 0 18px;max-width:20ch;font-size:clamp(34px,24px + 2.6vw,54px);font-weight:600;letter-spacing:-0.02em;line-height:1.12;color:#F2F8F8">Company memory you can trace to the source</h1>
+    <p style="margin:0 0 32px;max-width:56ch;font-size:18px;line-height:1.55;color:#8FB9BE">Ask the demo knowledge base a question: the engine returns passages with a score and opens the stored original with its provenance. Nothing is invented — every answer has a source.</p>
+    <form id="search-anchor" onSubmit="{{ onSubmit }}" style="display:flex;gap:10px;max-width:720px;flex-wrap:wrap;scroll-margin-top:80px">
+      <input type="search" value="{{ queryVal }}" onChange="{{ onQueryInput }}" placeholder="Ask the demo knowledge base — e.g. How do I set up the VPN?" style="flex:1;min-width:260px;height:52px;padding:0 16px;font-size:16px;font-family:'IBM Plex Sans',sans-serif;color:#1D2829;background:#FFFFFF;border:1px solid #AFB9BA;border-radius:8px;outline:none" style-focus="border-color:#1C8891;box-shadow:0 0 0 3px rgba(28,136,145,0.30)"></input>
+      <button type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 24px;font-family:'IBM Plex Sans',sans-serif;font-size:16px;font-weight:600;cursor:pointer;background:#E8604C;color:#FFFFFF;border:1px solid transparent;border-radius:8px;transition:background 120ms cubic-bezier(0.2,0.7,0.3,1)" style-hover="background:#D24732" style-active="background:#B03A29">Search</button>
+    </form>
+    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8FB9BE;margin-right:4px">try:</span>
+      <sc-for list="{{ chips }}" as="chip" hint-placeholder-count="3">
+        <button type="button" onClick="{{ chip.run }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#F2F8F8;background:transparent;border:1px solid rgba(255,255,255,0.18);padding:6px 12px;border-radius:999px;cursor:pointer;transition:border-color 120ms" style-hover="border-color:rgba(255,255,255,0.5)">{{ chip.q }}</button>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<div id="cases" style="max-width:1120px;margin:0 auto;padding:40px 24px 0">
+  <sc-if value="{{ scBarVisible }}" hint-placeholder-val="{{ false }}">
+    <div style="margin:0 0 20px;padding:16px 18px;background:#FFFFFF;border:1px solid #11454F;border-radius:8px">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#0C4347;background:#D9ECEE;padding:3px 9px;border-radius:4px">{{ scKicker }}</span>
+        <span style="font-weight:600;font-size:15px;color:#1D2829">{{ scTitle }}</span>
+        <button type="button" onClick="{{ exitScenario }}" style="margin-left:auto;color:#6B7A7C;font-size:13px;font-family:'IBM Plex Sans',sans-serif;padding:4px 12px;border:1px solid #AFB9BA;border-radius:999px;background:transparent;cursor:pointer" style-hover="color:#B03A29;border-color:#B03A29">× Exit</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap">
+        <sc-for list="{{ scSteps }}" as="st" hint-placeholder-count="3">
+          <button type="button" onClick="{{ st.go }}" style="{{ st.style }}"><span style="{{ st.numStyle }}">{{ st.num }}</span>{{ st.label }}</button>
+        </sc-for>
+        <span style="margin-left:auto;display:inline-flex;gap:8px">
+          <button type="button" onClick="{{ scTogglePlay }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#FFFFFF;background:#11454F;padding:6px 14px;border:1px solid #11454F;border-radius:999px;cursor:pointer" style-hover="background:#0C4347">{{ scPlayLabel }}</button>
+          <button type="button" onClick="{{ scPrev }}" style="font-size:12px;color:#526264;background:transparent;padding:6px 12px;border:1px solid #AFB9BA;border-radius:999px;cursor:pointer" style-hover="color:#11454F;border-color:#11454F">◀</button>
+          <button type="button" onClick="{{ scNext }}" style="font-size:12px;color:#526264;background:transparent;padding:6px 12px;border:1px solid #AFB9BA;border-radius:999px;cursor:pointer" style-hover="color:#11454F;border-color:#11454F">▶</button>
+        </span>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ tdVisible }}" hint-placeholder-val="{{ false }}">
+    <div style="margin:0 0 20px;background:#FFFFFF;border:1px solid #11454F;border-radius:8px;overflow:hidden">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid #DDE3E3">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#FFFFFF;background:#11454F;padding:3px 9px;border-radius:4px">Tender assistant</span>
+        <span style="font-weight:600;font-size:15px;color:#1D2829">Bid: identity platform for Mekong Commercial Bank</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6B7A7C;margin-left:auto">{{ tdStepText }}</span>
+        <button type="button" onClick="{{ tdExit }}" style="color:#6B7A7C;font-size:13px;font-family:'IBM Plex Sans',sans-serif;padding:4px 12px;border:1px solid #AFB9BA;border-radius:999px;background:transparent;cursor:pointer" style-hover="color:#B03A29;border-color:#B03A29">× Exit</button>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)">
+        <div ref="{{ tdChatRef }}" style="padding:20px;display:flex;flex-direction:column;gap:14px;min-height:340px;max-height:560px;overflow-y:auto;overscroll-behavior:contain">
+          <sc-for list="{{ tdMsgs }}" as="m" hint-placeholder-count="2">
+            <div style="display:flex;gap:10px;align-items:flex-start;animation:plIn 200ms cubic-bezier(0.2,0.7,0.3,1) both">
+              <span style="{{ m.chipStyle }}">{{ m.chip }}</span>
+              <sc-if value="{{ m.isTool }}" hint-placeholder-val="{{ false }}">
+                <div style="flex:1;border:1px solid #DDE3E3;border-radius:8px;padding:10px 14px;background:#FAFAF8">
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#0C4347">memory.search(“{{ m.text }}”)</div>
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6B7A7C;margin-top:4px">{{ m.statusLine }}</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ m.isText }}" hint-placeholder-val="{{ true }}">
+                <div style="flex:1;font-size:14.5px;line-height:1.6;color:#1D2829;padding-top:2px">{{ m.text }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+          <sc-if value="{{ tdArtifact }}" hint-placeholder-val="{{ false }}">
+            <div style="border:1px solid #11454F;border-top:3px solid #11454F;border-radius:8px;padding:18px 20px;animation:plIn 200ms cubic-bezier(0.2,0.7,0.3,1) both">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0C4347;margin-bottom:10px">Draft · bid security section</div>
+              <sc-for list="{{ tdDraft }}" as="p" hint-placeholder-count="3">
+                <p style="margin:0 0 10px;font-size:14px;line-height:1.6;color:#1D2829"><b style="font-weight:600">{{ p.head }}</b> {{ p.text }}
+                  <button type="button" onClick="{{ p.open }}" title="Open the cited source" style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#136572;background:#D9ECEE;border:none;border-radius:4px;padding:1px 7px;cursor:pointer;vertical-align:2px" style-hover="background:#B0DADD">[{{ p.n }}]</button>
+                </p>
+              </sc-for>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0C4347;margin:18px 0 8px;padding-top:14px;border-top:1px solid #DDE3E3">Questionnaire answers</div>
+              <div style="display:grid;grid-template-columns:1.1fr 1.5fr auto;gap:0;border:1px solid #DDE3E3;border-radius:8px;overflow:hidden">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.06em;color:#6B7A7C;background:#FAFAF8;padding:8px 12px;border-bottom:1px solid #DDE3E3">QUESTION</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.06em;color:#6B7A7C;background:#FAFAF8;padding:8px 12px;border-bottom:1px solid #DDE3E3">OUR ANSWER</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.06em;color:#6B7A7C;background:#FAFAF8;padding:8px 12px;border-bottom:1px solid #DDE3E3">SOURCE</div>
+                <sc-for list="{{ tdRows }}" as="row" hint-placeholder-count="3">
+                  <div style="display:contents">
+                    <div style="font-size:13px;line-height:1.5;color:#1D2829;padding:10px 12px;border-bottom:1px solid #DDE3E3">{{ row.q }}</div>
+                    <div style="font-size:13px;line-height:1.5;color:#526264;padding:10px 12px;border-bottom:1px solid #DDE3E3">{{ row.a }}</div>
+                    <div style="padding:10px 12px;border-bottom:1px solid #DDE3E3"><button type="button" onClick="{{ row.open }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#136572;background:#D9ECEE;border:none;border-radius:4px;padding:2px 8px;cursor:pointer;white-space:nowrap" style-hover="background:#B0DADD">[{{ row.n }}]</button></div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="font-size:12px;color:#6B7A7C;margin-top:12px">Drafted from memory with sources — you review, decide and sign.</div>
+            </div>
+          </sc-if>
+        </div>
+        <div style="background:#FAFAF8;border-left:1px solid #DDE3E3;padding:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#6B7A7C;margin-bottom:12px">Memory panel</div>
+          <sc-if value="{{ tdCallsEmpty }}" hint-placeholder-val="{{ true }}">
+            <div style="font-size:13px;color:#8B9799;border:1px dashed #DDE3E3;border-radius:8px;padding:14px">The agent hasn't touched memory yet. Every call it makes will appear here — with scores and sources.</div>
+          </sc-if>
+          <sc-for list="{{ tdCalls }}" as="c" hint-placeholder-count="1">
+            <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:12px 14px;margin-bottom:10px;animation:plIn 200ms cubic-bezier(0.2,0.7,0.3,1) both">
+              <div style="display:flex;gap:8px;align-items:baseline">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#0C4347;background:#D9ECEE;border-radius:4px;padding:1px 7px">{{ c.n }}</span>
+                <span style="font-size:13px;font-weight:600;color:#1D2829;line-height:1.4">{{ c.query }}</span>
+              </div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6B7A7C;margin:6px 0 4px">{{ c.status }}</div>
+              <sc-for list="{{ c.results }}" as="r" hint-placeholder-count="0">
+                <button type="button" onClick="{{ r.open }}" style="display:flex;gap:8px;align-items:baseline;width:100%;text-align:left;background:transparent;border:none;border-top:1px solid #F1F4F4;padding:6px 0 2px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif" style-hover="color:#0C4347">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#0C4347;flex-shrink:0">{{ r.score }}</span>
+                  <span style="font-size:12.5px;color:#136572;line-height:1.4;text-decoration:underline;text-decoration-color:rgba(19,101,114,0.35);text-underline-offset:2px">{{ r.title }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:12px 18px;border-top:1px solid #DDE3E3;background:#FAFAF8">
+        <sc-if value="{{ tdNextVisible }}" hint-placeholder-val="{{ true }}">
+          <button type="button" onClick="{{ tdNext }}" style="{{ tdNextStyle }}">{{ tdNextLabel }}</button>
+        </sc-if>
+        <span style="font-size:13px;color:#6B7A7C">{{ tdHint }}</span>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ scGridVisible }}" hint-placeholder-val="{{ true }}">
+    <p style="color:#526264;font-size:14px;margin:0 0 14px">Or run a memory use-case — a simulated agent session that asks several questions in a row:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+      <sc-for list="{{ scenarioCards }}" as="sc" hint-placeholder-count="9">
+        <button type="button" onClick="{{ sc.run }}" style="text-align:left;background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:16px 18px;cursor:pointer;display:flex;flex-direction:column;gap:5px;font-family:'IBM Plex Sans',sans-serif;transition:border-color 200ms cubic-bezier(0.2,0.7,0.3,1),box-shadow 200ms cubic-bezier(0.2,0.7,0.3,1)" style-hover="border-color:#AFB9BA;box-shadow:0 2px 8px rgba(19,27,28,0.08)">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#D24732">{{ sc.kicker }}</span>
+          <span style="font-size:15px;font-weight:600;color:#1D2829;line-height:1.35">{{ sc.title }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6B7A7C">{{ sc.note }}</span>
+        </button>
+      </sc-for>
+    </div>
+  </sc-if>
+</div>
+
+<div style="max-width:1120px;margin:0 auto;padding:8px 24px 48px" aria-live="polite">
+  <sc-if value="{{ faVisible }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#FFFFFF;border:1px solid #11454F;border-top:3px solid #11454F;border-radius:8px;padding:20px 22px;margin:18px 0 8px">
+      <div style="font-size:13px;color:#526264;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#FFFFFF;background:#11454F;padding:3px 9px;border-radius:4px">Assistant</span>
+        <span>{{ faHead }}</span>
+        <sc-if value="{{ faTook }}" hint-placeholder-val="{{ false }}">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#0C4347;background:#D9ECEE;border-radius:999px;padding:2px 10px">{{ faTook }}</span>
+        </sc-if>
+      </div>
+      <div style="color:#1D2829;font-size:15px;line-height:1.6">{{ faBody }}</div>
+      <sc-if value="{{ faHasSources }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6B7A7C">Sources:</span>
+          <sc-for list="{{ faSources }}" as="fs" hint-placeholder-count="2">
+            <button type="button" onClick="{{ fs.open }}" style="font-size:12px;color:#136572;background:transparent;padding:4px 10px;border:1px solid #DDE3E3;border-radius:999px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif" style-hover="border-color:#11454F;color:#0C4347">{{ fs.label }}</button>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="font-size:12px;color:#6B7A7C;margin-top:12px">Surfaced from memory with sources — you review, decide and sign.</div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ searching }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;align-items:center;gap:12px;background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:14px 18px;margin:18px 0 12px">
+      <span style="width:16px;height:16px;border:2px solid #D9ECEE;border-top-color:#11454F;border-radius:50%;display:inline-block;flex:none;animation:spin .7s linear infinite"></span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#11454F;font-weight:600">{{ metaText }}</span>
+      <span style="font-size:13px;color:#6B7A7C">querying the memory engine…</span>
+    </div>
+  </sc-if>
+  <sc-if value="{{ notSearching }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:18px 0 12px;min-height:20px">
+      <span style="color:#526264;font-family:'IBM Plex Mono',monospace;font-size:13px">{{ metaText }}</span>
+      <sc-if value="{{ clearVisible }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ clearSearch }}" style="font-size:12px;color:#526264;background:transparent;padding:4px 12px;border:1px solid #AFB9BA;border-radius:999px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif" style-hover="color:#B03A29;border-color:#B03A29">× Clear — back to use-cases</button>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ pipelineVisible }}" hint-placeholder-val="{{ false }}">
+    <div style="margin:0 0 16px">
+      <div style="font-size:12.5px;color:#526264;margin-bottom:9px;display:flex;align-items:center;gap:9px;flex-wrap:wrap">
+        <span>The query's path through the engine</span>
+        <sc-if value="{{ tookLabel }}" hint-placeholder-val="{{ false }}">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#0C4347;background:#D9ECEE;border:1px solid #B0DADD;border-radius:999px;padding:2px 10px">{{ tookLabel }}</span>
+        </sc-if>
+      </div>
+      <div style="display:flex;align-items:stretch;gap:8px;flex-wrap:wrap">
+        <sc-for list="{{ pipeline }}" as="pl" hint-placeholder-count="4">
+          <div style="{{ pl.style }}">
+            <div style="display:flex;align-items:baseline;gap:8px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:22px;color:#11454F;line-height:1;font-variant-numeric:tabular-nums">{{ pl.count }}</span>
+              <span style="font-size:13px;font-weight:600;color:#1D2829">{{ pl.label }}</span>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6B7A7C">{{ pl.unit }}</span>
+            <span style="font-size:12px;color:#526264;margin-top:3px">{{ pl.detail }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ graphVisible }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:16px 18px 14px;margin:0 0 18px">
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <span style="font-weight:600;font-size:14px;color:#1D2829">How the answer is found — in your company's memory graph</span>
+        <span style="display:flex;align-items:center;gap:4px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#526264;margin-left:auto;flex-wrap:wrap">
+          <sc-for list="{{ legend }}" as="lg" hint-placeholder-count="6">
+            <span style="{{ lg.dotStyle }}"></span><span style="margin-right:8px">{{ lg.label }}</span>
+          </sc-for>
+        </span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:10px;padding:8px 12px;background:#F1F4F4;border:1px solid #DDE3E3;border-radius:8px;flex-wrap:wrap">
+        <span style="font-size:13px;color:#11454F;font-weight:600;min-height:18px;flex:1">{{ graphCaption }}</span>
+        <span style="display:flex;align-items:center;gap:10px">
+          <button type="button" onClick="{{ gPrev }}" style="color:#526264;font-size:11px;line-height:1;padding:5px 9px;border:1px solid #AFB9BA;border-radius:8px;background:transparent;cursor:pointer" style-hover="color:#11454F;border-color:#11454F">◀</button>
+          <span style="display:inline-flex;gap:6px;align-items:center">
+            <sc-for list="{{ gDots }}" as="gd" hint-placeholder-count="4">
+              <i onClick="{{ gd.go }}" style="{{ gd.style }}"></i>
+            </sc-for>
+          </span>
+          <button type="button" onClick="{{ gNext }}" style="color:#526264;font-size:11px;line-height:1;padding:5px 9px;border:1px solid #AFB9BA;border-radius:8px;background:transparent;cursor:pointer" style-hover="color:#11454F;border-color:#11454F">▶</button>
+          <button type="button" onClick="{{ gReplay }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#1D2829;padding:5px 12px;border:1px solid #AFB9BA;border-radius:999px;background:transparent;cursor:pointer" style-hover="border-color:#11454F;color:#11454F">↻ Auto</button>
+        </span>
+      </div>
+      <div style="width:100%;overflow-x:auto;margin-top:8px">
+        <svg ref="{{ svgRef }}" viewBox="0 0 960 340" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Knowledge graph of retrieved articles and the concepts linking them" style="width:100%;min-width:640px;height:auto;display:block"></svg>
+      </div>
+      <div style="font-size:12px;color:#6B7A7C;margin-top:8px">Not a flat similarity list: your question is traced through the company's memory — matches connect to the people, decisions and processes behind them.</div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ errorText }}" hint-placeholder-val="{{ false }}">
+    <div style="color:#C03B28;background:#FFFFFF;border:1px dashed #C03B28;border-radius:8px;padding:22px;text-align:center;font-size:14px">{{ errorText }}</div>
+  </sc-if>
+  <sc-if value="{{ emptyVisible }}" hint-placeholder-val="{{ false }}">
+    <div style="color:#526264;background:#FFFFFF;border:1px dashed #AFB9BA;border-radius:8px;padding:22px;text-align:center;font-size:14px">No matching passages found. Try one of the examples above.</div>
+  </sc-if>
+
+  <sc-for list="{{ results }}" as="r" hint-placeholder-count="0">
+    <article style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:22px 22px 18px;margin-bottom:14px;transition:border-color 200ms cubic-bezier(0.2,0.7,0.3,1),box-shadow 200ms cubic-bezier(0.2,0.7,0.3,1)" style-hover="border-color:#AFB9BA;box-shadow:0 2px 8px rgba(19,27,28,0.08)">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <h3 style="margin:0;font-size:18px;line-height:1.3;flex:1;font-weight:600"><button type="button" onClick="{{ r.open }}" style="all:unset;cursor:pointer;color:#1D2829;font-weight:600" style-hover="color:#11454F">{{ r.title }}</button></h3>
+        <div style="flex:none;text-align:right;min-width:112px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;font-weight:600;font-size:14px;color:#11454F">{{ r.pct }}</div>
+          <div style="height:6px;margin-top:5px;background:#F1F4F4;border-radius:999px;overflow:hidden"><i style="{{ r.barStyle }}"></i></div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#6B7A7C;margin-top:4px;letter-spacing:0.08em">{{ r.cap }}</div>
+        </div>
+      </div>
+      <sc-if value="{{ r.heading }}" hint-placeholder-val="{{ false }}">
+        <div style="color:#6B7A7C;font-size:13px;margin:4px 0 8px;font-family:'IBM Plex Mono',monospace">{{ r.heading }}</div>
+      </sc-if>
+      <p style="color:#526264;font-size:15px;margin:8px 0 14px;line-height:1.55">{{ r.snippet }}</p>
+      <div style="display:flex;align-items:center;gap:10px;font-size:13px;flex-wrap:wrap">
+        <button type="button" onClick="{{ r.open }}" title="Open the stored source document" style="all:unset;cursor:pointer;color:#136572;overflow-wrap:anywhere;word-break:break-all;font-size:13px;font-family:'IBM Plex Mono',monospace" style-hover="color:#0C4347;text-decoration:underline">{{ r.srcUrl }}</button>
+        <span style="margin-left:auto"><button type="button" onClick="{{ r.open }}" style="all:unset;cursor:pointer;color:#11454F;font-weight:600;font-size:13px" style-hover="text-decoration:underline">View source →</button></span>
+      </div>
+    </article>
+  </sc-for>
+</div>
+
+<div id="how" style="border-top:1px solid #DDE3E3;background:#F1F4F4;border-bottom:1px solid #DDE3E3;padding:clamp(64px,9vw,96px) 0">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#D24732;margin:0 0 14px">How it works</p>
+    <h2 style="margin:0 0 12px;font-size:clamp(28px,19px + 1.4vw,36px);font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:#1D2829">Every answer is a receipt, not a guess</h2>
+    <p style="color:#526264;margin:0 0 40px;max-width:66ch;font-size:16px;line-height:1.55">A typed knowledge graph plus vector search over your company's memory — people, decisions, documents and how they connect. Every answer carries the original source; knowledge bases stay isolated by namespace.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+      <div style="border-top:2px solid #11454F;padding-top:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:500;color:#11454F">01</div>
+        <h3 style="font-size:18px;font-weight:600;margin:8px 0">Retain</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">Paste an article as-is: it is chunked, linked into the graph and indexed. The original is kept verbatim.</p>
+      </div>
+      <div style="border-top:2px solid #11454F;padding-top:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:500;color:#11454F">02</div>
+        <h3 style="font-size:18px;font-weight:600;margin:8px 0">Recall</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">Ask in natural language. Hybrid search — vector, full-text, graph neighbours — returns the most relevant passages with a score.</p>
+      </div>
+      <div style="border-top:2px solid #11454F;padding-top:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:500;color:#11454F">03</div>
+        <h3 style="font-size:18px;font-weight:600;margin:8px 0">Verify</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">One click opens the full original with its provenance: where it came from, when it was last seen, with what confidence.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="padding:clamp(64px,9vw,96px) 0">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#D24732;margin:0 0 14px">What it's for</p>
+    <h2 style="margin:0 0 40px;font-size:clamp(28px,19px + 1.4vw,36px);font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:#1D2829">Memory is the foundation — a human decides</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+      <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:28px">
+        <h3 style="font-size:18px;font-weight:600;margin:0 0 10px;line-height:1.3">Your personal assistant</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">Ask about a policy, a past decision, or who owns a project — you get the answer with its exact source and the people behind it. You read it and decide.</p>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:28px">
+        <h3 style="font-size:18px;font-weight:600;margin:0 0 10px;line-height:1.3">Agents on the same memory</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">Process agents work alongside your team with their own roles and access: a tendering agent knows every tender and drafts the strongest bid. You review and sign.</p>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:28px">
+        <h3 style="font-size:18px;font-weight:600;margin:0 0 10px;line-height:1.3">Experience that stays</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">Every decision, document and expert is retained and searchable. When someone leaves, their experience stays — and a new hire gets sourced answers from day one.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="pilot" style="background:#0C2F36;padding:clamp(56px,8vw,80px) 0">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+    <div style="flex:1;min-width:280px">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#E8604C;margin:0 0 14px">Pilot</p>
+      <h2 style="font-size:clamp(28px,19px + 1.4vw,36px);font-weight:600;letter-spacing:-0.01em;line-height:1.25;margin:0 0 10px;color:#F2F8F8">Run this on your own knowledge base</h2>
+      <p style="color:#8FB9BE;margin:0;font-size:16px;line-height:1.55;max-width:52ch">Point the engine at your handbook, policies or docs and get verifiable answers with the source attached. Your data never leaves your isolated instance.</p>
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="mailto:hello@taimen.ai?subject=Memory pilot" style="display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:13px 24px;border-radius:8px;background:#E8604C;color:#FFFFFF;text-decoration:none;transition:background 120ms cubic-bezier(0.2,0.7,0.3,1)" style-hover="background:#D24732">Request a pilot</a>
+      <a href="Memory Landing.dc.html" style="display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:13px 24px;border-radius:8px;background:transparent;color:#F2F8F8;border:1px solid rgba(255,255,255,0.18);text-decoration:none" style-hover="background:rgba(255,255,255,0.10)">About the product</a>
+    </div>
+  </div>
+</div>
+
+<div style="border-top:1px solid #DDE3E3;padding:26px 0 40px;background:#FAFAF8">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6B7A7C">
+    <span style="display:inline-flex;align-items:center;gap:7px"><span style="width:7px;height:7px;border-radius:50%;background:#D24732;display:inline-block"></span>Synthetic sample data — no real customers or personal data.</span>
+  </div>
+</div>
+
+</div>
+</sc-if>
+
+<sc-if value="{{ mobileVisible }}" hint-placeholder-val="{{ false }}">
+<div style="{{ stageStyle }}">
+  <sc-if value="{{ framed }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px">
+      <span style="letter-spacing:0.08em;text-transform:uppercase;color:#B0DADD">taimen memory · app</span>
+      <span style="color:#6B7A7C">iPhone 17 · 402 × 874</span>
+      <button type="button" onClick="{{ exitMobile }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#F2F8F8;background:transparent;border:1px solid rgba(255,255,255,0.28);border-radius:999px;padding:5px 14px;cursor:pointer" style-hover="border-color:#F2F8F8">← Desktop view</button>
+    </div>
+  </sc-if>
+  <div style="{{ deviceStyle }}">
+    <div style="{{ screenStyle }}">
+
+      <sc-if value="{{ framed }}" hint-placeholder-val="{{ false }}">
+        <div style="position:relative;flex:none;height:52px;background:#0C2F36;display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px 7px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:#F2F8F8">9:41</span>
+          <span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:118px;height:34px;border-radius:999px;background:#000000"></span>
+          <span style="display:flex;align-items:flex-end;gap:6px">
+            <svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1" fill="#F2F8F8"></rect><rect x="5" y="6" width="3" height="6" rx="1" fill="#F2F8F8"></rect><rect x="10" y="3" width="3" height="9" rx="1" fill="#F2F8F8"></rect><rect x="15" y="0" width="3" height="12" rx="1" fill="#F2F8F8"></rect></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="#F2F8F8" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 4.2a10 10 0 0 1 14 0"></path><path d="M3.6 7a6.4 6.4 0 0 1 8.8 0"></path><path d="M6.2 9.6a2.8 2.8 0 0 1 3.6 0"></path></svg>
+            <svg width="26" height="13" viewBox="0 0 26 13" fill="none" aria-hidden="true"><rect x="0.7" y="0.7" width="22" height="11.6" rx="3.2" stroke="rgba(242,248,248,0.5)"></rect><rect x="2.4" y="2.4" width="17" height="8.2" rx="2" fill="#F2F8F8"></rect><path d="M24.4 4.6v3.8a2 2 0 0 0 0-3.8Z" fill="rgba(242,248,248,0.5)"></path></svg>
+          </span>
+        </div>
+      </sc-if>
+
+      <div style="flex:none;background:#0C2F36;padding-top:env(safe-area-inset-top);border-bottom:1px solid rgba(255,255,255,0.12)">
+        <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 16px">
+          <span style="display:inline-flex;align-items:center;gap:9px">
+            <img src="assets/logo/taimen-mark-ondark-crop.svg" alt="" style="height:23px;width:auto;display:block"></img>
+            <span style="font-size:16px;letter-spacing:-0.01em;white-space:nowrap"><b style="font-weight:600;color:#F2F8F8">taimen</b><span style="font-weight:400;color:#8FB9BE"> memory</span></span>
+          </span>
+          <span style="display:inline-flex;align-items:center;gap:7px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:0.1em;color:#B0DADD;border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:3px 6px">DEMO</span>
+          </span>
+        </div>
+      </div>
+
+      <div ref="{{ contentRef }}" style="flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:#FAFAF8">
+
+        <sc-if value="{{ tabSearch }}" hint-placeholder-val="{{ true }}">
+          <div style="background:#0C2F36;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.045) 0 1px,transparent 1px 40px),repeating-linear-gradient(90deg,rgba(255,255,255,0.045) 0 1px,transparent 1px 40px);padding:18px 16px 16px">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#E8604C;margin:0 0 8px">Verifiable memory</p>
+            <h1 style="margin:0 0 14px;font-size:23px;font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:#F2F8F8">Company memory you can trace to the source</h1>
+            <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:9px">
+              <input type="search" value="{{ queryVal }}" onChange="{{ onQueryInput }}" placeholder="Ask the knowledge base…" style="width:100%;box-sizing:border-box;height:48px;padding:0 14px;font-size:16px;font-family:'IBM Plex Sans',sans-serif;color:#1D2829;background:#FFFFFF;border:1px solid #AFB9BA;border-radius:8px;outline:none" style-focus="border-color:#1C8891;box-shadow:0 0 0 3px rgba(28,136,145,0.30)"></input>
+              <button type="submit" style="display:flex;align-items:center;justify-content:center;gap:8px;height:48px;width:100%;font-family:'IBM Plex Sans',sans-serif;font-size:16px;font-weight:600;cursor:pointer;background:#E8604C;color:#FFFFFF;border:1px solid transparent;border-radius:8px" style-active="background:#B03A29">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Search memory
+              </button>
+            </form>
+            <div style="margin-top:12px;display:flex;gap:8px;overflow-x:auto;padding-bottom:2px">
+              <sc-for list="{{ chips }}" as="chip" hint-placeholder-count="3">
+                <button type="button" onClick="{{ chip.run }}" style="flex:none;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#F2F8F8;background:transparent;border:1px solid rgba(255,255,255,0.2);padding:7px 12px;border-radius:999px;cursor:pointer" style-active="border-color:#F2F8F8">{{ chip.q }}</button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="padding:16px 16px 24px">
+            <sc-if value="{{ mIdle }}" hint-placeholder-val="{{ true }}">
+              <p style="margin:0 0 16px;font-size:14px;line-height:1.55;color:#526264">Ask a question and the engine returns passages with a score, then opens the stored original with its provenance. Nothing is invented.</p>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div onClick="{{ goAgent }}" style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:15px 16px;cursor:pointer;display:flex;align-items:center;gap:13px" style-active="border-color:#11454F">
+                  <span style="flex:none;width:38px;height:38px;border-radius:8px;background:#D9ECEE;color:#11454F;display:flex;align-items:center;justify-content:center">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
+                  </span>
+                  <span style="flex:1;min-width:0">
+                    <span style="display:block;font-size:15px;font-weight:600;color:#1D2829;line-height:1.35">Tender assistant</span>
+                    <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#6B7A7C;margin-top:2px">agent session · 6 steps · you drive</span>
+                  </span>
+                  <span style="flex:none;color:#8B9799;font-size:18px">›</span>
+                </div>
+                <div onClick="{{ goCrm }}" style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:15px 16px;cursor:pointer;display:flex;align-items:center;gap:13px" style-active="border-color:#11454F">
+                  <span style="flex:none;width:38px;height:38px;border-radius:8px;background:#D9ECEE;color:#11454F;display:flex;align-items:center;justify-content:center">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  </span>
+                  <span style="flex:1;min-width:0">
+                    <span style="display:block;font-size:15px;font-weight:600;color:#1D2829;line-height:1.35">CRM assistant</span>
+                    <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#6B7A7C;margin-top:2px">a client accepts the proposal — what next</span>
+                  </span>
+                  <span style="flex:none;color:#8B9799;font-size:18px">›</span>
+                </div>
+              </div>
+              <p style="margin:18px 0 0;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6B7A7C;line-height:1.5">Synthetic sample data — no real customers or personal data.</p>
+            </sc-if>
+
+            <sc-if value="{{ searching }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;align-items:center;gap:11px;background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:14px 15px;margin-bottom:12px">
+                <span style="width:15px;height:15px;border:2px solid #D9ECEE;border-top-color:#11454F;border-radius:50%;display:inline-block;flex:none;animation:spin .7s linear infinite"></span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#11454F;font-weight:600">querying the memory engine…</span>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ faVisible }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#FFFFFF;border:1px solid #11454F;border-top:3px solid #11454F;border-radius:8px;padding:16px;margin-bottom:14px">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:9px">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#FFFFFF;background:#11454F;padding:3px 8px;border-radius:4px">Assistant</span>
+                  <span style="font-size:12.5px;color:#526264;font-weight:600">{{ faHead }}</span>
+                  <sc-if value="{{ faTook }}" hint-placeholder-val="{{ false }}">
+                    <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;color:#0C4347;background:#D9ECEE;border-radius:999px;padding:2px 9px">{{ faTook }}</span>
+                  </sc-if>
+                </div>
+                <div style="color:#1D2829;font-size:14.5px;line-height:1.6">{{ faBody }}</div>
+                <sc-if value="{{ faHasSources }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+                    <sc-for list="{{ faSources }}" as="fs" hint-placeholder-count="2">
+                      <button type="button" onClick="{{ fs.open }}" style="font-size:12px;color:#136572;background:transparent;padding:5px 10px;border:1px solid #DDE3E3;border-radius:999px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;text-align:left" style-active="border-color:#11454F">{{ fs.label }}</button>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pipelineVisible }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+                <sc-for list="{{ pipeline }}" as="pl" hint-placeholder-count="4">
+                  <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:1px">
+                    <span style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:19px;color:#11454F;line-height:1.1;font-variant-numeric:tabular-nums">{{ pl.count }}</span>
+                    <span style="font-size:12.5px;font-weight:600;color:#1D2829;line-height:1.3">{{ pl.label }}</span>
+                    <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6B7A7C">{{ pl.unit }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ mGraphHint }}" hint-placeholder-val="{{ false }}">
+              <div onClick="{{ goGraph }}" style="display:flex;align-items:center;gap:11px;background:#F1F4F4;border:1px solid #DDE3E3;border-radius:8px;padding:12px 14px;margin-bottom:14px;cursor:pointer" style-active="border-color:#11454F">
+                <span style="flex:none;color:#11454F;display:flex">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line></svg>
+                </span>
+                <span style="flex:1;font-size:13.5px;color:#1D2829;line-height:1.4">See how this answer was found in the memory graph</span>
+                <span style="flex:none;color:#8B9799;font-size:18px">›</span>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ errorText }}" hint-placeholder-val="{{ false }}">
+              <div style="color:#C03B28;background:#FFFFFF;border:1px dashed #C03B28;border-radius:8px;padding:18px;text-align:center;font-size:13.5px">{{ errorText }}</div>
+            </sc-if>
+            <sc-if value="{{ emptyVisible }}" hint-placeholder-val="{{ false }}">
+              <div style="color:#526264;background:#FFFFFF;border:1px dashed #AFB9BA;border-radius:8px;padding:18px;text-align:center;font-size:13.5px">No matching passages found. Try one of the examples above.</div>
+            </sc-if>
+
+            <sc-for list="{{ results }}" as="r" hint-placeholder-count="0">
+              <div onClick="{{ r.open }}" style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:14px 15px;margin-bottom:10px;cursor:pointer" style-active="border-color:#11454F">
+                <div style="display:flex;gap:10px;align-items:flex-start">
+                  <span style="flex:1;font-size:15.5px;font-weight:600;color:#1D2829;line-height:1.35">{{ r.title }}</span>
+                  <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#11454F;font-variant-numeric:tabular-nums">{{ r.pct }}</span>
+                </div>
+                <div style="height:5px;margin-top:8px;background:#F1F4F4;border-radius:999px;overflow:hidden"><i style="{{ r.barStyle }}"></i></div>
+                <div style="margin-top:9px;font-size:13.5px;line-height:1.5;color:#526264;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">{{ r.snippet }}</div>
+                <div style="margin-top:11px;display:flex;align-items:center;gap:10px">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#6B7A7C">{{ r.cap }}</span>
+                  <span style="margin-left:auto;font-size:13px;font-weight:600;color:#11454F;white-space:nowrap">View source →</span>
+                </div>
+              </div>
+            </sc-for>
+
+            <sc-if value="{{ clearVisible }}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{ clearSearch }}" style="width:100%;font-size:13px;color:#526264;background:transparent;padding:11px 12px;border:1px solid #AFB9BA;border-radius:8px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;margin-top:4px" style-active="color:#B03A29;border-color:#B03A29">× Clear search</button>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ tabAgent }}" hint-placeholder-val="{{ false }}">
+          <sc-if value="{{ tdEmpty }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:20px 16px">
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#D24732;margin:0 0 8px">Tender assistant</p>
+              <h2 style="margin:0 0 10px;font-size:21px;font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:#1D2829">Bid: identity platform for Mekong Commercial Bank</h2>
+              <p style="margin:0 0 18px;font-size:14px;line-height:1.55;color:#526264">A step-by-step agent session: you drive each step, memory answers, and the draft cites every claim. Six steps end in a bid section you can review.</p>
+              <button type="button" onClick="{{ startTender }}" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:48px;font-family:'IBM Plex Sans',sans-serif;font-size:16px;font-weight:600;cursor:pointer;background:#E8604C;color:#FFFFFF;border:1px solid transparent;border-radius:8px" style-active="background:#B03A29">Start the session ▸</button>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ tdVisible }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#FFFFFF;border-bottom:1px solid #DDE3E3;padding:12px 16px;display:flex;align-items:center;gap:9px;flex-wrap:wrap">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#FFFFFF;background:#11454F;padding:3px 8px;border-radius:4px">Tender</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6B7A7C">{{ tdStepText }}</span>
+              <button type="button" onClick="{{ tdExit }}" style="margin-left:auto;color:#6B7A7C;font-size:12.5px;font-family:'IBM Plex Sans',sans-serif;padding:5px 12px;border:1px solid #AFB9BA;border-radius:999px;background:transparent;cursor:pointer" style-active="color:#B03A29;border-color:#B03A29">× Exit</button>
+            </div>
+            <div style="display:flex;gap:0;background:#FFFFFF;border-bottom:1px solid #DDE3E3;padding:10px 16px">
+              <button type="button" onClick="{{ agChat }}" style="{{ segChatStyle }}">Chat</button>
+              <button type="button" onClick="{{ agMem }}" style="{{ segMemStyle }}">Memory{{ agMemCount }}</button>
+            </div>
+
+            <sc-if value="{{ agentChatView }}" hint-placeholder-val="{{ true }}">
+              <div style="padding:16px;display:flex;flex-direction:column;gap:13px">
+                <sc-for list="{{ tdMsgs }}" as="m" hint-placeholder-count="2">
+                  <div style="display:flex;gap:9px;align-items:flex-start;animation:plIn 200ms cubic-bezier(0.2,0.7,0.3,1) both">
+                    <span style="{{ m.chipStyle }}">{{ m.chip }}</span>
+                    <sc-if value="{{ m.isTool }}" hint-placeholder-val="{{ false }}">
+                      <div style="flex:1;min-width:0;border:1px solid #DDE3E3;border-radius:8px;padding:9px 12px;background:#FFFFFF">
+                        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0C4347;overflow-wrap:anywhere">memory.search(“{{ m.text }}”)</div>
+                        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6B7A7C;margin-top:4px">{{ m.statusLine }}</div>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ m.isText }}" hint-placeholder-val="{{ true }}">
+                      <div style="flex:1;min-width:0;font-size:14px;line-height:1.6;color:#1D2829;padding-top:2px">{{ m.text }}</div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ tdArtifact }}" hint-placeholder-val="{{ false }}">
+                  <div style="border:1px solid #11454F;border-top:3px solid #11454F;border-radius:8px;padding:15px;background:#FFFFFF;animation:plIn 200ms cubic-bezier(0.2,0.7,0.3,1) both">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0C4347;margin-bottom:10px">Draft · bid security section</div>
+                    <sc-for list="{{ tdDraft }}" as="p" hint-placeholder-count="3">
+                      <p style="margin:0 0 10px;font-size:13.5px;line-height:1.6;color:#1D2829"><b style="font-weight:600">{{ p.head }}</b> {{ p.text }}
+                        <button type="button" onClick="{{ p.open }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#136572;background:#D9ECEE;border:none;border-radius:4px;padding:2px 8px;cursor:pointer;vertical-align:1px" style-active="background:#B0DADD">[{{ p.n }}]</button>
+                      </p>
+                    </sc-for>
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0C4347;margin:16px 0 8px;padding-top:13px;border-top:1px solid #DDE3E3">Questionnaire answers</div>
+                    <sc-for list="{{ tdRows }}" as="row" hint-placeholder-count="3">
+                      <div style="border:1px solid #DDE3E3;border-radius:8px;padding:11px 12px;margin-bottom:8px">
+                        <div style="font-size:13px;font-weight:600;color:#1D2829;line-height:1.4">{{ row.q }}</div>
+                        <div style="font-size:13px;color:#526264;line-height:1.5;margin-top:4px">{{ row.a }}</div>
+                        <button type="button" onClick="{{ row.open }}" style="margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#136572;background:#D9ECEE;border:none;border-radius:4px;padding:3px 9px;cursor:pointer" style-active="background:#B0DADD">[{{ row.n }}] source</button>
+                      </div>
+                    </sc-for>
+                    <div style="font-size:11.5px;color:#6B7A7C;margin-top:10px">Drafted from memory with sources — you review, decide and sign.</div>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ agentMemView }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:16px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#6B7A7C;margin-bottom:11px">Memory calls</div>
+                <sc-if value="{{ tdCallsEmpty }}" hint-placeholder-val="{{ true }}">
+                  <div style="font-size:13px;color:#8B9799;border:1px dashed #DDE3E3;border-radius:8px;padding:14px;line-height:1.5">The agent hasn't touched memory yet. Every call it makes appears here — with scores and sources.</div>
+                </sc-if>
+                <sc-for list="{{ tdCalls }}" as="c" hint-placeholder-count="1">
+                  <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:12px 13px;margin-bottom:10px;animation:plIn 200ms cubic-bezier(0.2,0.7,0.3,1) both">
+                    <div style="display:flex;gap:8px;align-items:baseline">
+                      <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;color:#0C4347;background:#D9ECEE;border-radius:4px;padding:2px 7px">{{ c.n }}</span>
+                      <span style="font-size:13px;font-weight:600;color:#1D2829;line-height:1.4">{{ c.query }}</span>
+                    </div>
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6B7A7C;margin:6px 0 2px">{{ c.status }}</div>
+                    <sc-for list="{{ c.results }}" as="r" hint-placeholder-count="0">
+                      <div onClick="{{ r.open }}" style="display:flex;gap:8px;align-items:baseline;border-top:1px solid #F1F4F4;padding:7px 0 3px;cursor:pointer">
+                        <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;color:#0C4347">{{ r.score }}</span>
+                        <span style="font-size:12.5px;color:#136572;line-height:1.4">{{ r.title }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ tdNextVisible }}" hint-placeholder-val="{{ true }}">
+              <div style="position:sticky;bottom:0;background:rgba(250,250,248,0.96);border-top:1px solid #DDE3E3;padding:12px 16px">
+                <button type="button" onClick="{{ tdNext }}" style="{{ tdNextMobStyle }}">{{ tdNextLabel }}</button>
+              </div>
+            </sc-if>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ tabGraph }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:16px">
+            <sc-if value="{{ mGraphEmpty }}" hint-placeholder-val="{{ true }}">
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#D24732;margin:0 0 8px">Memory graph</p>
+              <h2 style="margin:0 0 10px;font-size:20px;font-weight:600;letter-spacing:-0.01em;line-height:1.3;color:#1D2829">Not a flat similarity list</h2>
+              <p style="margin:0 0 18px;font-size:14px;line-height:1.55;color:#526264">Run a search and the graph shows how the answer was traced through your company's memory — the people, decisions and processes behind each match.</p>
+              <button type="button" onClick="{{ goSearch }}" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:46px;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;background:#FFFFFF;color:#11454F;border:1px solid #11454F;border-radius:8px" style-active="background:#D9ECEE">Go to search</button>
+            </sc-if>
+            <sc-if value="{{ graphVisible }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#F1F4F4;border:1px solid #DDE3E3;border-radius:8px">
+                <span style="flex:1;font-size:12.5px;color:#11454F;font-weight:600;line-height:1.4;min-height:34px">{{ graphCaption }}</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px">
+                <button type="button" onClick="{{ gPrev }}" style="color:#526264;font-size:12px;line-height:1;padding:9px 14px;border:1px solid #AFB9BA;border-radius:8px;background:#FFFFFF;cursor:pointer" style-active="border-color:#11454F">◀</button>
+                <span style="display:inline-flex;gap:7px;align-items:center">
+                  <sc-for list="{{ gDots }}" as="gd" hint-placeholder-count="4">
+                    <i onClick="{{ gd.go }}" style="{{ gd.style }}"></i>
+                  </sc-for>
+                </span>
+                <button type="button" onClick="{{ gNext }}" style="color:#526264;font-size:12px;line-height:1;padding:9px 14px;border:1px solid #AFB9BA;border-radius:8px;background:#FFFFFF;cursor:pointer" style-active="border-color:#11454F">▶</button>
+                <button type="button" onClick="{{ gReplay }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#1D2829;padding:9px 14px;border:1px solid #AFB9BA;border-radius:999px;background:#FFFFFF;cursor:pointer" style-active="border-color:#11454F">↻ Auto</button>
+              </div>
+              <div style="position:relative;background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;margin-top:10px;padding:6px;overflow:hidden">
+                <svg id="mgraph" viewBox="0 0 560 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Knowledge graph of retrieved articles and the concepts linking them" style="width:100%;height:432px;display:block;touch-action:none"></svg>
+                <div style="position:absolute;right:10px;bottom:10px;display:flex;flex-direction:column;gap:6px">
+                  <button type="button" onClick="{{ gZoomIn }}" aria-label="Zoom in" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;color:#11454F;background:#FFFFFF;border:1px solid #AFB9BA;border-radius:8px;cursor:pointer;font-family:'IBM Plex Mono',monospace" style-active="background:#D9ECEE">+</button>
+                  <button type="button" onClick="{{ gZoomOut }}" aria-label="Zoom out" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;color:#11454F;background:#FFFFFF;border:1px solid #AFB9BA;border-radius:8px;cursor:pointer;font-family:'IBM Plex Mono',monospace" style-active="background:#D9ECEE">−</button>
+                  <button type="button" onClick="{{ gFit }}" aria-label="Fit the graph" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;letter-spacing:0.04em;color:#11454F;background:#FFFFFF;border:1px solid #AFB9BA;border-radius:8px;cursor:pointer;font-family:'IBM Plex Mono',monospace" style-active="background:#D9ECEE">FIT</button>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:3px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#526264;margin-top:10px">
+                <sc-for list="{{ legend }}" as="lg" hint-placeholder-count="6">
+                  <span style="{{ lg.dotStyle }}"></span><span style="margin-right:8px">{{ lg.label }}</span>
+                </sc-for>
+              </div>
+              <p style="font-size:11.5px;color:#6B7A7C;margin:10px 0 0;line-height:1.5">Drag the canvas to pan, pinch or use + / − to zoom, drag a node to pull it. Tap a document node to open the stored original.</p>
+              <div style="margin-top:18px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#6B7A7C;margin-bottom:10px">Articles behind this answer</div>
+                <sc-for list="{{ results }}" as="r" hint-placeholder-count="0">
+                  <div onClick="{{ r.open }}" style="display:flex;align-items:center;gap:11px;background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:12px 13px;margin-bottom:8px;cursor:pointer" style-active="border-color:#11454F">
+                    <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;color:#11454F;font-variant-numeric:tabular-nums">{{ r.pct }}</span>
+                    <span style="flex:1;min-width:0;font-size:13.5px;font-weight:600;color:#1D2829;line-height:1.35">{{ r.title }}</span>
+                    <span style="flex:none;color:#8B9799;font-size:18px">›</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ tabAbout }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:20px 16px 8px">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#D24732;margin:0 0 8px">How it works</p>
+            <h2 style="margin:0 0 10px;font-size:21px;font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:#1D2829">Every answer is a receipt, not a guess</h2>
+            <p style="margin:0 0 20px;font-size:14px;line-height:1.55;color:#526264">A typed knowledge graph plus vector search over your company's memory — people, decisions, documents and how they connect. Knowledge bases stay isolated by namespace.</p>
+            <div style="display:flex;flex-direction:column;gap:18px">
+              <div style="border-top:2px solid #11454F;padding-top:12px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:500;color:#11454F;line-height:1">01</div>
+                <h3 style="font-size:16px;font-weight:600;margin:6px 0 4px">Retain</h3>
+                <p style="margin:0;font-size:13.5px;line-height:1.55;color:#526264">Paste an article as-is: it is chunked, linked into the graph and indexed. The original is kept verbatim.</p>
+              </div>
+              <div style="border-top:2px solid #11454F;padding-top:12px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:500;color:#11454F;line-height:1">02</div>
+                <h3 style="font-size:16px;font-weight:600;margin:6px 0 4px">Recall</h3>
+                <p style="margin:0;font-size:13.5px;line-height:1.55;color:#526264">Ask in natural language. Hybrid search — vector, full-text, graph neighbours — returns the most relevant passages with a score.</p>
+              </div>
+              <div style="border-top:2px solid #11454F;padding-top:12px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:500;color:#11454F;line-height:1">03</div>
+                <h3 style="font-size:16px;font-weight:600;margin:6px 0 4px">Verify</h3>
+                <p style="margin:0;font-size:13.5px;line-height:1.55;color:#526264">One tap opens the full original with its provenance: where it came from, when it was last seen, with what confidence.</p>
+              </div>
+            </div>
+          </div>
+          <div style="background:#F1F4F4;border-top:1px solid #DDE3E3;border-bottom:1px solid #DDE3E3;padding:20px 16px;margin-top:22px">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#D24732;margin:0 0 8px">What it's for</p>
+            <h2 style="margin:0 0 16px;font-size:19px;font-weight:600;letter-spacing:-0.01em;line-height:1.3;color:#1D2829">Memory is the foundation — a human decides</h2>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:15px 16px">
+                <h3 style="font-size:15px;font-weight:600;margin:0 0 6px;line-height:1.3">Your personal assistant</h3>
+                <p style="margin:0;font-size:13.5px;line-height:1.55;color:#526264">Ask about a policy, a past decision, or who owns a project — you get the answer with its exact source and the people behind it.</p>
+              </div>
+              <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:15px 16px">
+                <h3 style="font-size:15px;font-weight:600;margin:0 0 6px;line-height:1.3">Agents on the same memory</h3>
+                <p style="margin:0;font-size:13.5px;line-height:1.55;color:#526264">Process agents work alongside your team with their own roles and access. You review and sign.</p>
+              </div>
+              <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:15px 16px">
+                <h3 style="font-size:15px;font-weight:600;margin:0 0 6px;line-height:1.3">Experience that stays</h3>
+                <p style="margin:0;font-size:13.5px;line-height:1.55;color:#526264">When someone leaves, their experience stays — and a new hire gets sourced answers from day one.</p>
+              </div>
+            </div>
+          </div>
+          <div style="background:#0C2F36;padding:22px 16px 24px">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#E8604C;margin:0 0 8px">Pilot</p>
+            <h2 style="font-size:20px;font-weight:600;letter-spacing:-0.01em;line-height:1.25;margin:0 0 8px;color:#F2F8F8">Run this on your own knowledge base</h2>
+            <p style="color:#8FB9BE;margin:0 0 16px;font-size:14px;line-height:1.55">Point the engine at your handbook, policies or docs and get verifiable answers with the source attached. Your data never leaves your isolated instance.</p>
+            <div style="display:flex;flex-direction:column;gap:9px">
+              <a href="mailto:hello@taimen.ai?subject=Memory pilot" style="display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;height:46px;border-radius:8px;background:#E8604C;color:#FFFFFF;text-decoration:none">Request a pilot</a>
+              <a href="Memory Landing.dc.html" style="display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;height:46px;border-radius:8px;background:transparent;color:#F2F8F8;border:1px solid rgba(255,255,255,0.18);text-decoration:none">About the product</a>
+            </div>
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6B7A7C;margin:18px 0 0;line-height:1.55">Synthetic sample data — no real customers or personal data.</p>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="flex:none;background:#FFFFFF;border-top:1px solid #DDE3E3;padding-bottom:env(safe-area-inset-bottom);display:flex">
+        <button type="button" onClick="{{ goSearch }}" style="{{ tSearchStyle }}">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span>Search</span>
+        </button>
+        <button type="button" onClick="{{ goAgent }}" style="{{ tAgentStyle }}">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
+          <span>Agent</span>
+        </button>
+        <button type="button" onClick="{{ goGraph }}" style="{{ tGraphStyle }}">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line></svg>
+          <span>Graph</span>
+        </button>
+        <button type="button" onClick="{{ goCrm }}" style="{{ tCrmStyle }}">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          <span>CRM</span>
+        </button>
+        <button type="button" onClick="{{ goAbout }}" style="{{ tAboutStyle }}">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+          <span>About</span>
+        </button>
+      </div>
+
+      <sc-if value="{{ sheetVisible }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ overlayBackdrop }}" style="position:absolute;inset:0;z-index:40;background:rgba(12,47,54,0.55);display:flex;align-items:flex-end">
+          <div role="dialog" aria-modal="true" style="width:100%;max-height:88%;background:#FFFFFF;border-radius:16px 16px 0 0;display:flex;flex-direction:column;overflow:hidden;animation:sheetUp 220ms cubic-bezier(0.2,0.7,0.3,1) both">
+            <div style="flex:none;padding:8px 0 0;display:flex;justify-content:center"><span style="width:38px;height:4px;border-radius:999px;background:#DDE3E3;display:block"></span></div>
+            <div style="flex:none;display:flex;align-items:flex-start;gap:12px;padding:11px 16px;border-bottom:1px solid #DDE3E3">
+              <h3 style="margin:0;font-size:16.5px;font-weight:600;line-height:1.3;color:#1D2829;flex:1">{{ ovTitle }}</h3>
+              <button type="button" onClick="{{ closeOverlay }}" aria-label="Close" style="all:unset;cursor:pointer;color:#6B7A7C;font-size:24px;line-height:1;padding:0 4px">×</button>
+            </div>
+            <div style="flex:none;display:flex;flex-wrap:wrap;gap:5px 14px;padding:10px 16px;background:#F1F4F4;border-bottom:1px solid #DDE3E3">
+              <sc-for list="{{ ovProv }}" as="kv" hint-placeholder-count="2">
+                <span style="color:#526264;font-family:'IBM Plex Mono',monospace;font-size:10.5px">{{ kv.k }}: <b style="color:#1D2829;font-weight:600;overflow-wrap:anywhere">{{ kv.v }}</b></span>
+              </sc-for>
+              <span style="color:#25784A;display:inline-flex;align-items:center;gap:5px;font-weight:600;font-family:'IBM Plex Mono',monospace;font-size:10.5px"><span style="width:7px;height:7px;border-radius:50%;background:#25784A;display:inline-block"></span>verified source</span>
+            </div>
+            <div style="flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:16px">
+              <pre style="margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-family:'IBM Plex Sans',sans-serif;font-size:14.5px;line-height:1.65;color:#1D2829">{{ ovText }}</pre>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ dtOverlayVisible }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ overlayBackdrop }}" style="position:fixed;inset:0;z-index:40;background:rgba(12,47,54,0.55);display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow:auto">
+    <div role="dialog" aria-modal="true" style="width:100%;max-width:820px;background:#FFFFFF;border:1px solid #AFB9BA;border-radius:12px;box-shadow:0 12px 40px rgba(19,27,28,0.25);overflow:hidden">
+      <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 22px;border-bottom:1px solid #DDE3E3">
+        <h3 style="margin:0;font-size:20px;flex:1;line-height:1.3;font-weight:600;color:#1D2829">{{ ovTitle }}</h3>
+        <button type="button" onClick="{{ closeOverlay }}" aria-label="Close" style="all:unset;cursor:pointer;color:#6B7A7C;font-size:22px;line-height:1;padding:4px 8px;border-radius:8px" style-hover="color:#1D2829;background:#F1F4F4">×</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 18px;padding:14px 22px;background:#F1F4F4;border-bottom:1px solid #DDE3E3;font-size:13px">
+        <sc-for list="{{ ovProv }}" as="kv" hint-placeholder-count="3">
+          <span style="color:#526264;font-family:'IBM Plex Mono',monospace;font-size:12px">{{ kv.k }}: <b style="color:#1D2829;font-weight:600;overflow-wrap:anywhere">{{ kv.v }}</b></span>
+        </sc-for>
+        <span style="color:#25784A;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-family:'IBM Plex Mono',monospace;font-size:12px"><span style="width:8px;height:8px;border-radius:50%;background:#25784A;display:inline-block"></span>verified source</span>
+      </div>
+      <div style="padding:22px;max-height:52vh;overflow:auto">
+        <pre style="margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:1.7;color:#1D2829">{{ ovText }}</pre>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;forceMode&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;auto&quot;, &quot;live&quot;, &quot;canned&quot;], &quot;default&quot;: &quot;auto&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Data&quot;}, &quot;apiBase&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Data&quot;}, &quot;searchK&quot;: {&quot;editor&quot;: &quot;int&quot;, &quot;default&quot;: 5, &quot;min&quot;: 3, &quot;max&quot;: 10, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Data&quot;}}">
+class Component extends DCLogic {
+  state = {
+    mode: null, queryVal: "", results: [], meta: "", tookMs: null, reranked: false,
+    pipeline: null, graph: null, seeds: [], error: null, searched: false,
+    scIdx: null, scStep: 0, scPlaying: false, scDone: false,
+    fa: null, faLoading: false, faVisible: false,
+    overlay: null, gStep: 0, gCaption: "",
+    vw: (typeof window !== "undefined" ? window.innerWidth : 1280),
+    vh: (typeof window !== "undefined" ? window.innerHeight : 900),
+    forceView: "auto", tab: "search", agentView: "chat"
+  };
+
+  get isMobile() {
+    var f = this.state.forceView;
+    if (f === "mobile") return true;
+    if (f === "desktop") return false;
+    return this.state.vw < 760;
+  }
+  get isFramed() { return this.isMobile && this.state.vw >= 760; }
+
+  get CFG() {
+    var base = this.props.apiBase != null ? this.props.apiBase : "";
+    return {
+      base: base,
+      apiSearch: base + "/demo/api/search",
+      apiSource: base + "/demo/api/source",
+      apiAnswer: base + "/demo/api/answer",
+      k: this.props.searchK != null ? this.props.searchK : 5
+    };
+  }
+
+  SCENARIOS = [
+    { kicker: "Tender assistant", title: "Build a competitive bid", goal: "Summarize our security controls, the access lifecycle and the named owners to cite in a bank's identity-platform tender.",
+      steps: [ { label: "Security controls", query: "What are our data security and encryption controls?" },
+        { label: "Access lifecycle", query: "What is our access provisioning and deprovisioning process?" },
+        { label: "Named owners", query: "Who leads security and compliance?" } ] },
+    { kicker: "Personal assistant", title: "A client accepted our proposal — what's next?", goal: "A client just emailed that they accept our proposal and are ready to start. Summarize the next steps: the sales-to-onboarding handoff, what to record in the CRM, and how to take them to production go-live.",
+      steps: [ { label: "Handoff after the deal", query: "How does the sales-to-onboarding handoff work after a deal closes?" },
+        { label: "Record it in the CRM", query: "What are the CRM hygiene standards for a closed-won deal?" },
+        { label: "Path to go-live", query: "How do we move a customer from sandbox to production go-live?" } ] },
+    { kicker: "Call-center support", title: "Customer locked out after a device swap", goal: "How do I help a customer who is locked out after a device change?",
+      steps: [ { label: "How access works", query: "How does zero-trust remote access work?" },
+        { label: "Device compliance", query: "What is the device enrollment and compliance policy?" },
+        { label: "SLA & on-call", query: "What are the SLA response targets and who is on-call?" } ] },
+    { kicker: "Document prep", title: "Draft an incident post-mortem", goal: "Outline an incident post-mortem based on our runbook and post-mortem policy.",
+      steps: [ { label: "The runbook", query: "What is the incident response runbook?" },
+        { label: "Post-mortem policy", query: "What did we decide about blameless post-mortems?" },
+        { label: "Who was involved", query: "Who is responsible for incident response?" } ] },
+    { kicker: "Task-setting", title: "Plan the zero-trust migration", goal: "Summarize the plan, tasks, owner and dependencies for the zero-trust migration.",
+      steps: [ { label: "The rollout decision", query: "What did we decide about the VPN and MFA rollout?" },
+        { label: "Tasks in the project", query: "What tasks are part of the zero-trust remote access project?" },
+        { label: "Owner & dependencies", query: "Who owns the zero-trust project and what does it depend on?" } ] },
+    { kicker: "Security review", title: "Prepare for an audit", goal: "Summarize our data-security, access-lifecycle and audit-logging controls for an audit.",
+      steps: [ { label: "Data security controls", query: "What are our data security and encryption controls?" },
+        { label: "Access lifecycle", query: "What is our access provisioning and deprovisioning process?" },
+        { label: "Audit logging", query: "What audit logging do we keep and why?" } ] },
+    { kicker: "Procurement", title: "Approve a vendor purchase", goal: "Summarize the vendor purchase approval process, thresholds and who approves.",
+      steps: [ { label: "PO approval", query: "What is the purchase order approval process and thresholds?" },
+        { label: "Vendor onboarding", query: "How do we onboard a new vendor?" },
+        { label: "Who approves", query: "Who approves procurement and budget?" } ] },
+    { kicker: "HR & expenses", title: "Answer an expenses question", goal: "Summarize how business-trip expenses are reimbursed and the travel policy.",
+      steps: [ { label: "Reimbursement", query: "How do I get a business trip expense reimbursed?" },
+        { label: "Travel policy", query: "What is the travel and per-diem policy?" },
+        { label: "Who handles it", query: "Who processes expenses and travel?" } ] },
+    { kicker: "Exec briefing", title: "Catch up on the Atlas product", goal: "Summarize the key decisions, current MFA policy and open questions for the Atlas product.",
+      steps: [ { label: "Key decisions", query: "What decisions shaped the Atlas identity product?" },
+        { label: "Current MFA policy", query: "What is the current MFA policy?" },
+        { label: "Owners & open questions", query: "Who owns Atlas and what questions are still open?" } ] }
+  ];
+
+  TYPE_STYLE = {
+    person: { c: "#1C8891", r: 8, label: "person" },
+    decision: { c: "#8A5FA8", r: 7, label: "decision" },
+    project: { c: "#D24732", r: 7, label: "project" },
+    product: { c: "#1C8891", r: 7, label: "product" },
+    product_doc: { c: "#136572", r: 6, label: "document" },
+    article: { c: "#136572", r: 6, label: "document" },
+    concept: { c: "#C99A2C", r: 5, label: "concept" },
+    task: { c: "#6B7A7C", r: 5, label: "task" },
+    meeting: { c: "#B85C82", r: 6, label: "meeting" },
+    question: { c: "#C99A2C", r: 5, label: "question" },
+    customer: { c: "#25784A", r: 6, label: "customer" },
+    team: { c: "#526264", r: 6, label: "team" }
+  };
+  tstyle(t) { return this.TYPE_STYLE[t] || { c: "#8B9799", r: 6, label: t || "node" }; }
+
+  componentDidMount() {
+    this.svgRef = this.svgRef || React.createRef();
+    var self = this;
+    this._onResize = function () {
+      var wasMobile = self.isMobile;
+      self.setState({ vw: window.innerWidth, vh: window.innerHeight });
+      if (wasMobile !== (window.innerWidth < 760) ) {
+        clearTimeout(self._reflowTimer);
+        self._reflowTimer = setTimeout(function () { self._drawGraph(); }, 120);
+      }
+    };
+    window.addEventListener("resize", this._onResize);
+    var h = String(window.location.hash || "").replace(/^#/, "");
+    if (h.indexOf("app") === 0) {
+      var t = h.split("/")[1];
+      this.setState({ forceView: "mobile", tab: (t === "agent" || t === "graph" || t === "about") ? t : "search" });
+    }
+    this._probe();
+    this._esc = (e) => { if (e.key === "Escape") this.setState({ overlay: null }); };
+    document.addEventListener("keydown", this._esc);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    var self = this, s = this.state;
+    var layoutChanged = this._lastVw !== s.vw || this._lastForce !== s.forceView;
+    var enteredGraph = this._lastTab !== s.tab && s.tab === "graph";
+    this._lastVw = s.vw; this._lastForce = s.forceView; this._lastTab = s.tab;
+    if ((layoutChanged || enteredGraph) && this._gd()) {
+      clearTimeout(this._reflowTimer);
+      this._reflowTimer = setTimeout(function () { self._drawGraph(); }, 60);
+    }
+    var el = this._tdChatRef && this._tdChatRef.current;
+    if (!el) return;
+    var grew = (prevState.tdMsgs || []).length !== (this.state.tdMsgs || []).length
+      || (!!prevState.td && !!this.state.td && prevState.td.stage !== this.state.td.stage);
+    if (grew) el.scrollTop = el.scrollHeight;
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this._esc);
+    if (this._onResize) window.removeEventListener("resize", this._onResize);
+    clearTimeout(this._scTimer); clearTimeout(this._gTimer); clearTimeout(this._reflowTimer); clearTimeout(this._gFitTimer); cancelAnimationFrame(this._gRaf);
+  }
+
+  _probe() {
+    var force = this.props.forceMode || "auto";
+    if (force === "canned") { this._useCanned(); return; }
+    var self = this;
+    fetch(this.CFG.apiSearch, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ query: "" }) })
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function () { self.setState({ mode: "live" }); })
+      .catch(function () { if (force === "live") { self.setState({ mode: "live" }); } else { self._useCanned(); } });
+  }
+  _useCanned() {
+    var self = this;
+    this.setState({ mode: "canned" });
+    this._corpus = fetch("data/corpus.json").then(function (r) { return r.json(); })
+      .then(function (d) {
+        return (d.articles || []).map(function (a) {
+          return { node_id: a.node_id, title: a.title || "", heading: a.category || "",
+            source_url: a.source_url || a.node_id, source_label: a.source_label || "",
+            body: a.body || "", _title: (a.title || "").toLowerCase(), _body: (a.body || "").toLowerCase() };
+        });
+      });
+  }
+
+  liveSearch(q) {
+    return fetch(this.CFG.apiSearch, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ query: q }) })
+      .then(function (res) {
+        if (res.status === 429) throw new Error("Too many requests — please wait a moment.");
+        if (!res.ok) throw new Error("Search is temporarily unavailable.");
+        return res.json();
+      }).then(function (data) {
+        return { graph: data.graph || null, pipeline: data.pipeline || null, took_ms: data.took_ms, reranked: data.reranked,
+          results: (data.results || []).map(function (r) {
+            return { node_id: r.node_key, title: r.title, heading: r.heading, snippet: r.text,
+              score: r.score, rerank_score: r.rerank_score, source_url: r.node_key };
+          }) };
+      });
+  }
+  liveSource(key) {
+    return fetch(this.CFG.apiSource + "?key=" + encodeURIComponent(key)).then(function (res) {
+      if (!res.ok) throw new Error("The source is temporarily unavailable.");
+      return res.json();
+    }).then(function (s) {
+      return { title: s.title, full_text: s.content, provenance: { source_url: s.node_key, source: s.source,
+        source_path: s.source_path, origin: s.origin, confidence: s.confidence, last_seen: s.last_seen } };
+    });
+  }
+  liveAnswer(q) {
+    return fetch(this.CFG.apiAnswer, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ query: q }) })
+      .then(function (res) { if (!res.ok) throw new Error("The assistant is temporarily unavailable."); return res.json(); })
+      .then(function (d) { return { answer: d.answer || "", sources: d.sources || [], took_ms: d.took_ms }; });
+  }
+
+  _tokens(s) { return (s.toLowerCase().match(/[a-z0-9]+/g) || []).filter(function (t) { return t.length > 2; }); }
+  cannedSearch(q) {
+    var self = this, t0 = performance.now();
+    return this._corpus.then(function (docs) {
+      var terms = self._tokens(q);
+      var scored = docs.map(function (d) {
+        var s = 0;
+        for (var i = 0; i < terms.length; i++) {
+          var t = terms[i];
+          s += (d._title.indexOf(t) !== -1 ? 3 : 0) + Math.min(d._body.split(t).length - 1, 4);
+        }
+        return { d: d, raw: s };
+      }).filter(function (x) { return x.raw > 0; });
+      scored.sort(function (a, b) { return b.raw - a.raw; });
+      var max = scored.length ? scored[0].raw : 1;
+      var top = scored.slice(0, self.CFG.k).map(function (x) {
+        return { node_id: x.d.node_id, title: x.d.title, heading: x.d.heading, source_url: x.d.source_url,
+          score: Math.round((x.raw / max) * 1000) / 1000, snippet: self._snippet(x.d.body, terms), _cat: x.d.heading };
+      });
+      var nodes = [], edges = [], seen = {};
+      function addNode(n) { if (!seen[n.key]) { seen[n.key] = 1; nodes.push(n); } }
+      var cats = {};
+      top.forEach(function (r) {
+        addNode({ key: r.node_id, title: r.title, type: "article" });
+        var ck = "concept:" + r._cat;
+        addNode({ key: ck, title: r._cat, type: "concept" });
+        edges.push({ src: r.node_id, dst: ck });
+        cats[r._cat] = 1;
+      });
+      // hop 1: sibling articles under the seeds' concepts (per-seed cap, как у live per_seed)
+      var related = 0, hop1 = [];
+      docs.forEach(function (d) {
+        if (related >= 8 || seen[d.node_id]) return;
+        if (cats[d.heading]) {
+          addNode({ key: d.node_id, title: d.title, type: "article", _hop2: true });
+          edges.push({ src: "concept:" + d.heading, dst: d.node_id });
+          hop1.push(d); related++;
+        }
+      });
+      // hop 2: co-occurrence links between concepts of the result set + a second ring
+      var catList = Object.keys(cats);
+      for (var ci = 1; ci < catList.length; ci++) {
+        edges.push({ src: "concept:" + catList[0], dst: "concept:" + catList[ci] });
+      }
+      var ring2 = 0;
+      docs.forEach(function (d) {
+        if (ring2 >= 4 || seen[d.node_id] || cats[d.heading]) return;
+        // соседняя категория второго шага: цепляем её концепт к ближайшему концепту результатов
+        var ck = "concept:" + d.heading;
+        if (!seen[ck]) {
+          addNode({ key: ck, title: d.heading, type: "concept" });
+          edges.push({ src: "concept:" + catList[ring2 % catList.length], dst: ck });
+        }
+        addNode({ key: d.node_id, title: d.title, type: "article", _hop2: true });
+        edges.push({ src: ck, dst: d.node_id });
+        ring2++;
+      });
+      var took = Math.max(1, Math.round(performance.now() - t0));
+      var pipeline = [
+        { key: "search", label: "Hybrid search", detail: "vector + full-text, RRF-fused", count: scored.length, unit: "candidate passages" },
+        { key: "graph", label: "Graph expansion", detail: "2-hop neighbourhood over typed edges", count: nodes.length, unit: "related nodes" },
+        { key: "rank", label: "Ranked", detail: "ordered by hybrid score", count: top.length, unit: "passages shown" }
+      ];
+      return { results: top, graph: { nodes: nodes, edges: edges }, pipeline: pipeline, took_ms: took, reranked: false };
+    });
+  }
+  _snippet(body, terms) {
+    var low = body.toLowerCase(), pos = -1;
+    for (var i = 0; i < terms.length; i++) { var p = low.indexOf(terms[i]); if (p !== -1 && (pos === -1 || p < pos)) pos = p; }
+    var start = pos > 60 ? pos - 60 : 0;
+    var frag = body.slice(start, start + 320).trim();
+    return (start > 0 ? "…" : "") + frag + (body.length > start + 320 ? "…" : "");
+  }
+  cannedSource(key) {
+    return this._corpus.then(function (docs) {
+      var d = docs.find(function (x) { return x.node_id === key; });
+      if (!d) throw new Error("Source not found.");
+      return { title: d.title, full_text: d.body, provenance: { source_url: d.source_url, source: d.source_label, origin: "company memory" } };
+    });
+  }
+  cannedAnswer(q) {
+    return this.cannedSearch(q).then(function (d) {
+      var top = d.results.slice(0, 3);
+      if (!top.length) return { answer: "No matching passages found for this request.", sources: [], took_ms: d.took_ms };
+      var lines = top.map(function (r) {
+        var first = r.snippet.replace(/^…/, "").split(". ").slice(0, 1).join(". ");
+        return "- **" + r.title + "** — " + first + ".";
+      });
+      return { answer: "Extractive summary of the retrieved passages:\n\n" + lines.join("\n"),
+        sources: top.map(function (r) { return { node_key: r.node_id, title: r.title }; }), took_ms: d.took_ms };
+    });
+  }
+  search(q) { return this.state.mode === "canned" ? this.cannedSearch(q) : this.liveSearch(q); }
+  getSource(k) { return this.state.mode === "canned" ? this.cannedSource(k) : this.liveSource(k); }
+  answer(q) { return this.state.mode === "canned" ? this.cannedAnswer(q) : this.liveAnswer(q); }
+
+  fmtMs(ms) { ms = Number(ms) || 0; return ms < 1000 ? (ms + " ms") : ((Math.round(ms / 100) / 10) + " s"); }
+
+  _scrollToSearch() {
+    if (this.isMobile) {
+      if (this.state.tab !== "search") this.setState({ tab: "search" });
+      var c = this._contentRef && this._contentRef.current;
+      if (c) c.scrollTop = 0;
+      return;
+    }
+    var el = document.getElementById("search-anchor");
+    if (!el) return;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({ top: top, behavior: "smooth" });
+  }
+
+  runSearch(q, cached) {
+    var self = this;
+    q = (q || "").trim();
+    if (!q) return Promise.resolve();
+    this.setState({ meta: "Searching: “" + q + "”…", error: null, searched: true, searching: true });
+    // Minimum visible duration for the searching state (skipped for cached scenario prefetches),
+    // so the feedback is perceptible even when the canned search resolves in a few ms.
+    var minWait = cached ? 0 : 550;
+    var p = Promise.all([cached || this.search(q), new Promise(function (res) { setTimeout(res, minWait); })])
+      .then(function (r) { return r[0]; });
+    return p.then(function (d) {
+      self.setState({ searching: false });
+      if (d && d.__error) throw d.__error;
+      var meta = d.results.length + " passages · " + (d.took_ms != null ? self.fmtMs(d.took_ms) : "—") + (d.reranked ? " · reranked" : "");
+      self.setState({ results: d.results, meta: meta, tookMs: d.took_ms, reranked: !!d.reranked,
+        pipeline: d.pipeline, graph: d.graph, error: null });
+      self._renderGraph(d.graph, d.results.map(function (r) { return r.node_id; }));
+    }).catch(function (err) {
+      self.setState({ results: [], pipeline: null, graph: null, meta: "", searching: false, error: (err && err.message) || "Search is temporarily unavailable." });
+    });
+  }
+  clearSearch() {
+    this.setState({ results: [], meta: "", tookMs: null, reranked: false, pipeline: null, graph: null,
+      error: null, searched: false, searching: false, queryVal: "" });
+  }
+  openSource(r) {
+    var self = this;
+    this.setState({ overlay: { title: r.title || "Source", text: "Loading the stored original…", prov: [] } });
+    this.getSource(r.node_id).then(function (s) {
+      var prov = [];
+      var pv = s.provenance || {};
+      if (pv.source) prov.push({ k: "source", v: pv.source });
+      if (pv.source_url) prov.push({ k: "url", v: pv.source_url });
+      if (pv.source_path) prov.push({ k: "path", v: pv.source_path });
+      if (pv.origin) prov.push({ k: "origin", v: pv.origin });
+      if (pv.confidence != null) prov.push({ k: "confidence", v: String(pv.confidence) });
+      if (pv.last_seen) prov.push({ k: "last seen", v: pv.last_seen });
+      self.setState({ overlay: { title: s.title, text: s.full_text, prov: prov } });
+    }).catch(function (err) {
+      self.setState({ overlay: { title: r.title || "Source", text: (err && err.message) || "The source is unavailable.", prov: [] } });
+    });
+  }
+
+  TD = {
+    task: "We're bidding for Mekong Commercial Bank's tender to supply our Atlas Identity platform, integrated with their core systems over our API. Draft the information-security section of the bid and answer the security questionnaire.",
+    plan: "Here's my plan. I'll pull three things from company memory: our encryption and data-security controls; how access is provisioned, reviewed and revoked, with the audit trail behind it; and our SLA response targets, because the tender scores support commitments. Then I'll draft the section and fill in the questionnaire.",
+    calls: [
+      { query: "What are our data security and encryption controls?", note: "Found the controls: data at rest under KMS-managed keys, full-disk encryption on managed devices, MFA on administrative accounts, documents labelled by classification level. That covers the data-protection block of the questionnaire." },
+      { query: "What is our access provisioning and deprovisioning process?", note: "The joiner-mover-leaver process with day-one provisioning through identity groups, plus the audit-logging standard behind it. I'll cite both, so the bank can verify every claim against the original." },
+      { query: "What are the SLA response and resolution targets by severity?", note: "Got the committed response and resolution targets per severity level — they go into the service-level annex as numbers we already hold ourselves to." }
+    ],
+    draft: [
+      { head: "Data protection.", text: "Bank data is encrypted in transit and at rest, with keys held in our KMS. Managed devices run full-disk encryption, administrative access requires MFA, and documents are labelled by classification level before they are shared.", cite: 0 },
+      { head: "Access control and audit trail.", text: "Access follows a documented joiner-mover-leaver process: provisioning through identity groups on day one, revocation on the day someone leaves, and least-privilege reviews every quarter. Every access event is written to the audit log and kept under our published retention schedule.", cite: 1 },
+      { head: "Service levels.", text: "Incidents are classified by severity with committed response and resolution targets for each level, and an on-call handoff that keeps ownership explicit around the clock.", cite: 2 }
+    ],
+    rows: [
+      { q: "How is bank data protected at rest and in transit?", a: "Encrypted in both, with KMS-managed keys; managed devices use full-disk encryption and administrative access is MFA-gated.", cite: 0 },
+      { q: "How is access granted, reviewed and revoked?", a: "A documented joiner-mover-leaver process: day-one provisioning, revocation on exit, quarterly least-privilege reviews, every event audit-logged.", cite: 1 },
+      { q: "What response times do you commit to for incidents?", a: "Severity-based SLA targets for response and resolution, with a round-the-clock on-call handoff.", cite: 2 }
+    ]
+  };
+  startTender() {
+    clearTimeout(this._scTimer);
+    if (this.isMobile) this.setState({ tab: "agent", agentView: "chat" });
+    this.setState({ scIdx: null, scPlaying: false, scDone: false, fa: null, faVisible: false, pipeline: null,
+      td: { stage: 1, busy: false }, tdCalls: [], tdMsgs: [{ role: "you", text: this.TD.task }] });
+  }
+  exitTender() { this.setState({ td: null, tdCalls: [], tdMsgs: [] }); }
+  nextTd() {
+    var td = this.state.td;
+    if (!td || td.busy) return;
+    var self = this, stage = td.stage;
+    if (stage === 1) { this.setState({ tdMsgs: this.state.tdMsgs.concat([{ role: "agent", text: this.TD.plan }]), td: { stage: 2, busy: false } }); return; }
+    if (stage >= 2 && stage <= 4) {
+      var ci = stage - 2, call = this.TD.calls[ci];
+      this.setState({
+        tdMsgs: this.state.tdMsgs.concat([{ role: "tool", text: call.query, status: "searching" }]),
+        tdCalls: this.state.tdCalls.concat([{ query: call.query, loading: true, results: [] }]),
+        td: { stage: stage, busy: true }
+      });
+      this.search(call.query).then(function (d) {
+        var calls = self.state.tdCalls.slice();
+        calls[ci] = { query: call.query, loading: false, took: d.took_ms, results: d.results.slice(0, 3) };
+        var msgs = self.state.tdMsgs.slice();
+        msgs[msgs.length - 1] = { role: "tool", text: call.query, status: "done", count: d.results.length, took: d.took_ms };
+        msgs.push({ role: "agent", text: call.note });
+        self.setState({ tdCalls: calls, tdMsgs: msgs, td: { stage: stage + 1, busy: false } });
+      }).catch(function (err) {
+        var calls = self.state.tdCalls.slice();
+        calls[ci] = { query: call.query, loading: false, error: (err && err.message) || "unavailable", results: [] };
+        var msgs = self.state.tdMsgs.slice();
+        msgs[msgs.length - 1] = { role: "tool", text: call.query, status: "error" };
+        self.setState({ tdCalls: calls, tdMsgs: msgs, td: { stage: stage + 1, busy: false } });
+      });
+      return;
+    }
+    if (stage === 5) { this.setState({ td: { stage: 6, busy: false } }); }
+  }
+  _tdCite(ci) {
+    var c = this.state.tdCalls[ci];
+    var r = c && c.results && c.results[0];
+    if (r) this.openSource(r);
+  }
+  startScenario(idx) {
+    this.exitTender();
+    var sc = this.SCENARIOS[idx];
+    clearTimeout(this._scTimer);
+    this._prefetch(sc);
+    this.setState({ scIdx: idx, scStep: 0, scPlaying: true, scDone: false, fa: null, faVisible: false });
+    this.goScenarioStep(0, true);
+  }
+  _prefetch(sc) {
+    var self = this;
+    sc._searchCache = sc.steps.map(function (st) {
+      return self.search(st.query).then(function (d) { return d; }, function (e) { return { __error: e }; });
+    });
+    sc._answerCache = this.answer(sc.goal || sc.title).then(function (a) { return a; }, function (e) { return { __error: e }; });
+  }
+  exitScenario() {
+    clearTimeout(this._scTimer);
+    this.setState({ scIdx: null, scPlaying: false, scDone: false, fa: null, faVisible: false, pipeline: null,
+      results: [], meta: "", graph: null, searched: false, searching: false });
+  }
+  goScenarioStep(i, keepPlaying) {
+    var sc = this.SCENARIOS[this.state.scIdx];
+    if (!sc) return;
+    clearTimeout(this._scTimer);
+    var step = Math.max(0, Math.min(sc.steps.length - 1, i));
+    var self = this;
+    this.setState({ scStep: step, scDone: false, queryVal: sc.steps[step].query, faVisible: false });
+    var cached = sc._searchCache && sc._searchCache[step];
+    this.runSearch(sc.steps[step].query, cached).then(function () {
+      if (self.state.scIdx != null && self.state.scPlaying && keepPlaying !== false) self._scheduleNext();
+    });
+  }
+  _scheduleNext() {
+    var self = this, sc = this.SCENARIOS[this.state.scIdx];
+    clearTimeout(this._scTimer);
+    this._scTimer = setTimeout(function () {
+      if (!self.state.scPlaying || self.state.scIdx == null) return;
+      if (self.state.scStep < sc.steps.length - 1) self.goScenarioStep(self.state.scStep + 1);
+      else self.runFinalAnswer();
+    }, 1700);
+  }
+  runFinalAnswer() {
+    var sc = this.SCENARIOS[this.state.scIdx];
+    if (!sc) return;
+    clearTimeout(this._scTimer);
+    var self = this;
+    this.setState({ scPlaying: false, scDone: true, queryVal: sc.goal || sc.title, faLoading: true, faVisible: true, fa: null });
+    (sc._answerCache || this.answer(sc.goal || sc.title)).then(function (a) {
+      if (a && a.__error) throw a.__error;
+      self.setState({ fa: a, faLoading: false });
+    }).catch(function (err) {
+      self.setState({ fa: { answer: (err && err.message) || "The assistant is temporarily unavailable.", sources: [] }, faLoading: false });
+    });
+  }
+
+  _esc2(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  _mdInline(s) {
+    s = this._esc2(s);
+    s = s.replace(/`([^`]+)`/g, "<code style=\"background:#F1F4F4;border:1px solid #DDE3E3;border-radius:4px;padding:1px 5px;font-family:'IBM Plex Mono',monospace;font-size:13px\">$1</code>");
+    s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    s = s.replace(/(^|[^*])\*([^*\s][^*]*?)\*/g, "$1<em>$2</em>");
+    return s;
+  }
+  renderMarkdown(text) {
+    var self = this, lines = String(text == null ? "" : text).split(/\r?\n/);
+    var html = [], list = null, para = [];
+    function closeList() { if (list) { html.push("</" + list + ">"); list = null; } }
+    function flushPara() { if (para.length) { html.push("<p style='margin:0 0 10px'>" + para.join("<br>") + "</p>"); para = []; } }
+    lines.forEach(function (line) {
+      var t = line.trim();
+      if (!t) { flushPara(); return; }
+      var h = t.match(/^#{1,6}\s+(.*)$/);
+      if (h) { flushPara(); closeList(); html.push("<p style='font-weight:600;color:#11454F;margin:2px 0 6px'>" + self._mdInline(h[1]) + "</p>"); return; }
+      var ul = t.match(/^[-*•]\s+(.*)$/), ol = t.match(/^\d+[.)]\s+(.*)$/);
+      if (ul) { flushPara(); if (list !== "ul") { closeList(); html.push("<ul style='margin:6px 0 10px;padding-left:22px'>"); list = "ul"; } html.push("<li style='margin:3px 0'>" + self._mdInline(ul[1]) + "</li>"); return; }
+      if (ol) { flushPara(); if (list !== "ol") { closeList(); html.push("<ol style='margin:6px 0 10px;padding-left:22px'>"); list = "ol"; } html.push("<li style='margin:3px 0'>" + self._mdInline(ol[1]) + "</li>"); return; }
+      closeList(); para.push(self._mdInline(t));
+    });
+    flushPara(); closeList();
+    return html.join("");
+  }
+
+  _svgEl() {
+    if (this.isMobile) return document.getElementById("mgraph");
+    return (this.svgRef && this.svgRef.current) || null;
+  }
+  _gd() {
+    if (this._graphData && this._graphData.graph) return this._graphData;
+    var s = this.state;
+    if (s.graph && (s.graph.nodes || []).length) {
+      return { graph: s.graph, seeds: (s.results || []).map(function (r) { return r.node_id; }) };
+    }
+    return null;
+  }
+  _renderGraph(graph, seedKeys) {
+    var svg = this._svgEl();
+    this._graphData = { graph: graph, seeds: seedKeys };
+    if (!graph || !(graph.nodes || []).length) { this.setState({ gStep: 0, gCaption: "" }); if (svg) svg.innerHTML = ""; return; }
+    var self = this;
+    setTimeout(function () { self._drawGraph(); }, 30);
+  }
+  _drawGraph() {
+    var svg = this._svgEl();
+    var gd = this._gd();
+    if (!svg || !gd || !gd.graph) return;
+    var mob = this.isMobile;
+    var W = mob ? 560 : 960, H = mob ? 700 : 340, self = this;
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    cancelAnimationFrame(this._gRaf);
+    var seedSet = {};
+    (gd.seeds || []).forEach(function (k) { seedSet[k] = 1; });
+    var nodes = (gd.graph.nodes || []).slice(0, 40).map(function (n) {
+      var key = n.key || n.node_key || n.id;
+      return { key: key, title: n.title || n.name || key, type: n.type || n.label || "article",
+        seed: !!seedSet[key], vx: 0, vy: 0, fixed: false };
+    });
+    var keys = {}; nodes.forEach(function (n, i) { keys[n.key] = i; });
+    var links = (gd.graph.edges || []).map(function (e) {
+      var a = keys[e.src || e.source], b = keys[e.dst || e.target];
+      return (a != null && b != null) ? { a: a, b: b } : null;
+    }).filter(Boolean);
+    var n = nodes.length || 1;
+    // connected components → each gets its own gravity center so disconnected
+    // clusters sit side by side instead of flying to opposite corners
+    var adj = nodes.map(function () { return []; });
+    links.forEach(function (l) { adj[l.a].push(l.b); adj[l.b].push(l.a); });
+    var comp = new Array(n).fill(-1), compSizes = [];
+    for (var i0 = 0; i0 < n; i0++) {
+      if (comp[i0] !== -1) continue;
+      var ci = compSizes.length, q = [i0]; comp[i0] = ci; var size = 0;
+      while (q.length) { var v = q.pop(); size++; adj[v].forEach(function (w) { if (comp[w] === -1) { comp[w] = ci; q.push(w); } }); }
+      compSizes.push(size);
+    }
+    var nc = compSizes.length, total = n;
+    var centers = [], acc = 0;
+    for (var c0 = 0; c0 < nc; c0++) {
+      // slot proportional to component size — side by side on wide, stacked on phone
+      if (mob) {
+        var hh = H * (compSizes[c0] / total);
+        centers.push({ x: W / 2, y: acc + hh / 2 });
+        acc += hh;
+      } else {
+        var w = W * (compSizes[c0] / total);
+        centers.push({ x: acc + w / 2, y: H / 2 });
+        acc += w;
+      }
+    }
+    nodes.forEach(function (nd, i) {
+      var c = centers[comp[i]];
+      var ang = i * 2.399963, rad = 20 + Math.sqrt(i % 7) * 26;
+      nd.x = c.x + Math.cos(ang) * rad; nd.y = c.y + Math.sin(ang) * rad;
+    });
+    var NS = "http://www.w3.org/2000/svg";
+    svg.innerHTML = "";
+    var root = document.createElementNS(NS, "g");
+    svg.appendChild(root);
+    this._gView = { k: 1, tx: 0, ty: 0 };
+    this._gAutoFit = false;
+    function applyView() {
+      var v = self._gView;
+      root.setAttribute("transform", "translate(" + v.tx + "," + v.ty + ") scale(" + v.k + ")");
+    }
+    this._gEls = { edges: [], nodes: [] };
+    var lineEls = [], nodeEls = [];
+    links.forEach(function (l) {
+      var ln = document.createElementNS(NS, "line");
+      ln.setAttribute("stroke", "#DDE3E3"); ln.setAttribute("stroke-width", "1.2");
+      ln.style.opacity = "0"; ln.style.transition = "opacity .5s ease, stroke .4s ease";
+      ln._touchesSeed = nodes[l.a].seed || nodes[l.b].seed;
+      root.appendChild(ln);
+      lineEls.push(ln); self._gEls.edges.push(ln);
+    });
+    nodes.forEach(function (nd) {
+      var st = self.tstyle(nd.type);
+      var g = document.createElementNS(NS, "g");
+      g.style.opacity = "0"; g.style.transition = "opacity .55s ease";
+      var c = document.createElementNS(NS, "circle");
+      c.setAttribute("r", nd.seed ? st.r + 2 : st.r);
+      c.setAttribute("fill", st.c);
+      if (nd.seed) { c.setAttribute("stroke", "#E8604C"); c.setAttribute("stroke-width", "2.5"); }
+      g.appendChild(c);
+      var tx = null;
+      if (mob || nd.seed || nd.type === "concept") {
+        tx = document.createElementNS(NS, "text");
+        tx.setAttribute("text-anchor", "middle");
+        tx.setAttribute("style", "font:" + (nd.seed ? "600 11px" : (mob ? "9.5px" : "10px")) + " 'IBM Plex Mono',monospace;fill:" + (nd.seed ? "#1D2829" : "#6B7A7C") + ";pointer-events:none");
+        var maxLen = mob ? 20 : 26;
+        tx.textContent = nd.title.length > maxLen ? nd.title.slice(0, maxLen - 1) + "…" : nd.title;
+        g.appendChild(tx);
+      } else {
+        var tt = document.createElementNS(NS, "title");
+        tt.textContent = nd.title;
+        g.appendChild(tt);
+      }
+      g.style.cursor = "grab";
+      root.appendChild(g);
+      g._seed = nd.seed;
+      nodeEls.push({ g: g, c: c, tx: tx, st: st });
+      self._gEls.nodes.push(g);
+    });
+    // live force simulation: springs + capped repulsion + per-component gravity
+    var sim = this._sim = { nodes: nodes, links: links, alpha: 1, dragging: null };
+    function clampNode(nd) {
+      nd.x = Math.max(mob ? 46 : 64, Math.min(W - (mob ? 46 : 64), nd.x));
+      nd.y = Math.max(mob ? 26 : 34, Math.min(H - (mob ? 14 : 18), nd.y));
+    }
+    function positions() {
+      links.forEach(function (l, li) {
+        var ln = lineEls[li];
+        ln.setAttribute("x1", nodes[l.a].x); ln.setAttribute("y1", nodes[l.a].y);
+        ln.setAttribute("x2", nodes[l.b].x); ln.setAttribute("y2", nodes[l.b].y);
+      });
+      nodes.forEach(function (nd, i) {
+        var el = nodeEls[i];
+        el.c.setAttribute("cx", nd.x); el.c.setAttribute("cy", nd.y);
+        if (el.tx) { el.tx.setAttribute("x", nd.x); el.tx.setAttribute("y", nd.y - el.st.r - 7); }
+      });
+    }
+    function physics() {
+      for (var i = 0; i < n; i++) for (var j = i + 1; j < n; j++) {
+        var a = nodes[i], b = nodes[j], dx = a.x - b.x, dy = a.y - b.y;
+        var d2 = dx * dx + dy * dy, d = Math.sqrt(d2) || 0.01;
+        if (d < (mob ? 300 : 260)) { // capped repulsion — local spacing only
+          var f = (mob ? 3600 : 2600) / d2;
+          var fx = (dx / d) * f, fy = (dy / d) * f;
+          a.vx += fx; a.vy += fy; b.vx -= fx; b.vy -= fy;
+        }
+      }
+      links.forEach(function (l) {
+        var a = nodes[l.a], b = nodes[l.b], dx = b.x - a.x, dy = b.y - a.y;
+        var d = Math.sqrt(dx * dx + dy * dy) || 0.01;
+        var f = (d - (mob ? 118 : 120)) * 0.03; // spring to rest length
+        var fx = (dx / d) * f, fy = (dy / d) * f;
+        a.vx += fx; a.vy += fy; b.vx -= fx; b.vy -= fy;
+      });
+      nodes.forEach(function (nd, i) {
+        var c = centers[comp[i]];
+        nd.vx += (c.x - nd.x) * (mob ? 0.006 : 0.004); nd.vy += (c.y - nd.y) * (mob ? 0.003 : 0.011);
+        if (nd.fixed) { nd.vx = 0; nd.vy = 0; return; }
+        nd.vx *= 0.72; nd.vy *= 0.72;
+        nd.x += nd.vx * sim.alpha; nd.y += nd.vy * sim.alpha;
+        clampNode(nd);
+      });
+    }
+    function tick() {
+      if (sim !== self._sim) return; // superseded by a newer graph
+      if (sim.alpha > 0.02 || sim.dragging) {
+        physics();
+        positions();
+        if (mob && !self._gAutoFit && sim.alpha < 0.08 && self._gFit) { self._gAutoFit = true; self._gFit(); }
+        if (!sim.dragging) sim.alpha *= 0.985;
+      }
+      self._gRaf = requestAnimationFrame(tick);
+    }
+    positions();
+    this._gRaf = requestAnimationFrame(tick);
+    if (mob) {
+      clearTimeout(this._gFitTimer);
+      this._gFitTimer = setTimeout(function () { if (sim === self._sim && !self._gAutoFit) { self._gAutoFit = true; self._gFit(); } }, 1500);
+    }
+    // drag to pull nodes; a click without movement opens the source
+    function svgPt(ev) {
+      var r = svg.getBoundingClientRect();
+      return { x: (ev.clientX - r.left) * (W / r.width), y: (ev.clientY - r.top) * (H / r.height) };
+    }
+    function toViewBox(ev) {
+      var p = svgPt(ev), v = self._gView || { k: 1, tx: 0, ty: 0 };
+      return { x: (p.x - v.tx) / v.k, y: (p.y - v.ty) / v.k };
+    }
+    nodes.forEach(function (nd, i) {
+      var el = nodeEls[i];
+      el.g.addEventListener("pointerdown", function (ev) {
+        ev.preventDefault();
+        var moved = 0;
+        nd.fixed = true; sim.dragging = nd; sim.alpha = Math.max(sim.alpha, 0.5);
+        el.g.style.cursor = "grabbing";
+        el.g.setPointerCapture(ev.pointerId);
+        function onMove(mv) {
+          var p = toViewBox(mv);
+          moved += Math.abs(p.x - nd.x) + Math.abs(p.y - nd.y);
+          nd.x = p.x; nd.y = p.y; clampNode(nd);
+        }
+        function onUp() {
+          nd.fixed = false; sim.dragging = null; sim.alpha = Math.max(sim.alpha, 0.3);
+          el.g.style.cursor = "grab";
+          el.g.removeEventListener("pointermove", onMove);
+          el.g.removeEventListener("pointerup", onUp);
+          el.g.removeEventListener("pointercancel", onUp);
+          if (moved < 5 && (nd.type === "article" || nd.type === "product_doc")) {
+            self.openSource({ node_id: nd.key, title: nd.title });
+          }
+        }
+        el.g.addEventListener("pointermove", onMove);
+        el.g.addEventListener("pointerup", onUp);
+        el.g.addEventListener("pointercancel", onUp);
+      });
+    });
+    var zoomAt = function (mult, cx, cy) {
+      var v = self._gView, k2 = Math.max(0.55, Math.min(4.5, v.k * mult));
+      if (k2 === v.k) return;
+      v.tx = cx - (cx - v.tx) * (k2 / v.k); v.ty = cy - (cy - v.ty) * (k2 / v.k); v.k = k2;
+      applyView();
+    };
+    this._gZoom = function (mult) { zoomAt(mult, W / 2, H / 2); };
+    this._gFit = function () {
+      var v = self._gView;
+      // measure the PAINTED bounds (labels included) in local units
+      var prev = { k: v.k, tx: v.tx, ty: v.ty };
+      v.k = 1; v.tx = 0; v.ty = 0; applyView();
+      var bb;
+      try { bb = root.getBBox(); } catch (e) { bb = null; }
+      if (!bb || !bb.width || !bb.height) { applyView(); return; }
+      var padX = mob ? 14 : 24, padY = mob ? 14 : 20;
+      var k = Math.min((W - padX * 2) / bb.width, (H - padY * 2) / bb.height, mob ? 1.9 : 1.6);
+      if (!isFinite(k) || k <= 0) { v.k = prev.k; v.tx = prev.tx; v.ty = prev.ty; applyView(); return; }
+      v.k = k;
+      v.tx = W / 2 - (bb.x + bb.width / 2) * k;
+      v.ty = H / 2 - (bb.y + bb.height / 2) * k;
+      applyView();
+    };
+    var ptrs = {}, pinchD = null;
+    svg.addEventListener("pointerdown", function (ev) {
+      var onNode = ev.target !== svg && ev.target.parentNode && ev.target.parentNode !== svg;
+      if (onNode && !Object.keys(ptrs).length) return; // let the node drag handler take it
+      ptrs[ev.pointerId] = svgPt(ev);
+      try { svg.setPointerCapture(ev.pointerId); } catch (e) {}
+    });
+    svg.addEventListener("pointermove", function (ev) {
+      if (!ptrs[ev.pointerId]) return;
+      var ids = Object.keys(ptrs), p = svgPt(ev), v = self._gView;
+      if (ids.length === 1) {
+        v.tx += p.x - ptrs[ev.pointerId].x; v.ty += p.y - ptrs[ev.pointerId].y;
+        ptrs[ev.pointerId] = p; applyView();
+        return;
+      }
+      ptrs[ev.pointerId] = p;
+      var a = ptrs[ids[0]], b = ptrs[ids[1]];
+      var d = Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+      if (pinchD) zoomAt(d / pinchD, (a.x + b.x) / 2, (a.y + b.y) / 2);
+      pinchD = d;
+    });
+    function endPtr(ev) { delete ptrs[ev.pointerId]; if (Object.keys(ptrs).length < 2) pinchD = null; }
+    svg.addEventListener("pointerup", endPtr);
+    svg.addEventListener("pointercancel", endPtr);
+    svg.addEventListener("wheel", function (ev) {
+      ev.preventDefault();
+      var p = svgPt(ev);
+      zoomAt(ev.deltaY < 0 ? 1.12 : 1 / 1.12, p.x, p.y);
+    }, { passive: false });
+    applyView();
+
+    this._gSteps = [
+      { c: "Step 1 — the question hits memory: matches are highlighted", f: function () {
+          self._gEls.nodes.forEach(function (g) { g.style.opacity = g._seed ? "1" : "0"; });
+          self._gEls.edges.forEach(function (e) { e.style.opacity = "0"; e.setAttribute("stroke", "#DDE3E3"); }); } },
+      { c: "Step 2 — matches pull their connections: typed graph edges", f: function () {
+          self._gEls.nodes.forEach(function (g) { g.style.opacity = g._seed ? "1" : "0"; });
+          self._gEls.edges.forEach(function (e) { e.style.opacity = e._touchesSeed ? "0.8" : "0"; e.setAttribute("stroke", e._touchesSeed ? "#1C8891" : "#DDE3E3"); }); } },
+      { c: "Step 3 — nearby: the people, decisions, projects and documents", f: function () {
+          self._gEls.nodes.forEach(function (g) { g.style.opacity = "1"; });
+          self._gEls.edges.forEach(function (e) { e.style.opacity = "0.55"; e.setAttribute("stroke", "#DDE3E3"); }); } },
+      { c: "Step 4 — context assembled: an answer with sources, a human decides", f: function () {
+          self._gEls.nodes.forEach(function (g) { g.style.opacity = "1"; });
+          self._gEls.edges.forEach(function (e) { e.style.opacity = e._touchesSeed ? "0.9" : "0.35"; e.setAttribute("stroke", e._touchesSeed ? "#E8604C" : "#DDE3E3"); }); } }
+    ];
+    this._playGraph();
+  }
+  _applyGStep(i) {
+    if (!this._gSteps) return;
+    i = Math.max(0, Math.min(this._gSteps.length - 1, i));
+    this._gSteps[i].f();
+    this.setState({ gStep: i, gCaption: this._gSteps[i].c });
+  }
+  _playGraph() {
+    var self = this;
+    clearTimeout(this._gTimer);
+    var i = 0;
+    function tick() {
+      self._applyGStep(i);
+      i++;
+      if (i < self._gSteps.length) self._gTimer = setTimeout(tick, 1400);
+    }
+    tick();
+  }
+
+  renderVals() {
+    var self = this, s = this.state;
+    var mode = s.mode;
+    var results = s.results.map(function (r) {
+      var pct, cap;
+      if (r.rerank_score != null) { pct = Math.round(Math.max(0, Math.min(1, Number(r.rerank_score))) * 100); cap = "CONFIDENCE"; }
+      else {
+        var max = 0; s.results.forEach(function (x) { max = Math.max(max, Number(x.score) || 0); });
+        pct = Math.round(Math.max(0, Math.min(1, max > 0 ? (Number(r.score) || 0) / max : 0)) * 100); cap = "RELEVANCE";
+      }
+      return { title: r.title || "Untitled", heading: r.heading || "", snippet: r.snippet || "",
+        srcUrl: r.source_url || r.node_id, pct: pct + "%", cap: cap,
+        barStyle: { display: "block", height: "100%", width: pct + "%", background: "linear-gradient(90deg,#1C8891,#11454F)", borderRadius: "999px" },
+        open: function () { self.openSource(r); } };
+    });
+    var sc = s.scIdx != null ? this.SCENARIOS[s.scIdx] : null;
+    var scSteps = [];
+    if (sc) {
+      scSteps = sc.steps.map(function (st, i) {
+        var on = !s.scDone && i === s.scStep, done = s.scDone || i < s.scStep;
+        return { label: st.label, num: String(i + 1),
+          style: { display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "12px", fontFamily: "'IBM Plex Sans',sans-serif",
+            color: on ? "#11454F" : "#526264", cursor: "pointer", padding: "5px 10px",
+            border: "1px solid " + (on ? "#11454F" : "#DDE3E3"), borderRadius: "999px", background: on ? "#D9ECEE" : "transparent" },
+          numStyle: { width: "16px", height: "16px", borderRadius: "50%", background: on ? "#11454F" : (done ? "#8B9799" : "#DDE3E3"),
+            color: on || done ? "#FFFFFF" : "#526264", fontSize: "10px", fontWeight: "700", display: "inline-flex", alignItems: "center", justifyContent: "center" },
+          go: function () { self.setState({ scPlaying: false }); self.goScenarioStep(i, false); } };
+      });
+      scSteps.push({ label: "Answer", num: "✦",
+        style: { display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "12px", fontFamily: "'IBM Plex Sans',sans-serif",
+          color: s.scDone ? "#B03A29" : "#526264", cursor: "pointer", padding: "5px 10px",
+          border: "1px solid " + (s.scDone ? "#E8604C" : "#DDE3E3"), borderRadius: "999px", background: s.scDone ? "rgba(232,96,76,0.08)" : "transparent" },
+        numStyle: { width: "16px", height: "16px", borderRadius: "50%", border: "1px solid #E8604C", color: "#D24732",
+          fontSize: "10px", display: "inline-flex", alignItems: "center", justifyContent: "center", background: "transparent" },
+        go: function () { self.setState({ scPlaying: false }); self.runFinalAnswer(); } });
+    }
+    var fa = s.fa;
+    var faBody = s.faLoading
+      ? React.createElement("em", { style: { color: "#6B7A7C" } }, "Synthesizing an answer from memory…")
+      : (fa ? React.createElement("div", { dangerouslySetInnerHTML: { __html: this.renderMarkdown(fa.answer || "No answer.") } }) : null);
+    var pipeline = (s.pipeline || []).map(function (p, i) {
+      return { label: p.label, detail: p.detail || "", count: String(p.count != null ? p.count : "—"), unit: p.unit || "",
+        style: { flex: "1 1 0", minWidth: "150px", background: "#FFFFFF", border: "1px solid #DDE3E3", borderRadius: "8px",
+          padding: "12px 14px", display: "flex", flexDirection: "column", gap: "2px",
+          animation: "plIn .42s ease both", animationDelay: (i * 0.12) + "s" } };
+    });
+    var gDots = (this._gSteps || []).map(function (st, i) {
+      var on = i === s.gStep;
+      return { go: function () { clearTimeout(self._gTimer); self._applyGStep(i); },
+        style: { width: "9px", height: "9px", borderRadius: "50%", display: "inline-block", cursor: "pointer",
+          background: on ? "#11454F" : (i < s.gStep ? "#8B9799" : "#DDE3E3") } };
+    });
+    var legendTypes = ["person", "decision", "project", "article", "concept"];
+    var legend = [{ label: "match", dotStyle: { width: "10px", height: "10px", borderRadius: "50%", display: "inline-block", background: "#FFFFFF", border: "2px solid #E8604C", marginLeft: "8px" } }]
+      .concat(legendTypes.map(function (t) {
+        var st = self.tstyle(t);
+        return { label: st.label, dotStyle: { width: "10px", height: "10px", borderRadius: "50%", display: "inline-block", background: st.c, marginLeft: "8px" } };
+      }));
+    var chips = ["How do I set up the VPN?", "How does onboarding work for a new hire?", "How do I get an expense reimbursed?", "What is the incident response runbook?"]
+      .map(function (q) { return { q: q, run: function () { self.exitScenario(); self.exitTender(); self.setState({ queryVal: q }); self.runSearch(q); self._scrollToSearch(); } }; });
+    if (!this.svgRef) this.svgRef = React.createRef();
+
+    var mob = this.isMobile, framed = this.isFramed;
+    function tabStyle(on) {
+      return { flex: "1 1 0", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+        gap: "4px", padding: "7px 2px 7px", background: "transparent", border: "none", cursor: "pointer",
+        borderTop: "2px solid " + (on ? "#11454F" : "transparent"), color: on ? "#11454F" : "#8B9799",
+        fontFamily: "'IBM Plex Mono',monospace", fontSize: "9px", fontWeight: "600", letterSpacing: "0.06em",
+        textTransform: "uppercase", minHeight: "54px", transition: "color 120ms cubic-bezier(0.2,0.7,0.3,1)" };
+    }
+    function segStyle(on) {
+      return { flex: "1 1 0", padding: "8px 10px", fontFamily: "'IBM Plex Sans',sans-serif", fontSize: "13px",
+        fontWeight: "600", cursor: "pointer", background: on ? "#11454F" : "#FFFFFF", color: on ? "#FFFFFF" : "#526264",
+        border: "1px solid " + (on ? "#11454F" : "#AFB9BA"), borderRadius: "8px", margin: "0 4px" };
+    }
+    var reflow = function () { clearTimeout(self._reflowTimer); self._reflowTimer = setTimeout(function () { self._drawGraph(); }, 90); };
+    var goTab = function (t) { return function () {
+      self.setState({ tab: t });
+      var c = self._contentRef && self._contentRef.current; if (c) c.scrollTop = 0;
+      if (t === "graph") reflow();
+    }; };
+    var nCalls = (s.tdCalls || []).length;
+
+    return {
+      desktopVisible: !mob,
+      mobileVisible: mob,
+      framed: framed,
+      stageStyle: framed
+        ? { height: "100vh", overflow: "hidden", boxSizing: "border-box", background: "#131B1C",
+            backgroundImage: "repeating-linear-gradient(0deg,rgba(255,255,255,0.035) 0 1px,transparent 1px 44px),repeating-linear-gradient(90deg,rgba(255,255,255,0.035) 0 1px,transparent 1px 44px)",
+            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", gap: "14px", padding: "20px 20px 0" }
+        : { display: "block" },
+      deviceStyle: framed
+        ? { padding: "12px", background: "#0A0D0D", borderRadius: "60px", boxShadow: "0 24px 70px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(255,255,255,0.08)",
+            flex: "none", transform: "scale(" + Math.min(1, Math.max(0.5, (s.vh - 116) / 898)) + ")", transformOrigin: "center top" }
+        : { display: "block" },
+      screenStyle: framed
+        ? { width: "402px", height: "874px", borderRadius: "48px", overflow: "hidden", background: "#FAFAF8",
+            display: "flex", flexDirection: "column", position: "relative" }
+        : { width: "100%", height: "100dvh", background: "#FAFAF8", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" },
+      contentRef: (this._contentRef = this._contentRef || React.createRef()),
+      enterMobile: function () { self.setState({ forceView: "mobile" }); reflow(); },
+      exitMobile: function () { self.setState({ forceView: "desktop" }); reflow(); },
+      tabSearch: s.tab === "search", tabAgent: s.tab === "agent", tabGraph: s.tab === "graph", tabAbout: s.tab === "about",
+      tSearchStyle: tabStyle(s.tab === "search"), tAgentStyle: tabStyle(s.tab === "agent"),
+      tGraphStyle: tabStyle(s.tab === "graph"), tAboutStyle: tabStyle(s.tab === "about"), tCrmStyle: tabStyle(false),
+      goSearch: goTab("search"), goAgent: goTab("agent"), goGraph: goTab("graph"), goAbout: goTab("about"),
+      goCrm: function () { window.location.href = "CRM Demo.dc.html#app"; },
+      mIdle: !s.searched && !s.searching && !s.faVisible && !s.error,
+      mGraphEmpty: !(s.graph && (s.graph.nodes || []).length),
+      mGraphHint: !!(s.graph && (s.graph.nodes || []).length),
+      tdEmpty: !s.td,
+      startTender: function () { self.startTender(); },
+      agentChatView: s.agentView === "chat", agentMemView: s.agentView === "memory",
+      segChatStyle: segStyle(s.agentView === "chat"), segMemStyle: segStyle(s.agentView === "memory"),
+      agMemCount: nCalls ? (" · " + nCalls) : "",
+      agChat: function () { self.setState({ agentView: "chat" }); },
+      agMem: function () { self.setState({ agentView: "memory" }); },
+      tdNextMobStyle: { display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", height: "46px",
+        width: "100%", fontFamily: "'IBM Plex Sans',sans-serif", fontSize: "15px", fontWeight: "600", borderRadius: "8px",
+        border: "1px solid transparent", cursor: s.td && s.td.busy ? "wait" : "pointer",
+        background: s.td && s.td.busy ? "#8B9799" : "#E8604C", color: "#FFFFFF" },
+      sheetVisible: mob && !!s.overlay,
+      dtOverlayVisible: !mob && !!s.overlay,
+      queryVal: s.queryVal,
+      onQueryInput: function (e) { self.setState({ queryVal: e.target.value }); },
+      onSubmit: function (e) { e.preventDefault(); self.exitScenario(); self.exitTender(); self.runSearch(self.state.queryVal); self._scrollToSearch(); },
+      chips: chips,
+      scenarioCards: this.SCENARIOS.map(function (x, i) {
+        if (i === 0) return { kicker: x.kicker, title: "Bid for the Mekong Commercial Bank identity tender", note: "agent workspace · step-by-step · click to run",
+          run: function () { self.startTender(); } };
+        if (x.kicker === "Personal assistant") return { kicker: x.kicker, title: x.title, note: "agent chat · client card · graph → open the CRM preview",
+          run: function () { window.location.href = "CRM Demo.dc.html"; } };
+        return { kicker: x.kicker, title: x.title, note: x.steps.length + " queries + answer · click to run",
+          run: function () { self.startScenario(i); } };
+      }),
+      scGridVisible: s.scIdx == null && !s.td && !s.searched && !s.searching,
+      tdVisible: !!s.td,
+      tdStepText: s.td ? ("step " + Math.min(s.td.stage, 6) + "/6") : "",
+      tdMsgs: (s.tdMsgs || []).map(function (m) {
+        var chipBase = { fontFamily: "'IBM Plex Mono',monospace", fontSize: "10px", fontWeight: "600", letterSpacing: "0.1em",
+          borderRadius: "4px", padding: "3px 8px", flexShrink: 0, marginTop: "2px" };
+        var chip = m.role === "you" ? "YOU" : (m.role === "agent" ? "AGENT" : "MEMORY");
+        var chipStyle = m.role === "you" ? Object.assign({}, chipBase, { color: "#526264", background: "#F1F4F4" })
+          : m.role === "agent" ? Object.assign({}, chipBase, { color: "#FFFFFF", background: "#11454F" })
+          : Object.assign({}, chipBase, { color: "#0C4347", background: "#D9ECEE" });
+        var statusLine = m.status === "searching" ? "running…"
+          : m.status === "error" ? "temporarily unavailable"
+          : m.status === "done" ? (m.count + " passages · " + self.fmtMs(m.took) + " · see the memory panel →") : "";
+        return { chip: chip, chipStyle: chipStyle, isTool: m.role === "tool", isText: m.role !== "tool", text: m.text, statusLine: statusLine };
+      }),
+      tdCallsEmpty: !!s.td && !(s.tdCalls || []).length,
+      tdCalls: (s.tdCalls || []).map(function (c, i) {
+        return { n: "0" + (i + 1), query: c.query,
+          status: c.loading ? "searching…" : (c.error ? c.error : ((c.results || []).length + " passages · " + self.fmtMs(c.took))),
+          results: (c.results || []).map(function (r) {
+            return { title: r.title, score: r.score != null ? Number(r.score).toFixed(2) : "—", open: function () { self.openSource(r); } };
+          }) };
+      }),
+      tdNext: function () { self.nextTd(); },
+      tdNextVisible: !!s.td && s.td.stage < 6,
+      tdNextLabel: !s.td ? "" : (s.td.busy ? "Searching memory…"
+        : s.td.stage === 1 ? "Agent: propose a plan ▸"
+        : s.td.stage <= 4 ? ("Ask memory (" + (s.td.stage - 1) + "/3) ▸")
+        : "Compose the bid draft ▸"),
+      tdNextStyle: { display: "inline-flex", alignItems: "center", gap: "8px", height: "38px", padding: "0 20px",
+        fontFamily: "'IBM Plex Sans',sans-serif", fontSize: "14px", fontWeight: "600", borderRadius: "8px",
+        border: "1px solid transparent", cursor: s.td && s.td.busy ? "wait" : "pointer",
+        background: s.td && s.td.busy ? "#8B9799" : "#E8604C", color: "#FFFFFF", transition: "background 120ms cubic-bezier(0.2,0.7,0.3,1)" },
+      tdHint: !s.td ? "" : (s.td.stage >= 6 ? "Done — every [n] citation opens the stored original with provenance." : "A step-by-step simulation: you drive the agent, memory answers live."),
+      tdArtifact: !!s.td && s.td.stage >= 6,
+      tdDraft: this.TD.draft.map(function (p) {
+        return { head: p.head, text: p.text, n: String(p.cite + 1), open: function () { self._tdCite(p.cite); } };
+      }),
+      tdRows: this.TD.rows.map(function (row) {
+        return { q: row.q, a: row.a, n: String(row.cite + 1), open: function () { self._tdCite(row.cite); } };
+      }),
+      tdExit: function () { self.exitTender(); },
+      tdChatRef: (this._tdChatRef = this._tdChatRef || React.createRef()),
+      scBarVisible: s.scIdx != null,
+      scKicker: sc ? sc.kicker : "", scTitle: sc ? sc.title : "",
+      scSteps: scSteps,
+      scPlayLabel: s.scPlaying ? "❚❚ Pause" : "▶ Play",
+      scTogglePlay: function () {
+        if (s.scPlaying) { clearTimeout(self._scTimer); self.setState({ scPlaying: false }); }
+        else if (!s.scDone) { self.setState({ scPlaying: true }); self._scheduleNext(); }
+      },
+      scPrev: function () { self.setState({ scPlaying: false }); self.goScenarioStep(s.scStep - 1, false); },
+      scNext: function () { self.setState({ scPlaying: false }); self.goScenarioStep(s.scStep + 1, false); },
+      exitScenario: function () { self.exitScenario(); },
+      faVisible: s.faVisible,
+      faHead: s.faLoading ? "Synthesizing…" : "Answer from your memory",
+      faTook: fa && fa.took_ms != null ? "⚡ " + this.fmtMs(fa.took_ms) : false,
+      faBody: faBody,
+      faHasSources: !!(fa && fa.sources && fa.sources.length),
+      faSources: (fa && fa.sources || []).map(function (src) {
+        var k = src.node_key || src.source_path || "";
+        var t = src.title || k;
+        return { label: t.length > 42 ? t.slice(0, 41) + "…" : t, open: function () { self.openSource({ node_id: k, title: t }); } };
+      }),
+      metaText: s.meta,
+      searching: !!s.searching, notSearching: !s.searching,
+      clearVisible: !!(s.searched && !s.searching && s.scIdx == null && !s.td),
+      clearSearch: function () { self.clearSearch(); },
+      tookLabel: s.tookMs != null ? "⚡ " + this.fmtMs(s.tookMs) : false,
+      pipelineVisible: !!(s.pipeline && s.pipeline.length),
+      pipeline: pipeline,
+      graphVisible: !!(s.graph && (s.graph.nodes || []).length),
+      graphCaption: s.gCaption,
+      gDots: gDots,
+      gPrev: function () { clearTimeout(self._gTimer); self._applyGStep(s.gStep - 1); },
+      gNext: function () { clearTimeout(self._gTimer); self._applyGStep(s.gStep + 1); },
+      gReplay: function () { self._playGraph(); },
+      gZoomIn: function () { if (self._gZoom) self._gZoom(1.35); },
+      gZoomOut: function () { if (self._gZoom) self._gZoom(1 / 1.35); },
+      gFit: function () { if (self._gFit) self._gFit(); },
+      legend: legend,
+      svgRef: this.svgRef,
+      errorText: s.error || false,
+      emptyVisible: !!(s.searched && !s.error && !s.results.length && s.meta && s.meta.indexOf("Searching") !== 0),
+      results: results,
+      overlayVisible: !!s.overlay,
+      ovTitle: s.overlay ? s.overlay.title : "",
+      ovText: s.overlay ? s.overlay.text : "",
+      ovProv: s.overlay ? s.overlay.prov : [],
+      closeOverlay: function () { self.setState({ overlay: null }); },
+      overlayBackdrop: function (e) { if (e.target === e.currentTarget) self.setState({ overlay: null }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

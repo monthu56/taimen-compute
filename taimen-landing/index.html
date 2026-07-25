@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{height:auto!important;min-height:100%}</style>
+<title>Taimen Compute — fine-tuning open AI models for your task</title>
+<meta name="description" content="We fine-tune open LLM and ASR models on your data: a fixed price per project, our own GPU hardware and a quality metric agreed before we start.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0C2F36">
+<link rel="canonical" href="https://taimen.ai/taimen-landing/">
+<link rel="icon" href="/assets/logo/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon-32.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logo/taimen-mark-dark.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taimen Compute">
+<meta property="og:title" content="Taimen Compute — fine-tuning open AI models for your task">
+<meta property="og:description" content="We fine-tune open LLM and ASR models on your data: a fixed price per project, our own GPU hardware and a quality metric agreed before we start.">
+<meta property="og:url" content="https://taimen.ai/taimen-landing/">
+<meta property="og:image" content="https://taimen.ai/assets/og-datacenter.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<script>window.__resources={
+  "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "/vendor/react.production.min.js",
+  "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "/vendor/react-dom.production.min.js"
+};</script>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/taimen-compute-design-system-27a98f89-01a7-49c6-8406-4261d0be7022/tokens/colors.css">
+  <script src="/_ds/taimen-compute-design-system-27a98f89-01a7-49c6-8406-4261d0be7022/_ds_bundle.js"></script>
+  <style>
+    @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url('/assets/fonts/sans-400-600-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+    @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url('/assets/fonts/sans-400-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+2191,U+2193,U+2212}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/mono-400-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/mono-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+2191,U+2193,U+2212}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/assets/fonts/mono-500-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/assets/fonts/mono-500-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+2191,U+2193,U+2212}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('/assets/fonts/mono-600-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+    @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('/assets/fonts/mono-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+2191,U+2193,U+2212}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#FAFAF8;color:#1D2829;font-family:'IBM Plex Sans',-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:#136572;text-decoration:underline;text-decoration-color:rgba(19,101,114,0.4);text-underline-offset:3px;transition:color 120ms cubic-bezier(0.2,0.7,0.3,1)}
+    a:hover{color:#0C4347;text-decoration-color:currentColor}
+    ::selection{background:#B0DADD;color:#131B1C}
+  </style>
+</helmet>
+
+<div style="position:sticky;top:0;z-index:10;background:#FAFAF8;border-bottom:1px solid #DDE3E3">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px">
+    <a href="#top" aria-label="Taimen Compute — top" style="display:inline-flex;align-items:center;gap:12px;text-decoration:none">
+      <img src="/assets/logo/taimen-mark-light-crop.svg" alt="" style="height:36px;width:auto;display:block"></img>
+      <span style="font-size:21px;letter-spacing:-0.01em;white-space:nowrap"><b style="font-weight:600;color:#11454F">taimen</b><span style="font-weight:400;color:#6B7A7C"> compute</span></span>
+    </a>
+    <nav aria-label="Main navigation" style="display:flex;align-items:center;gap:28px">
+      <a href="#services" style="font-size:14px;font-weight:500;text-decoration:none;color:#526264" style-hover="color:#1D2829">What we do</a>
+      <a href="#process" style="font-size:14px;font-weight:500;text-decoration:none;color:#526264" style-hover="color:#1D2829">How it works</a>
+      <a href="#why" style="font-size:14px;font-weight:500;text-decoration:none;color:#526264" style-hover="color:#1D2829">Why us</a>
+      <a href="#demo" style="font-size:14px;font-weight:500;text-decoration:none;color:#526264" style-hover="color:#1D2829">Demo</a>
+      <a href="#faq" style="font-size:14px;font-weight:500;text-decoration:none;color:#526264" style-hover="color:#1D2829">FAQ</a>
+      <a href="#form" style="display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:13px;padding:6px 12px;border-radius:8px;background:#E8604C;color:#FFFFFF;text-decoration:none;transition:background 120ms cubic-bezier(0.2,0.7,0.3,1)" style-hover="background:#D24732">Discuss your task</a>
+    </nav>
+  </div>
+</div>
+
+<div id="top" style="background-color:#0C2F36;background-image:linear-gradient(90deg,#0C2F36 34%,rgba(12,47,54,0.86) 66%,rgba(12,47,54,0.62) 100%),linear-gradient(0deg,rgba(12,47,54,0.45),rgba(12,47,54,0.45)),url('/assets/hero-datacenter.jpeg');background-size:cover,cover,cover;background-position:center,center,right center;padding:clamp(64px,9vw,96px) 0 clamp(56px,8vw,88px)">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#E8604C;margin:0 0 14px">GPU workshop · model fine-tuning</p>
+    <h1 style="margin:0 0 20px;max-width:17ch;font-size:clamp(34px,24px + 2.6vw,58px);font-weight:600;letter-spacing:-0.02em;line-height:1.12;color:#F2F8F8">We fine-tune open AI models for your task</h1>
+    <p style="margin:0 0 36px;max-width:52ch;font-size:18px;line-height:1.55;color:#8FB9BE">From your data to a verified quality metric. A fixed price per project, our own hardware, plain-English communication.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="#form" style="display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:13px 24px;border-radius:8px;background:#E8604C;color:#FFFFFF;text-decoration:none;transition:background 120ms cubic-bezier(0.2,0.7,0.3,1)" style-hover="background:#D24732" style-active="background:#B03A29">Discuss your task
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      </a>
+      <a href="#form" onClick="{{ presetGpu }}" style="display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:13px 24px;border-radius:8px;background:transparent;color:#F2F8F8;border:1px solid rgba(255,255,255,0.18);text-decoration:none" style-hover="background:rgba(255,255,255,0.10)">Request compute</a>
+    </div>
+    <div style="display:flex;gap:12px 28px;flex-wrap:wrap;margin-top:56px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.18)">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8FB9BE">Operating from Vietnam</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8FB9BE">Your data never goes to third parties</span>
+    </div>
+  </div>
+</div>
+
+<div id="services" style="padding:clamp(64px,9vw,96px) 0">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#D24732;margin:0 0 14px">What we do</p>
+    <h2 style="margin:0 0 40px;font-size:clamp(28px,19px + 1.4vw,36px);font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:#1D2829">Three things we do well</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+      <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:28px;transition:box-shadow 200ms cubic-bezier(0.2,0.7,0.3,1),border-color 200ms cubic-bezier(0.2,0.7,0.3,1)" style-hover="border-color:#AFB9BA;box-shadow:0 2px 8px rgba(19,27,28,0.08)">
+        <div style="display:flex;align-items:center;justify-content:space-between;color:#11454F">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path></svg>
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;line-height:1;padding:4px 10px;border-radius:999px;white-space:nowrap;background:#D9ECEE;color:#0C4347">LLM</span>
+        </div>
+        <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.01em;line-height:1.3;margin:16px 0 10px">Language models on your documents</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">We fine-tune open LLMs on your internal data: answers grounded in your policies, ticket classification, field extraction from documents.</p>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:28px;transition:box-shadow 200ms cubic-bezier(0.2,0.7,0.3,1),border-color 200ms cubic-bezier(0.2,0.7,0.3,1)" style-hover="border-color:#AFB9BA;box-shadow:0 2px 8px rgba(19,27,28,0.08)">
+        <div style="display:flex;align-items:center;justify-content:space-between;color:#11454F">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19v3"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><rect x="9" y="2" width="6" height="13" rx="3"></rect></svg>
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;line-height:1;padding:4px 10px;border-radius:999px;white-space:nowrap;background:#D9ECEE;color:#0C4347">ASR</span>
+        </div>
+        <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.01em;line-height:1.3;margin:16px 0 10px">Speech recognition for your domain</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">Whisper-class models tuned to your language, industry vocabulary and real recording quality: call centers, dictation, meeting minutes.</p>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:28px;transition:box-shadow 200ms cubic-bezier(0.2,0.7,0.3,1),border-color 200ms cubic-bezier(0.2,0.7,0.3,1)" style-hover="border-color:#AFB9BA;box-shadow:0 2px 8px rgba(19,27,28,0.08)">
+        <div style="display:flex;align-items:center;justify-content:space-between;color:#11454F">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect><rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect><line x1="6" x2="6.01" y1="6" y2="6"></line><line x1="6" x2="6.01" y1="18" y2="18"></line></svg>
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;line-height:1;padding:4px 10px;border-radius:999px;white-space:nowrap;background:#D9ECEE;color:#0C4347">GPU</span>
+        </div>
+        <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.01em;line-height:1.3;margin:16px 0 10px">GPU compute for rent</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">The workshop's spare capacity, rented directly — no marketplace: for training, fine-tuning and inference, monthly or per run.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="process" style="background:#F1F4F4;border-top:1px solid #DDE3E3;border-bottom:1px solid #DDE3E3;padding:clamp(64px,9vw,96px) 0">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#D24732;margin:0 0 14px">How it works</p>
+    <h2 style="margin:0 0 40px;font-size:clamp(28px,19px + 1.4vw,36px);font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:#1D2829">From your data to a model you own</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+      <div style="border-top:2px solid #11454F;padding-top:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:500;color:#11454F">01</div>
+        <h3 style="font-size:18px;font-weight:600;margin:8px 0">Data</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">We sign a contract, review your data in an isolated environment, agree on a quality metric and fix the price.</p>
+      </div>
+      <div style="border-top:2px solid #11454F;padding-top:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:500;color:#11454F">02</div>
+        <h3 style="font-size:18px;font-weight:600;margin:8px 0">Training</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">Runs on our own hardware. We show intermediate checkpoints — not "please wait for the result".</p>
+      </div>
+      <div style="border-top:2px solid #11454F;padding-top:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:500;color:#11454F">03</div>
+        <h3 style="font-size:18px;font-weight:600;margin:8px 0">Metric</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">We validate the agreed metric on a held-out slice of your data — you accept the work by a number, not by a feeling.</p>
+      </div>
+      <div style="border-top:2px solid #11454F;padding-top:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:500;color:#11454F">04</div>
+        <h3 style="font-size:18px;font-weight:600;margin:8px 0">Handover</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">You get the weights, inference code and a deployment guide. The model stays yours.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="why" style="padding:clamp(64px,9vw,96px) 0">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#D24732;margin:0 0 14px">Why us</p>
+    <h2 style="margin:0 0 40px;font-size:clamp(28px,19px + 1.4vw,36px);font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:#1D2829">A workshop, not a platform</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px 28px">
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#11454F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><rect width="20" height="12" x="2" y="6" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
+        <div>
+          <h3 style="font-size:16px;font-weight:600;margin:0 0 4px">A fixed price per project</h3>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">Not hourly billing: the amount is known before we start and doesn't grow along the way.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#11454F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+        <div>
+          <h3 style="font-size:16px;font-weight:600;margin:0 0 4px">The metric comes first</h3>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">We agree a measurable quality metric up front and the work is accepted against it.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#11454F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+        <div>
+          <h3 style="font-size:16px;font-weight:600;margin:0 0 4px">Your data stays under control</h3>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">An isolated environment and a contract; data never goes to third parties.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#11454F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect></svg>
+        <div>
+          <h3 style="font-size:16px;font-weight:600;margin:0 0 4px">Our own hardware</h3>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">Long runs cost noticeably less than cloud list prices — we don't resell other people's GPUs.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#11454F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"></path></svg>
+        <div>
+          <h3 style="font-size:16px;font-weight:600;margin:0 0 4px">Engineers, not account managers</h3>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#526264">The founder builds and operates ML infrastructure and AI products for enterprise customers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="demo" style="background:#F1F4F4;border-top:1px solid #DDE3E3;border-bottom:1px solid #DDE3E3;padding:clamp(64px,9vw,96px) 0">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#D24732;margin:0 0 14px">Demo</p>
+    <h2 style="margin:0 0 40px;font-size:clamp(28px,19px + 1.4vw,36px);font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:#1D2829">Verifiable company memory — live</h2>
+    <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:280px">
+        <p style="margin:0 0 8px;font-size:16px;line-height:1.55;color:#1D2829;max-width:60ch">Our memory engine for teams and AI agents: ask the demo knowledge base a question — get passages with a score, the query's path through the graph, and an openable source.</p>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#526264;max-width:60ch">A public showcase on synthetic data, no sign-up.</p>
+      </div>
+      <a href="/memory-demo/" style="display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:13px 24px;border-radius:8px;background:#FFFFFF;color:#1D2829;border:1px solid #AFB9BA;text-decoration:none;transition:background 120ms cubic-bezier(0.2,0.7,0.3,1),border-color 120ms cubic-bezier(0.2,0.7,0.3,1)" style-hover="background:#F1F4F4;border-color:#8B9799">Open the demo
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="faq" style="padding:clamp(64px,9vw,96px) 0">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#D24732;margin:0 0 14px">FAQ</p>
+    <h2 style="margin:0 0 40px;font-size:clamp(28px,19px + 1.4vw,36px);font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:#1D2829">Frequent questions</h2>
+    <div style="max-width:760px;border-top:1px solid #DDE3E3">
+      <sc-for list="{{ faqItems }}" as="fq" hint-placeholder-count="5">
+        <div style="border-bottom:1px solid #DDE3E3">
+          <div onClick="{{ fq.toggle }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;cursor:pointer;font-size:18px;font-weight:500;color:#1D2829">
+            {{ fq.q }}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B7A7C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="{{ fq.chevStyle }}"><path d="m6 9 6 6 6-6"></path></svg>
+          </div>
+          <sc-if value="{{ fq.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 0 18px;font-size:16px;line-height:1.55;color:#526264;max-width:64ch">{{ fq.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<div id="form" style="background:#0C2F36;padding:clamp(64px,9vw,96px) 0">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px">
+    <div style="display:flex;flex-direction:column">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#E8604C;margin:0 0 14px">Contact</p>
+      <h2 style="margin:0 0 16px;font-size:clamp(28px,19px + 1.4vw,36px);font-weight:600;letter-spacing:-0.01em;line-height:1.25;color:#F2F8F8">Shall we discuss your task?</h2>
+      <p style="margin:0;font-size:16px;line-height:1.55;color:#8FB9BE;max-width:40ch">Describe your task in two or three lines — we'll come back with questions and an estimate on price and timeline. If you need compute for rent, pick that in the form.</p>
+      <img src="/assets/logo/taimen-lockup-v-dark-ondark.svg" alt="Taimen Compute" loading="lazy" style="margin-top:auto;padding-top:24px;height:260px;width:auto"></img>
+    </div>
+    <div style="background:#FFFFFF;border:1px solid #DDE3E3;border-radius:8px;padding:32px">
+      <sc-if value="{{ formSent }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;padding:8px 0">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#25784A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin:0 auto;display:block"><path d="M20 6 9 17l-5-5"></path></svg>
+          <h3 style="font-size:22px;font-weight:600;margin:14px 0 8px">Your email is ready</h3>
+          <p style="font-size:14px;color:#526264;max-width:42ch;margin:0 auto 20px;line-height:1.55">We opened your mail client with the request pre-filled — just hit send. We'll reply to the contact you gave, no calls, no mailing lists.</p>
+          <button type="button" onClick="{{ formAgain }}" style="display:inline-flex;align-items:center;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:14px;padding:10px 18px;border-radius:8px;background:#FFFFFF;color:#1D2829;border:1px solid #AFB9BA;cursor:pointer" style-hover="background:#F1F4F4">Fill in again</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ formVisible }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ onFormSubmit }}" style="display:grid;grid-template-columns:1fr 1fr;gap:18px 20px">
+          <label style="display:block;text-align:left">
+            <span style="display:block;font-size:14px;font-weight:500;color:#1D2829;margin-bottom:6px">Name</span>
+            <input type="text" value="{{ fName }}" onChange="{{ onName }}" placeholder="What should we call you" autoComplete="name" style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.4;color:#1D2829;background:#FFFFFF;padding:10px 12px;border:1px solid #AFB9BA;border-radius:8px;width:100%;outline:none;box-sizing:border-box" style-focus="border-color:#1C8891;box-shadow:0 0 0 3px rgba(28,136,145,0.30)"></input>
+          </label>
+          <label style="display:block;text-align:left">
+            <span style="display:block;font-size:14px;font-weight:500;color:#1D2829;margin-bottom:6px">How to reach you <span style="color:#E8604C">*</span></span>
+            <input type="text" value="{{ fContact }}" onChange="{{ onContact }}" placeholder="@username or email" style="{{ contactStyle }}" style-focus="border-color:#1C8891;box-shadow:0 0 0 3px rgba(28,136,145,0.30)"></input>
+            <span style="{{ contactHintStyle }}">Telegram, email, WhatsApp — whatever works</span>
+            <span style="{{ contactErrStyle }}">Leave a contact — otherwise we can't reply</span>
+          </label>
+          <label style="display:block;text-align:left;grid-column:1 / -1">
+            <span style="display:block;font-size:14px;font-weight:500;color:#1D2829;margin-bottom:6px">What you need</span>
+            <span style="position:relative;display:block">
+              <select value="{{ fTopic }}" onChange="{{ onTopic }}" style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.4;color:#1D2829;background:#FFFFFF;padding:10px 36px 10px 12px;border:1px solid #AFB9BA;border-radius:8px;width:100%;outline:none;box-sizing:border-box;appearance:none;-webkit-appearance:none;cursor:pointer" style-focus="border-color:#1C8891;box-shadow:0 0 0 3px rgba(28,136,145,0.30)">
+                <option value="ft">Model fine-tuning (LLM, classifier)</option>
+                <option value="asr">Speech recognition (ASR)</option>
+                <option value="gpu">GPU compute rental</option>
+                <option value="memory">Company memory (pilot)</option>
+              </select>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B7A7C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none"><path d="m6 9 6 6 6-6"></path></svg>
+            </span>
+          </label>
+          <label style="display:block;text-align:left;grid-column:1 / -1">
+            <span style="display:block;font-size:14px;font-weight:500;color:#1D2829;margin-bottom:6px">About the task</span>
+            <textarea value="{{ fAbout }}" onChange="{{ onAbout }}" rows="3" placeholder="e.g. 200 hours of call-center audio; we need transcripts with industry terms" style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:#1D2829;background:#FFFFFF;padding:10px 12px;border:1px solid #AFB9BA;border-radius:8px;width:100%;outline:none;box-sizing:border-box;resize:vertical;min-height:80px;line-height:1.5" style-focus="border-color:#1C8891;box-shadow:0 0 0 3px rgba(28,136,145,0.30)"></textarea>
+            <span style="display:block;font-size:13px;color:#6B7A7C;margin-top:6px">2–3 lines is enough: what data you have and what the model should do</span>
+          </label>
+          <div style="grid-column:1 / -1;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+            <button type="submit" style="display:inline-flex;align-items:center;gap:10px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:16px;padding:13px 24px;border-radius:8px;background:#E8604C;color:#FFFFFF;border:1px solid transparent;cursor:pointer;transition:background 120ms cubic-bezier(0.2,0.7,0.3,1)" style-hover="background:#D24732" style-active="background:#B03A29">Send
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </button>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6B7A7C">No phone, no calls — we just reply to your contact</span>
+          </div>
+        </form>
+      </sc-if>
+    </div>
+  </div>
+</div>
+
+<div style="background:#FAFAF8;border-top:1px solid #DDE3E3;padding:28px 0">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#526264">taimen_compute</span>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6B7A7C">Operating from Vietnam</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6B7A7C">© 2026 Taimen Compute</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { faqOpen: 0, fName: "", fContact: "", fAbout: "", fTopic: "ft", invalid: false, sent: false };
+  FAQ = [
+    { q: "Where does our data go?", a: "Nowhere: training runs in an isolated environment on our own hardware, your data is never passed to third parties and never used for other projects. The terms are fixed in the contract." },
+    { q: "How much does it cost?", a: "The price is fixed per project and known before we start — once we've seen the task and the data. It is noticeably cheaper than keeping your own ML team and hardware." },
+    { q: "How long does it take?", a: "It depends on the data and the target metric: a typical fine-tune takes weeks, not months. We give a timeline estimate together with the price after the first conversation." },
+    { q: "How do payments and contracts work?", a: "We work with customers across Southeast Asia and beyond; invoicing and contract format are arranged to fit your jurisdiction." },
+    { q: "What do we get at the end?", a: "The model weights, inference code, a deployment guide, and the result on the agreed metric measured on a held-out slice. The model stays yours." }
+  ];
+  TOPIC_LABELS = { ft: "Model fine-tuning (LLM, classifier)", asr: "Speech recognition (ASR)", gpu: "GPU compute rental", memory: "Company memory (pilot)" };
+  renderVals() {
+    var self = this, s = this.state;
+    var contactBorder = s.invalid ? "#C03B28" : "#AFB9BA";
+    return {
+      presetGpu: function () { self.setState({ fTopic: "gpu" }); },
+      faqItems: this.FAQ.map(function (f, i) {
+        var open = s.faqOpen === i;
+        return { q: f.q, a: f.a, open: open,
+          chevStyle: { flex: "none", transition: "transform 200ms cubic-bezier(0.2,0.7,0.3,1)", transform: open ? "rotate(180deg)" : "none" },
+          toggle: function () { self.setState({ faqOpen: open ? -1 : i }); } };
+      }),
+      formSent: s.sent, formVisible: !s.sent,
+      fName: s.fName, fContact: s.fContact, fAbout: s.fAbout, fTopic: s.fTopic,
+      onName: function (e) { self.setState({ fName: e.target.value }); },
+      onContact: function (e) { self.setState({ fContact: e.target.value, invalid: false }); },
+      onAbout: function (e) { self.setState({ fAbout: e.target.value }); },
+      onTopic: function (e) { self.setState({ fTopic: e.target.value }); },
+      contactStyle: { fontFamily: "'IBM Plex Sans',sans-serif", fontSize: "14px", lineHeight: "1.4", color: "#1D2829",
+        background: "#FFFFFF", padding: "10px 12px", border: "1px solid " + contactBorder, borderRadius: "8px",
+        width: "100%", outline: "none", boxSizing: "border-box" },
+      contactHintStyle: { display: s.invalid ? "none" : "block", fontSize: "13px", color: "#6B7A7C", marginTop: "6px" },
+      contactErrStyle: { display: s.invalid ? "block" : "none", fontSize: "13px", color: "#C03B28", marginTop: "6px" },
+      onFormSubmit: function (e) {
+        e.preventDefault();
+        if (!s.fContact.trim()) { self.setState({ invalid: true }); return; }
+        var subject = "Request from taimen.ai: " + (self.TOPIC_LABELS[s.fTopic] || "");
+        var body = "Name: " + (s.fName || "—") + "\n" +
+          "Contact: " + s.fContact + "\n" +
+          "What's needed: " + (self.TOPIC_LABELS[s.fTopic] || "") + "\n" +
+          "About the task: " + (s.fAbout || "—") + "\n\n— sent from the taimen.ai landing";
+        window.location.href = "mailto:hello@taimen.ai?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        self.setState({ sent: true });
+      },
+      formAgain: function () { self.setState({ sent: false, fName: "", fContact: "", fAbout: "", fTopic: "ft", invalid: false }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
