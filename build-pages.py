@@ -30,10 +30,17 @@ RUNTIME_HEAD = f"""<script>window.__resources={{
 }};</script>
 <script src="/support.js"></script>"""
 
+# Лендинги свёрстаны только под десктоп: навигация из шапки распирает документ на
+# телефоне, а списки «подпись + описание» не сжимаются. mobile-nav.js прячет шапочную
+# навигацию за бургер и кладёт такие списки в одну колонку. Демо-страницам он не нужен —
+# у них есть собственный мобильный режим-приложение, сделанный в Design.
+MOBILE_NAV = '<script src="/mobile-nav.js" defer></script>'
+
 PAGES = [
     {
         "src": "Taimen Landing.dc.html",
         "slug": "taimen-landing",
+        "mobile_nav": True,
         "title": "Taimen Compute — fine-tuning open AI models for your task",
         "description": (
             "We fine-tune open LLM and ASR models on your data: a fixed price per "
@@ -41,8 +48,9 @@ PAGES = [
         ),
     },
     {
-        "src": "Memory Landing.dc.html",
+        "src": "Memory Landing v3.dc.html",
         "slug": "memory-landing",
+        "mobile_nav": True,
         "title": "Taimen Memory — company memory you can verify",
         "description": (
             "A knowledge graph and search over your company's documents: people, "
@@ -69,12 +77,17 @@ PAGES = [
     },
 ]
 
-# Кросс-ссылки между страницами: имя файла в Design → путь на сайте.
+# Кросс-ссылки между страницами: имя файла в Design → путь на сайте. Прежние версии
+# лендинга памяти остаются в проекте Design, и соседние страницы ссылаются на них по
+# старым именам — ведём их на тот же адрес, чтобы ссылки не оборвались.
 LINKS = {p["src"]: "/" + p["slug"] + "/" for p in PAGES}
+LINKS["Memory Landing.dc.html"] = "/memory-landing/"
+LINKS["Memory Landing v2.dc.html"] = "/memory-landing/"
 
 # Всё, что страница подгружает: атрибуты src/href и CSS-url().
 REF_RE = re.compile(r"""(?:src|href)\s*=\s*["']([^"']+)["']|url\(\s*['"]?([^)'"]+)""")
-ABSOLUTE_RE = re.compile(r"^(?:/|#|https?:|mailto:|tel:|data:)")
+# Шаблонные подстановки `{{ … }}` рантайм заполняет сам — проверять их как пути нельзя.
+ABSOLUTE_RE = re.compile(r"^(?:/|#|https?:|mailto:|tel:|data:|\{\{)")
 
 
 # dc-runtime добавляет для отдельной страницы `html,body{height:100%}` (FULL_PAGE_CSS
@@ -145,7 +158,10 @@ def build(page):
     html = html.replace("<html>", '<html lang="en">', 1)
 
     # Рантайм: локальные React/ReactDOM вместо unpkg, support.js из корня сайта.
-    html = html.replace('<script src="./support.js"></script>', RUNTIME_HEAD, 1)
+    runtime = RUNTIME_HEAD
+    if page.get("mobile_nav"):
+        runtime += "\n" + MOBILE_NAV
+    html = html.replace('<script src="./support.js"></script>', runtime, 1)
 
     # Метатеги в сам <head>, а не в <helmet>: они должны быть в HTML до того, как
     # отработает JS, иначе краулеры и превью ссылок их не увидят.
