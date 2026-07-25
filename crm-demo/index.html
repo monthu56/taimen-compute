@@ -538,7 +538,7 @@ class Component extends DCLogic {
       { id: "deal", label: "ASR fine-tune deal", type: "project", x: 232, y: 316, r: 8 },
       { id: "doc-handoff", label: "Handoff runbook", type: "article", x: 322, y: 356, r: 7 },
       { id: "doc-crm", label: "CRM standards", type: "article", x: 96, y: 356, r: 7 },
-      { id: "doc-golive", label: "Go-live guide", type: "article", x: 388, y: 300, r: 7 },
+      { id: "doc-golive", label: "Go-live guide", type: "article", x: 388, y: 300, r: 7, below: true },
       { id: "concept-golive", label: "go-live", type: "concept", x: 316, y: 168, r: 5 },
       { id: "concept-onb", label: "onboarding", type: "concept", x: 176, y: 120, r: 5 }
     ],
@@ -612,8 +612,12 @@ class Component extends DCLogic {
       c.style.transition = "stroke .3s ease"; c.setAttribute("stroke", "transparent"); c.setAttribute("stroke-width", "3");
       g.appendChild(c);
       var tx = document.createElementNS(NS, "text");
-      tx.setAttribute("x", nd.x); tx.setAttribute("y", nd.y - nd.r - 6); tx.setAttribute("text-anchor", "middle");
-      tx.setAttribute("style", "font:" + (nd.id === "client" ? "600 11px" : "10px") + " 'IBM Plex Mono',monospace;fill:#526264;pointer-events:none");
+      var mobG = self.isMobile;
+      // labels near a canvas edge lay inward so nothing is clipped
+      var edge = mobG ? 100 : 62;
+      var anchor = nd.x > W - edge ? "end" : (nd.x < edge ? "start" : "middle");
+      tx.setAttribute("x", nd.x); tx.setAttribute("y", nd.below ? nd.y + nd.r + (mobG ? 17 : 13) : nd.y - nd.r - 6); tx.setAttribute("text-anchor", anchor);
+      tx.setAttribute("style", "font:" + (nd.id === "client" ? (mobG ? "600 17px" : "600 11px") : (mobG ? "15px" : "10px")) + " 'IBM Plex Mono',monospace;fill:#526264;pointer-events:none");
       tx.textContent = nd.label;
       g.appendChild(tx);
       if (docSrc[nd.id]) {
