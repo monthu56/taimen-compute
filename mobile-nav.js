@@ -22,17 +22,18 @@
 
   var CSS =
     "@media (max-width:" + BREAKPOINT + "px){" +
-    "  nav[data-tmn-source]{display:none!important}" +
+    // Десктопную навигацию убираем сразу — атрибут на <html> ставится до первого
+    // рендера, иначе на телефоне на мгновение видна строка ссылок шириной пол-экрана.
+    // Если меню по какой-то причине не собралось, атрибут снимается и ссылки возвращаются.
+    "  html[data-tmn-mnav] nav:not([aria-label='Mobile navigation']){display:none!important}" +
     "  .tmn-mnav-toggle{display:inline-flex!important}" +
     // Внутренняя строка шапки жёстко задаёт высоту 56-72px: на узких экранах
     // содержимое в неё не влезает и наезжает друг на друга.
     "  .tmn-mnav-header>div{height:auto!important;min-height:52px;flex-wrap:wrap;row-gap:6px;" +
     "    padding-top:8px!important;padding-bottom:8px!important}" +
-    // Списки «подпись + описание»: узкая фиксированная колонка плюс неразрывные
-    // технические строки распирают страницу — на телефоне кладём их в одну колонку.
-    "  [style*='minmax(148px'],[style*='minmax(150px'],[style*='minmax(160px']," +
-    "  [style*='minmax(180px'],[style*='minmax(200px']{" +
-    "    grid-template-columns:1fr!important;gap:6px!important}" +
+    // Сетки, которые на телефоне не имеют смысла в несколько колонок, помечает
+    // stackNarrowGrids() — по факту замера, а не по совпадению строки в style.
+    "  [data-tmn-stack]{grid-template-columns:1fr!important}" +
     "  [style*='display: grid']>*,[style*='display:grid']>*{min-width:0}" +
     "  body{overflow-wrap:break-word}" +
     "}" +
@@ -71,6 +72,14 @@
     el.id = STYLE_ID;
     el.textContent = CSS;
     document.head.appendChild(el);
+    // Прячем шапочную навигацию с первого кадра, а не после того, как рантайм
+    // отрисует страницу: иначе на телефоне мелькает строка ссылок шириной пол-экрана.
+    document.documentElement.setAttribute("data-tmn-mnav", "");
+    // Страховка: если через 4 секунды бургер так и не собрался (не нашлась навигация
+    // или упал рантайм), возвращаем ссылки — остаться совсем без навигации хуже.
+    setTimeout(function () {
+      if (!toggle) document.documentElement.removeAttribute("data-tmn-mnav");
+    }, 4000);
   }
 
   // Шапка страницы — sticky-контейнер в отрендеренном дереве. Нужна и для позиции
@@ -202,38 +211,53 @@
     panel.appendChild(inner);
   }
 
-  // Сетки страницы заданы как repeat(auto-fit, minmax(<min>px, 1fr)). Если <min> шире
-  // экрана, auto-fit не сжимает колонку ниже минимума и распирает документ — на глаз
-  // это выглядит как контент, уехавший за правый край. Набор минимумов у каждой
-  // страницы свой и меняется при импорте из Design, поэтому собираем его из разметки
-  // и правим только те, что действительно не влезают.
-  var gridStyleEl = null;
+  // Сетки лендингов заданы по-разному: repeat(auto-fit, minmax(<min>px, 1fr)),
+  // фиксированный набор дорожек вроде «200px 200px 280px» или просто «1fr 1fr» у
+  // формы контактов. Совпадением строки в атрибуте style все три не поймать, поэтому
+  // решаем по замеру: сколько колонок фактически получилось, какая из них самая узкая
+  // и не шире ли сетка своего контейнера. Помеченные элементы CSS кладёт в одну колонку.
+  var MIN_COLUMN = 170; // уже этого на телефоне колонка нечитаема — лучше одна
 
-  function syncGrids() {
-    var avail = window.innerWidth - 48; // контейнеры лендингов держат отступ 24px по краям
-    var mins = {};
-    var nodes = document.querySelectorAll("[style*='minmax(']");
+  function stackNarrowGrids() {
+    var nodes = document.querySelectorAll("[style*='grid-template-columns']");
+    var wide = window.innerWidth > BREAKPOINT;
     for (var i = 0; i < nodes.length; i++) {
-      var attr = nodes[i].getAttribute("style") || "";
-      var found = attr.match(/minmax\((\d+)px/g) || [];
-      for (var j = 0; j < found.length; j++) {
-        var min = parseInt(found[j].replace(/\D/g, ""), 10);
-        if (min > avail) mins[min] = true;
+      var el = nodes[i];
+      if (el.closest("x-dc") || el.closest(".tmn-mnav-panel")) continue;
+      if (wide) {
+        el.removeAttribute("data-tmn-stack");
+        continue;
+      }
+      if (el.hasAttribute("data-tmn-stack")) continue;
+
+      var tracks = getComputedStyle(el).gridTemplateColumns.split(/\s+/)
+        .map(function (t) { return parseFloat(t); })
+        .filter(function (n) { return !isNaN(n); });
+      if (!tracks.length) continue;
+
+      // Одна дорожка — это уже одна колонка, но у auto-fit с большим минимумом она
+      // сама шире экрана и тянет за собой всё содержимое, поэтому такие тоже правим.
+      var narrowest = tracks.length > 1 ? Math.min.apply(null, tracks) : Infinity;
+      var width = el.getBoundingClientRect().width;
+      var parent = el.parentElement;
+      // Сравнивать только с родителем нельзя: у сетки repeat(auto-fit, minmax(400px, 1fr))
+      // родитель сам растягивается до 400px, и «шире родителя» не срабатывает, хотя обоим
+      // тесно на экране. Поэтому мерим ещё и по окну — с запасом на отступы контейнеров.
+      var overflows =
+        width > window.innerWidth - 32 ||
+        (parent && width > parent.clientWidth + 1);
+
+      // Главный признак: дорожки шире самого контейнера. Так ведёт себя
+      // repeat(auto-fit, minmax(400px, 1fr)) в узкой колонке — контейнер остаётся
+      // 342px, дорожка получает 400px, и всё содержимое уезжает за край.
+      var gap = parseFloat(getComputedStyle(el).columnGap) || 0;
+      var needed = tracks.reduce(function (a, b) { return a + b; }, 0) + gap * (tracks.length - 1);
+      var tracksOverflow = needed > el.clientWidth + 1;
+
+      if (overflows || tracksOverflow || narrowest < MIN_COLUMN) {
+        el.setAttribute("data-tmn-stack", "");
       }
     }
-    var selectors = Object.keys(mins).map(function (min) {
-      return "[style*='minmax(" + min + "px']";
-    });
-    var css = selectors.length
-      ? selectors.join(",") + "{grid-template-columns:1fr!important}"
-      : "";
-
-    if (!gridStyleEl) {
-      gridStyleEl = document.createElement("style");
-      gridStyleEl.id = "tmn-mnav-grids";
-      document.head.appendChild(gridStyleEl);
-    }
-    if (gridStyleEl.textContent !== css) gridStyleEl.textContent = css;
   }
 
   function sync() {
@@ -242,7 +266,7 @@
     if (header) header.classList.add("tmn-mnav-header");
     var nav = findNav();
     if (nav) build(nav, header);
-    syncGrids();
+    stackNarrowGrids();
   }
 
   // Страница перерисовывается рантаймом; пересобираем меню не чаще раза в 200 мс,
@@ -262,7 +286,7 @@
     new MutationObserver(syncSoon).observe(document.body, { childList: true, subtree: true });
     window.addEventListener("resize", function () {
       if (window.innerWidth > BREAKPOINT) setOpen(false);
-      syncGrids();
+      stackNarrowGrids();
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") setOpen(false);

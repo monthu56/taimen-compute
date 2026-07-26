@@ -80,9 +80,9 @@ PAGES = [
         "slug": "operator-copilot",
         "title": "Taimen Memory — operator copilot preview",
         "description": (
-            "A scripted contact-centre workstation: the copilot follows the live "
-            "transcript, locks the intent before the caller finishes and suggests "
-            "wording with the source behind every claim."
+            "An agent workstation on a scripted support call: the copilot follows the "
+            "live transcript, locks the intent before the caller finishes the sentence "
+            "and puts a grounded prompt card in front of the operator."
         ),
     },
 ]
@@ -196,6 +196,7 @@ def build(page):
     html = html.replace("url('assets/", "url('/assets/")
     html = html.replace('src="assets/', 'src="/assets/')
     html = html.replace('fetch("data/corpus.json"', 'fetch("/data/corpus.json"')
+    html = html.replace("fetch('data/corpus.json'", "fetch('/data/corpus.json'")
 
     # Кросс-ссылки встречаются и как href, и внутри логики (window.location.href),
     # причём с якорем или строкой запроса («CRM Demo.dc.html#app»), поэтому заменяем
@@ -220,6 +221,11 @@ def build(page):
         sys.exit(f"build-pages: {page['src']} — остались относительные пути: {leftovers}")
     if ".dc.html" in html:
         sys.exit(f"build-pages: {page['src']} — осталась ссылка на .dc.html")
+    # Пути внутри JS-строк (fetch, location.href) в атрибуты не попадают, поэтому
+    # проверяем их отдельно: относительный путь сломается на странице в подкаталоге.
+    for asset in ('"data/corpus.json"', "'data/corpus.json'", '"assets/', "'assets/"):
+        if asset in html:
+            sys.exit(f"build-pages: {page['src']} — остался относительный путь {asset}")
 
     out_dir = ROOT / page["slug"]
     out_dir.mkdir(exist_ok=True)
