@@ -75,6 +75,16 @@ PAGES = [
             "memory and drafts a next-steps plan for a human to review."
         ),
     },
+    {
+        "src": "Operator Copilot.dc.html",
+        "slug": "operator-copilot",
+        "title": "Taimen Memory — operator copilot preview",
+        "description": (
+            "A scripted contact-centre workstation: the copilot follows the live "
+            "transcript, locks the intent before the caller finishes and suggests "
+            "wording with the source behind every claim."
+        ),
+    },
 ]
 
 # Кросс-ссылки между страницами: имя файла в Design → путь на сайте. Прежние версии

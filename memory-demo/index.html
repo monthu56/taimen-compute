@@ -68,6 +68,7 @@
       <a href="#cases" style="font-size:14px;font-weight:500;text-decoration:none;color:#8FB9BE" style-hover="color:#F2F8F8">Use cases</a>
       <a href="#pilot" style="font-size:14px;font-weight:500;text-decoration:none;color:#8FB9BE" style-hover="color:#F2F8F8">Pilot</a>
       <a href="/crm-demo/" style="font-size:14px;font-weight:500;text-decoration:none;color:#8FB9BE" style-hover="color:#F2F8F8">CRM preview</a>
+      <a href="/operator-copilot/" style="font-size:14px;font-weight:500;text-decoration:none;color:#8FB9BE" style-hover="color:#F2F8F8">Operator copilot</a>
       <button type="button" onClick="{{ enterMobile }}" title="Open the mobile app view" style="display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.25);color:#B0DADD;background:transparent;cursor:pointer" style-hover="color:#F2F8F8;border-color:#F2F8F8">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>APP
       </button>
@@ -771,6 +772,10 @@
         <button type="button" onClick="{{ goAbout }}" style="{{ tAboutStyle }}">
           <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
           <span>About</span>
+        </button>
+        <button type="button" onClick="{{ goCalls }}" style="{{ tCallsStyle }}">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2a9 9 0 0 1 9 9"></path><path d="M13 6a5 5 0 0 1 5 5"></path><path d="M11.7 15.3a13 13 0 0 1-3-3l1.5-1.6a1.6 1.6 0 0 0 .3-1.8L9.2 5.6A1.6 1.6 0 0 0 7.6 4.7l-2.9.5A1.6 1.6 0 0 0 3.4 7a16.7 16.7 0 0 0 13.6 13.6 1.6 1.6 0 0 0 1.8-1.3l.5-2.9a1.6 1.6 0 0 0-.9-1.6l-3.3-1.3a1.6 1.6 0 0 0-1.8.3Z"></path></svg>
+          <span>Calls</span>
         </button>
       </div>
 
@@ -1712,6 +1717,8 @@ class Component extends DCLogic {
       tGraphStyle: tabStyle(s.tab === "graph"), tAboutStyle: tabStyle(s.tab === "about"), tCrmStyle: tabStyle(false),
       goSearch: goTab("search"), goAgent: goTab("agent"), goGraph: goTab("graph"), goAbout: goTab("about"),
       goCrm: function () { window.location.href = "/crm-demo/#app"; },
+      tCallsStyle: tabStyle(false),
+      goCalls: function () { window.location.href = "/operator-copilot/#app"; },
       mIdle: !s.searched && !s.searching && !s.faVisible && !s.error,
       mGraphEmpty: !(s.graph && (s.graph.nodes || []).length),
       mGraphHint: !!(s.graph && (s.graph.nodes || []).length),
