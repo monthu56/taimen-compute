@@ -38,9 +38,12 @@ MOBILE_NAV = '<script src="/mobile-nav.js" defer></script>'
 
 PAGES = [
     {
+        # Главная страница домена: английский лендинг компании. Русская версия живёт
+        # на /ru/ и собирается отдельно (build_ru).
         "src": "Taimen Landing.dc.html",
-        "slug": "taimen-landing",
+        "slug": "",
         "mobile_nav": True,
+        "robots": "index, follow, max-image-preview:large",
         "title": "Taimen Compute — fine-tuning open AI models for your task",
         "description": (
             "We fine-tune open LLM and ASR models on your data: a fixed price per "
@@ -92,6 +95,7 @@ PAGES = [
 # старым именам — ведём их на тот же адрес, чтобы ссылки не оборвались.
 LINKS = {p["src"]: "/" + p["slug"] + "/" for p in PAGES}
 LINKS["Memory Landing.dc.html"] = "/memory-landing/"
+LINKS["Taimen Landing.dc.html"] = "/"
 LINKS["Memory Landing v2.dc.html"] = "/memory-landing/"
 
 # Всё, что страница подгружает: атрибуты src/href и CSS-url().
@@ -106,12 +110,26 @@ ABSOLUTE_RE = re.compile(r"^(?:/|#|https?:|mailto:|tel:|data:|\{\{)")
 PAGE_CSS = """<style>html,body{height:auto!important;min-height:100%}</style>"""
 
 
+# Английская главная и русская версия — языковые альтернативы друг друга. Без этой
+# связки поисковик считает их дублями и выбирает канонической одну на свой вкус.
+HREFLANG = """<link rel="alternate" hreflang="en" href="https://taimen.ai/">
+<link rel="alternate" hreflang="ru" href="https://taimen.ai/ru/">
+<link rel="alternate" hreflang="x-default" href="https://taimen.ai/">"""
+
+
+def page_url(slug):
+    return "https://taimen.ai/" + (f"{slug}/" if slug else "")
+
+
 def meta_head(page):
-    url = f"https://taimen.ai/{page['slug']}/"
+    url = page_url(page["slug"])
+    # Индексируется только главная: остальные английские страницы ждут приёмки.
+    robots = page.get("robots", "noindex, nofollow")
+    alternates = "\n" + HREFLANG if page["slug"] == "" else ""
     return f"""{PAGE_CSS}
 <title>{page['title']}</title>
 <meta name="description" content="{page['description']}">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="{robots}">{alternates}
 <meta name="theme-color" content="#0C2F36">
 <link rel="canonical" href="{url}">
 <link rel="icon" href="/assets/logo/favicon.ico" sizes="32x32">
@@ -227,15 +245,62 @@ def build(page):
         if asset in html:
             sys.exit(f"build-pages: {page['src']} — остался относительный путь {asset}")
 
-    out_dir = ROOT / page["slug"]
+    if page["slug"]:
+        out_dir = ROOT / page["slug"]
+        out_dir.mkdir(exist_ok=True)
+        out = out_dir / "index.html"
+    else:
+        out = ROOT / "index.html"
+    out.write_text(html, encoding="utf-8")
+    return out
+
+
+# Русский лендинг собран раньше вручную, не в Design, и лежал в корне сайта. Теперь
+# корень занял английская версия, поэтому русская переезжает на /ru/: относительные
+# пути к ассетам становятся абсолютными, а собственный адрес и языковые альтернативы
+# проставляются заново.
+RU_SRC = ROOT / "src" / "ru" / "index.html"
+
+
+def build_ru():
+    if not RU_SRC.is_file():
+        sys.exit(f"build-pages: нет русского лендинга {RU_SRC}")
+    html = RU_SRC.read_text(encoding="utf-8")
+
+    html = html.replace('href="assets/', 'href="/assets/')
+    html = html.replace('src="assets/', 'src="/assets/')
+    html = html.replace("url('assets/", "url('/assets/")
+    html = html.replace("url(assets/", "url(/assets/")
+
+    html = html.replace(
+        '<link rel="canonical" href="https://taimen.ai/"/>',
+        '<link rel="canonical" href="https://taimen.ai/ru/"/>\n' + HREFLANG,
+        1,
+    )
+    html = html.replace(
+        '<meta property="og:url" content="https://taimen.ai/"/>',
+        '<meta property="og:url" content="https://taimen.ai/ru/"/>',
+        1,
+    )
+
+    refs = (m.group(1) or m.group(2) for m in REF_RE.finditer(html))
+    leftovers = sorted({r for r in refs if not ABSOLUTE_RE.match(r.strip())})
+    if leftovers:
+        sys.exit(f"build-pages: русский лендинг — остались относительные пути: {leftovers}")
+    if 'canonical" href="https://taimen.ai/ru/"' not in html:
+        sys.exit("build-pages: русский лендинг — не удалось переставить canonical")
+
+    out_dir = ROOT / "ru"
     out_dir.mkdir(exist_ok=True)
-    (out_dir / "index.html").write_text(html, encoding="utf-8")
-    return out_dir / "index.html"
+    out = out_dir / "index.html"
+    out.write_text(html, encoding="utf-8")
+    return out
 
 
 def main():
     if not SRC.is_dir():
         sys.exit(f"build-pages: нет каталога с исходниками {SRC}")
+    print(f"{'ru/index.html (русский лендинг)':<30} → {build_ru().relative_to(ROOT)}")
     for page in PAGES:
         out = build(page)
         print(f"{page['src']:<26} → {out.relative_to(ROOT)}")

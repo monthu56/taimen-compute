@@ -1,0 +1,598 @@
+<!doctype html>
+<!-- build:taimen-landing-v1 · сгенерировано skill new-landing по брифу лендинг-бриф-2026-07-14.md -->
+<!-- Дизайн-источник: claude.ai/design «Taimen Compute Design System», ui_kits/landing (направление «Чернильный teal»). -->
+<!-- Бренд «Taimen Compute» — рабочее название (Q-080): при смене — поиск/замена «Taimen Compute», «taimen», «taimen.ai». -->
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Taimen Compute — дообучение AI-моделей под ключ</title>
+<meta name="description" content="Дообучение открытых AI-моделей под задачу: LLM под документы, ASR под ваш домен, аренда GPU. Фиксированная цена, метрика качества до старта."/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="theme-color" content="#0C2F36"/>
+<link rel="icon" href="/assets/logo/favicon.ico" sizes="32x32"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon-16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon-32.png"/>
+<link rel="icon" type="image/svg+xml" href="/assets/logo/taimen-mark-dark.svg"/>
+<link rel="canonical" href="https://taimen.ai/ru/"/>
+<link rel="alternate" hreflang="en" href="https://taimen.ai/">
+<link rel="alternate" hreflang="ru" href="https://taimen.ai/ru/">
+<link rel="alternate" hreflang="x-default" href="https://taimen.ai/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="ru_RU"/>
+<meta property="og:site_name" content="Taimen Compute"/>
+<meta property="og:title" content="Taimen Compute — дообучение AI-моделей под ключ"/>
+<meta property="og:description" content="Дообучение открытых AI-моделей под задачу: LLM под документы, ASR под ваш домен, аренда GPU. Фиксированная цена, метрика качества до старта."/>
+<meta property="og:url" content="https://taimen.ai/ru/"/>
+<meta property="og:image" content="https://taimen.ai/assets/og-datacenter.jpeg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Taimen Compute — дообучение AI-моделей под ключ"/>
+<meta name="twitter:description" content="Дообучение открытых AI-моделей под задачу: LLM под документы, ASR под ваш домен, аренда GPU. Фиксированная цена, метрика качества до старта."/>
+<meta name="twitter:image" content="https://taimen.ai/assets/og-datacenter.jpeg"/>
+
+<!-- Верификация поисковиков (подставляются отдельно) -->
+<meta name="yandex-verification" content="{{YANDEX_VERIFICATION}}"/>
+<meta name="google-site-verification" content="{{GOOGLE_VERIFICATION}}"/>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://taimen.ai/#org","name":"Taimen Compute","url":"https://taimen.ai/","description":"GPU-мастерская: дообучение открытых AI-моделей под задачи заказчика и аренда GPU-мощностей.","areaServed":"RU"},
+{"@type":"WebSite","url":"https://taimen.ai/","name":"Taimen Compute","inLanguage":"ru","publisher":{"@id":"https://taimen.ai/#org"}},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Куда уходят наши данные?","acceptedAnswer":{"@type":"Answer","text":"Никуда: обучение идёт в изолированном контуре на нашем железе, данные не передаются третьим сторонам и не используются для других проектов. Условия фиксируем в договоре."}},
+{"@type":"Question","name":"Сколько это стоит?","acceptedAnswer":{"@type":"Answer","text":"Цена фиксированная за проект и известна до старта — после того, как посмотрим задачу и данные. Это заметно дешевле, чем содержать собственную ML-команду и железо."}},
+{"@type":"Question","name":"Какие сроки?","acceptedAnswer":{"@type":"Answer","text":"Зависит от данных и целевой метрики: типовое дообучение — недели, не месяцы. Оценку по срокам даём вместе с ценой после первого разговора."}},
+{"@type":"Question","name":"Как с оплатой из РФ/СНГ?","acceptedAnswer":{"@type":"Answer","text":"Работаем с заказчиками из РФ/СНГ без западных платёжных рельсов. Формат счёта и договора обсуждаем под вашу юрисдикцию."}},
+{"@type":"Question","name":"Что получим в конце?","acceptedAnswer":{"@type":"Answer","text":"Веса модели, код инференса, инструкцию по развёртыванию и результат по согласованной метрике на отложенной выборке. Модель остаётся у вас."}}
+]}
+]}
+</script>
+
+<style>
+/* ---- Шрифты: IBM Plex, self-hosted (латиница + кириллица) ---- */
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url(/assets/fonts/sans-400-600-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url(/assets/fonts/sans-400-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/mono-400-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/mono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/mono-500-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/mono-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/mono-600-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/mono-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* ---- Токены дизайн-системы Taimen Compute (направление «Чернильный teal») ---- */
+:root{
+  --font-sans:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --text-sm:14px; --text-md:16px; --text-lg:18px; --text-xl:22px; --text-2xl:28px;
+  --text-3xl:clamp(28px, 19px + 1.4vw, 36px);
+  --text-5xl:clamp(34px, 24px + 2.6vw, 58px);
+  --leading-display:1.12; --leading-heading:1.25; --leading-body:1.55;
+  --tracking-display:-0.02em; --tracking-heading:-0.01em; --tracking-label:0.08em;
+
+  --teal-100:#D9ECEE; --teal-200:#B0DADD; --teal-500:#1C8891; --teal-800:#0C4347;
+  --teal-700:#11454F;                    /* тема: ink-teal вместо базового #0F5257 */
+  --accent:#E8604C; --accent-hover:#D24732; --accent-active:#B03A29; --salmon-600:#D24732;
+  --ink-950:#131B1C; --ink-900:#1D2829; --ink-600:#526264; --ink-500:#6B7A7C;
+  --ink-400:#8B9799; --ink-300:#AFB9BA; --ink-50:#F1F4F4; --paper:#FAFAF8;
+
+  --surface-page:var(--paper); --surface-card:#FFFFFF; --surface-sunken:var(--ink-50);
+  --surface-inverse:#0C2F36;
+  --text-primary:var(--ink-900); --text-secondary:var(--ink-600); --text-muted:var(--ink-500);
+  --text-inverse:#F2F8F8; --text-inverse-muted:#8FB9BE;
+  --link:#136572; --link-hover:var(--teal-800);
+  --border-subtle:#DDE3E3; --border-strong:var(--ink-300); --border-inverse:rgba(255,255,255,0.18);
+  --success:#25784A; --error:#C03B28;
+
+  --radius-md:8px; --radius-full:999px;
+  --shadow-md:0 2px 8px rgba(19,27,28,0.08);
+  --focus-ring:0 0 0 3px rgba(28,136,145,0.30);
+  --ease-out:cubic-bezier(0.2,0.7,0.3,1); --dur-fast:120ms; --dur-med:200ms;
+  --container-max:1120px; --container-pad:24px;
+  --section-gap:clamp(64px, 9vw, 96px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none!important}}
+body{margin:0;font-family:var(--font-sans);font-size:var(--text-md);line-height:var(--leading-body);
+  color:var(--text-primary);background:var(--surface-page);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{margin:0}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--teal-200);color:var(--ink-950)}
+:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+a{color:var(--link);text-decoration:underline;text-decoration-color:rgba(19,101,114,0.4);
+  text-underline-offset:3px;transition:color var(--dur-fast) var(--ease-out)}
+a:hover{color:var(--link-hover);text-decoration-color:currentColor}
+
+.container{max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad)}
+
+/* ---- Кнопки ---- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-sans);font-weight:600;line-height:1.3;font-size:14px;padding:10px 18px;
+  border-radius:var(--radius-md);border:1px solid transparent;cursor:pointer;text-decoration:none;
+  transition:background var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+.btn--sm{padding:6px 12px;font-size:13px;gap:6px}
+.btn--lg{padding:13px 24px;font-size:16px;gap:10px}
+.btn--primary{background:var(--accent);color:#FFFFFF}
+.btn--primary:hover{background:var(--accent-hover);color:#FFFFFF}
+.btn--primary:active{background:var(--accent-active)}
+.btn--secondary{background:var(--surface-card);color:var(--text-primary);border-color:var(--border-strong)}
+.btn--secondary:hover{background:var(--surface-sunken);border-color:var(--ink-400);color:var(--text-primary)}
+.btn--ghost-inverse{background:transparent;color:var(--text-inverse);border-color:var(--border-inverse)}
+.btn--ghost-inverse:hover{background:rgba(255,255,255,0.10);color:var(--text-inverse)}
+.btn svg{flex:none}
+
+/* ---- Шапка ---- */
+.site-header{background:var(--surface-page);border-bottom:1px solid var(--border-subtle);position:sticky;top:0;z-index:10}
+.topbar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.wordmark{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.wordmark img{height:44px;width:auto;display:block}
+.wordmark-text{font-size:21px;letter-spacing:-0.01em;white-space:nowrap}
+.wordmark-text b{font-weight:600;color:var(--teal-700)}
+.wordmark-text span{font-weight:400;color:var(--text-muted)}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a:not(.btn){font-size:14px;font-weight:500;text-decoration:none;color:var(--text-secondary)}
+.nav a:not(.btn):hover{color:var(--text-primary)}
+@media (max-width:820px){.nav a:not(.btn){display:none}}
+
+/* ---- Заголовки секций ---- */
+.eyebrow{font-family:var(--font-mono);font-size:13px;font-weight:600;letter-spacing:var(--tracking-label);
+  text-transform:uppercase;color:var(--salmon-600);margin:0 0 14px}
+.eyebrow--inverse{color:var(--accent)}
+.sec-h2{margin:0 0 40px;font-size:var(--text-3xl);font-weight:600;
+  letter-spacing:var(--tracking-heading);line-height:var(--leading-heading);color:var(--text-primary)}
+
+/* ---- Hero ---- */
+.hero{background:var(--surface-inverse);
+  background-image:
+    linear-gradient(90deg, #0C2F36 34%, rgba(12,47,54,0.86) 66%, rgba(12,47,54,0.62) 100%),
+    linear-gradient(0deg, rgba(12,47,54,0.45), rgba(12,47,54,0.45)),
+    url('/assets/hero-datacenter.jpeg');
+  background-size:cover,cover,cover;background-position:center,center,right center;
+  padding:clamp(64px,9vw,96px) 0 clamp(56px,8vw,88px)}
+.hero h1{margin:0 0 20px;max-width:17ch;font-size:var(--text-5xl);font-weight:600;
+  letter-spacing:var(--tracking-display);line-height:var(--leading-display);color:var(--text-inverse)}
+.hero .lead{margin:0 0 36px;max-width:52ch;font-size:var(--text-lg);line-height:var(--leading-body);color:var(--text-inverse-muted)}
+.hero__cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero__meta{display:flex;gap:12px 28px;flex-wrap:wrap;margin-top:56px;padding-top:20px;border-top:1px solid var(--border-inverse)}
+.hero__meta span{font-family:var(--font-mono);font-size:13px;color:var(--text-inverse-muted)}
+
+/* ---- Секции ---- */
+.section{padding:var(--section-gap) 0}
+.section--sunken{background:var(--surface-sunken);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)}
+.section--faq{border-top:1px solid var(--border-subtle)}
+.section--inverse{background:var(--surface-inverse)}
+
+/* ---- Что делаем ---- */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);
+  padding:28px;transition:box-shadow var(--dur-med) var(--ease-out),border-color var(--dur-med) var(--ease-out)}
+.card:hover{border-color:var(--border-strong);box-shadow:var(--shadow-md)}
+.card__head{display:flex;align-items:center;justify-content:space-between;color:var(--teal-700)}
+.card h3{font-size:var(--text-xl);font-weight:600;letter-spacing:var(--tracking-heading);line-height:1.3;margin:16px 0 10px}
+.card p{margin:0;font-size:var(--text-sm);line-height:var(--leading-body);color:var(--text-secondary)}
+.badge{display:inline-block;font-family:var(--font-mono);font-size:12px;font-weight:500;line-height:1;
+  padding:4px 10px;border-radius:var(--radius-full);white-space:nowrap;background:var(--teal-100);color:var(--teal-800)}
+
+/* ---- Как работает ---- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.step{border-top:2px solid var(--teal-700);padding-top:16px}
+.step__n{font-family:var(--font-mono);font-size:var(--text-2xl);font-weight:500;color:var(--teal-700)}
+.step h3{font-size:var(--text-lg);font-weight:600;margin:8px 0}
+.step p{margin:0;font-size:var(--text-sm);line-height:var(--leading-body);color:var(--text-secondary)}
+
+/* ---- Почему мы ---- */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px 28px}
+.why-item{display:flex;gap:14px;align-items:flex-start}
+.why-item svg{flex:none;margin-top:2px;color:var(--teal-700)}
+.why-item h3{font-size:var(--text-md);font-weight:600;margin:0 0 4px}
+.why-item p{margin:0;font-size:var(--text-sm);line-height:var(--leading-body);color:var(--text-secondary)}
+
+/* ---- FAQ ---- */
+.faq{max-width:760px;border-top:1px solid var(--border-subtle)}
+.faq details{border-bottom:1px solid var(--border-subtle)}
+.faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:18px 0;cursor:pointer;list-style:none;
+  font-size:var(--text-lg);font-weight:500;color:var(--text-primary)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{flex:none;color:var(--text-muted);transition:transform var(--dur-med) var(--ease-out)}
+.faq details[open] summary svg{transform:rotate(180deg)}
+.faq .faq__a{margin:0;padding:0 0 18px;font-size:var(--text-md);line-height:var(--leading-body);color:var(--text-secondary);max-width:64ch}
+
+/* ---- Финальный CTA + форма ---- */
+.cta-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
+@media (max-width:920px){.cta-grid{grid-template-columns:1fr}}
+.cta-copy{display:flex;flex-direction:column}
+.cta-copy h2{margin:0 0 16px;font-size:var(--text-3xl);font-weight:600;
+  letter-spacing:var(--tracking-heading);line-height:var(--leading-heading);color:var(--text-inverse)}
+.cta-copy p{margin:0;font-size:var(--text-md);line-height:var(--leading-body);color:var(--text-inverse-muted);max-width:40ch}
+.cta-copy img{margin-top:auto;padding-top:24px;height:260px;width:auto}
+@media (max-width:920px){.cta-copy img{margin-top:40px;padding-top:0;height:220px}}
+.form-card{background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:32px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+@media (max-width:600px){.form-grid{grid-template-columns:1fr}}
+.form-grid .span-2{grid-column:1 / -1}
+.field{display:block;text-align:left}
+.field__label{display:block;font-size:14px;font-weight:500;color:var(--text-primary);margin-bottom:6px}
+.field__label .req{color:var(--accent)}
+.field__hint{display:block;font-size:13px;color:var(--text-muted);margin-top:6px}
+.field__error{display:none;font-size:13px;color:var(--error);margin-top:6px}
+.field.is-invalid .field__error{display:block}
+.field.is-invalid .field__hint{display:none}
+.input,.select,.textarea{font-family:var(--font-sans);font-size:14px;line-height:1.4;
+  color:var(--text-primary);background:var(--surface-card);padding:10px 12px;
+  border:1px solid var(--border-strong);border-radius:var(--radius-md);
+  width:100%;outline:none;
+  transition:border-color var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out)}
+.input:focus,.select:focus,.textarea:focus{border-color:var(--teal-500);box-shadow:var(--focus-ring)}
+.field.is-invalid .input{border-color:var(--error)}
+.select-wrap{position:relative;display:block}
+.select{appearance:none;-webkit-appearance:none;padding-right:36px;cursor:pointer}
+.select-wrap svg{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--text-muted)}
+.textarea{resize:vertical;min-height:80px;line-height:1.5}
+.form-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.form-note{font-family:var(--font-mono);font-size:12px;color:var(--text-muted)}
+.form-success{display:none;text-align:center;padding:8px 0}
+.form-success svg{margin:0 auto;color:var(--success)}
+.form-success h3{font-size:var(--text-xl);font-weight:600;margin:14px 0 8px}
+.form-success p{font-size:var(--text-sm);color:var(--text-secondary);max-width:42ch;margin:0 auto 20px;line-height:var(--leading-body)}
+.form-card.is-sent .form-grid{display:none}
+.form-card.is-sent .form-success{display:block}
+
+/* ---- Футер ---- */
+.footer{background:var(--surface-page);border-top:1px solid var(--border-subtle);padding:28px 0}
+.footer .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer__mark{font-family:var(--font-mono);font-size:15px;color:var(--text-secondary)}
+.footer__meta{display:flex;gap:24px;flex-wrap:wrap}
+.footer__meta span{font-family:var(--font-mono);font-size:12px;color:var(--text-muted)}
+</style>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="container topbar">
+    <a href="#top" class="wordmark" aria-label="Taimen Compute — наверх">
+      <img src="/assets/logo/taimen-mark-light.svg" alt="" width="1024" height="1024"/>
+      <span class="wordmark-text"><b>taimen</b><span> compute</span></span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#services">Что делаем</a>
+      <a href="#process">Как работает</a>
+      <a href="#why">Почему мы</a>
+      <a href="#faq">FAQ</a>
+      <a href="#form" class="btn btn--primary btn--sm" data-goal="cta_click">Обсудить задачу</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow eyebrow--inverse">GPU-мастерская · дообучение моделей</p>
+      <h1>Дообучим открытую AI&#8209;модель под вашу задачу</h1>
+      <p class="lead">От ваших данных до проверенной метрики качества. Фиксированная цена за проект, собственное железо, общение по-русски.</p>
+      <div class="hero__cta">
+        <a href="#form" class="btn btn--primary btn--lg" data-goal="cta_click">Обсудить задачу
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#form" class="btn btn--ghost-inverse btn--lg" data-goal="cta_gpu_click" data-topic="gpu">Запросить мощности</a>
+      </div>
+      <div class="hero__meta">
+        <span>Работаем во Вьетнаме</span>
+        <span>Данные не уходят третьим сторонам</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЧТО ДЕЛАЕМ -->
+  <section id="services" class="section">
+    <div class="container">
+      <p class="eyebrow">Что делаем</p>
+      <h2 class="sec-h2">Три вещи, которые мы делаем хорошо</h2>
+      <div class="svc-grid">
+        <div class="card">
+          <div class="card__head">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></svg>
+            <span class="badge">LLM</span>
+          </div>
+          <h3>Языковые модели под ваши документы</h3>
+          <p>Дообучаем открытые LLM на внутренних данных компании: ответы по регламентам, классификация обращений, извлечение полей из документов.</p>
+        </div>
+        <div class="card">
+          <div class="card__head">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></svg>
+            <span class="badge">ASR</span>
+          </div>
+          <h3>Распознавание речи под ваш домен</h3>
+          <p>Модели класса Whisper под язык, отраслевой словарь и реальное качество записи: колл-центры, диктовка, протоколирование.</p>
+        </div>
+        <div class="card">
+          <div class="card__head">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+            <span class="badge">GPU</span>
+          </div>
+          <h3>Аренда GPU-мощностей</h3>
+          <p>Свободные мощности мастерской — в аренду напрямую, без биржи: под обучение, дообучение и инференс, помесячно или под прогон.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК РАБОТАЕТ -->
+  <section id="process" class="section section--sunken">
+    <div class="container">
+      <p class="eyebrow">Как работает</p>
+      <h2 class="sec-h2">От данных до модели у вас</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step__n">01</div>
+          <h3>Данные</h3>
+          <p>Подписываем договор, смотрим ваши данные в изолированном контуре, согласуем метрику качества и фиксируем цену.</p>
+        </div>
+        <div class="step">
+          <div class="step__n">02</div>
+          <h3>Обучение</h3>
+          <p>Прогоны на нашем железе. Показываем промежуточные срезы, а не «ждите результата».</p>
+        </div>
+        <div class="step">
+          <div class="step__n">03</div>
+          <h3>Метрика</h3>
+          <p>Проверяем согласованную метрику на отложенной выборке из ваших данных — принимаете работу по числу, а не по ощущению.</p>
+        </div>
+        <div class="step">
+          <div class="step__n">04</div>
+          <h3>Передача</h3>
+          <p>Отдаём веса, код инференса и инструкцию по развёртыванию. Модель остаётся у вас.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОЧЕМУ МЫ -->
+  <section id="why" class="section">
+    <div class="container">
+      <p class="eyebrow">Почему мы</p>
+      <h2 class="sec-h2">Мастерская, а не платформа</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+          <div>
+            <h3>Фиксированная цена за проект</h3>
+            <p>Не почасовка: сумма известна до старта и не растёт по ходу.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          <div>
+            <h3>Метрика — до старта</h3>
+            <p>Согласуем измеримую метрику качества и принимаем работу по ней.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div>
+            <h3>Данные под контролем</h3>
+            <p>Изолированный контур и договор; данные не уходят третьим сторонам.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/><path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/><path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/><path d="M7 20v2"/><path d="M7 2v2"/><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg>
+          <div>
+            <h3>Своё железо</h3>
+            <p>Длинные прогоны заметно дешевле облачных прайсов — мы не перепродаём чужие GPU.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>
+          <div>
+            <h3>Инженеры, не менеджеры</h3>
+            <p>Основатель строит и сопровождает ML-инфраструктуру и AI-продукты для корпоративных заказчиков.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section section--faq">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="sec-h2">Частые вопросы</h2>
+      <div class="faq">
+        <details open>
+          <summary>Куда уходят наши данные?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="faq__a">Никуда: обучение идёт в изолированном контуре на нашем железе, данные не передаются третьим сторонам и не используются для других проектов. Условия фиксируем в договоре.</p>
+        </details>
+        <details>
+          <summary>Сколько это стоит?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="faq__a">Цена фиксированная за проект и известна до старта — после того, как посмотрим задачу и данные. Это заметно дешевле, чем содержать собственную ML-команду и железо.</p>
+        </details>
+        <details>
+          <summary>Какие сроки?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="faq__a">Зависит от данных и целевой метрики: типовое дообучение — недели, не месяцы. Оценку по срокам даём вместе с ценой после первого разговора.</p>
+        </details>
+        <details>
+          <summary>Как с оплатой из РФ/СНГ?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="faq__a">Работаем с заказчиками из РФ/СНГ без западных платёжных рельсов. Формат счёта и договора обсуждаем под вашу юрисдикцию.</p>
+        </details>
+        <details>
+          <summary>Что получим в конце?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="faq__a">Веса модели, код инференса, инструкцию по развёртыванию и результат по согласованной метрике на отложенной выборке. Модель остаётся у вас.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФИНАЛЬНЫЙ CTA + ФОРМА -->
+  <section id="form" class="section section--inverse">
+    <div class="container cta-grid">
+      <div class="cta-copy">
+        <p class="eyebrow eyebrow--inverse">Контакт</p>
+        <h2>Обсудим вашу задачу?</h2>
+        <p>Опишите задачу в двух-трёх строках — вернёмся с вопросами, оценкой по цене и срокам. Если нужны мощности в аренду — выберите это в форме.</p>
+        <img src="/assets/logo/taimen-lockup-v-dark-ondark.svg" alt="Taimen Compute" width="1000" height="1000" loading="lazy"/>
+      </div>
+      <div class="form-card" id="lead-card">
+        <form id="lead-form" class="form-grid" action="mailto:hello@taimen.ai" method="post" enctype="text/plain">
+          <label class="field">
+            <span class="field__label">Имя</span>
+            <input class="input" type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"/>
+          </label>
+          <label class="field" id="contact-field">
+            <span class="field__label">Как связаться <span class="req">*</span></span>
+            <input class="input" type="text" name="contact" required placeholder="@username или почта"/>
+            <span class="field__hint">Telegram, email — что удобно</span>
+            <span class="field__error">Укажите способ связи — иначе не сможем ответить</span>
+          </label>
+          <label class="field span-2">
+            <span class="field__label">Что нужно</span>
+            <span class="select-wrap">
+              <select class="select" name="topic" id="topic-select">
+                <option value="ft">Дообучение модели (LLM, классификатор)</option>
+                <option value="asr">Распознавание речи (ASR)</option>
+                <option value="gpu">Аренда GPU-мощностей</option>
+              </select>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </label>
+          <label class="field span-2">
+            <span class="field__label">О задаче</span>
+            <textarea class="textarea" name="about" rows="3" placeholder="Например: 200 часов звонков колл-центра, нужна расшифровка с отраслевыми терминами"></textarea>
+            <span class="field__hint">2–3 строки достаточно: какие данные есть и что должна уметь модель</span>
+          </label>
+          <div class="span-2 form-foot">
+            <button type="submit" class="btn btn--primary btn--lg" data-goal="lead_submit">Отправить
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+            <span class="form-note">Без телефона и звонков — только ответ на контакт</span>
+          </div>
+        </form>
+        <div class="form-success" id="form-success">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <h3>Письмо сформировано</h3>
+          <p>Мы открыли ваш почтовый клиент с готовой заявкой — просто отправьте письмо. Ответим на указанный контакт, без звонков и рассылок.</p>
+          <button type="button" class="btn btn--secondary" id="form-again">Заполнить ещё раз</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer__mark">taimen_compute</span>
+    <div class="footer__meta">
+      <span>Работаем во Вьетнаме</span>
+      <span>© 2026 Taimen Compute</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Минимальный vanilla-JS. Контент от JS не зависит: без него работают якоря,
+   FAQ на <details> и mailto-фолбэк формы. */
+(function () {
+  var MID = "110751880";
+  var CONTACT_EMAIL = "hello@taimen.ai";
+
+  function goal(name) {
+    try {
+      if (/^\d+$/.test(MID) && typeof ym === "function") ym(+MID, "reachGoal", name);
+      if (typeof gtag === "function") gtag("event", name);
+    } catch (e) {}
+  }
+
+  /* Цели аналитики по data-goal (клики по CTA) */
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest && e.target.closest("[data-goal]");
+    if (el && el.tagName !== "BUTTON") goal(el.getAttribute("data-goal"));
+  });
+
+  /* «Запросить мощности» предзаполняет тип запроса в форме */
+  var topicSelect = document.getElementById("topic-select");
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest && e.target.closest("[data-topic]");
+    if (el && topicSelect) topicSelect.value = el.getAttribute("data-topic");
+  });
+
+  /* Форма: валидация контакта + письмо через mailto (бэкенда у статики нет) */
+  var form = document.getElementById("lead-form");
+  var card = document.getElementById("lead-card");
+  var contactField = document.getElementById("contact-field");
+  var contactInput = contactField.querySelector("input");
+  var TOPIC_LABELS = { ft: "Дообучение модели (LLM, классификатор)", asr: "Распознавание речи (ASR)", gpu: "Аренда GPU-мощностей" };
+
+  contactInput.addEventListener("invalid", function (e) {
+    e.preventDefault();
+    contactField.classList.add("is-invalid");
+    contactInput.focus();
+  });
+  contactInput.addEventListener("input", function () {
+    contactField.classList.remove("is-invalid");
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!contactInput.value.trim()) {
+      contactField.classList.add("is-invalid");
+      contactInput.focus();
+      return;
+    }
+    var data = new FormData(form);
+    var subject = "Заявка с taimen.ai: " + (TOPIC_LABELS[data.get("topic")] || "");
+    var body =
+      "Имя: " + (data.get("name") || "—") + "\n" +
+      "Контакт: " + data.get("contact") + "\n" +
+      "Что нужно: " + (TOPIC_LABELS[data.get("topic")] || "") + "\n" +
+      "О задаче: " + (data.get("about") || "—") + "\n\n" +
+      "— отправлено с лендинга taimen.ai";
+    window.location.href = "mailto:" + CONTACT_EMAIL +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+    card.classList.add("is-sent");
+    goal("lead_submit");
+  });
+
+  document.getElementById("form-again").addEventListener("click", function () {
+    form.reset();
+    card.classList.remove("is-sent");
+  });
+})();
+</script>
+
+<!-- Яндекс.Метрика (guard: с плейсхолдером не грузится) -->
+<script>
+(function(){ var MID="110751880"; if(!/^\d+$/.test(MID)) return;
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window,document,"script","https://mc.yandex.ru/metrika/tag.js?id="+MID,"ym");
+  ym(MID,"init",{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+})();
+</script>
+<script>
+(function(){ var GID="G-7CDFKRY4DC"; if(!/^G-/.test(GID)) return;
+  var s=document.createElement("script");s.async=1;s.src="https://www.googletagmanager.com/gtag/js?id="+GID;document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};
+  gtag("js",new Date());gtag("config",GID);
+})();
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110751880" style="position:absolute;left:-9999px" alt=""/></div></noscript>
+
+</body>
+</html>
