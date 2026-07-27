@@ -9,6 +9,7 @@
 Запуск: python3 build-pages.py
 """
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -54,6 +55,9 @@ PAGES = [
         "src": "Memory Landing v3.dc.html",
         "slug": "memory-landing",
         "mobile_nav": True,
+        # Первый продукт Taimen — открываем под органический трафик (задача Александра 2026-07-28).
+        "robots": "index, follow, max-image-preview:large",
+        "product": True,
         "title": "Taimen Memory — company memory you can verify",
         "description": (
             "A knowledge graph and search over your company's documents: people, "
@@ -121,9 +125,44 @@ def page_url(slug):
     return "https://taimen.ai/" + (f"{slug}/" if slug else "")
 
 
+# Организация — общий блок Schema.org для всех страниц. Помогает поисковику связать
+# сайт с брендом Taimen и показать knowledge panel.
+ORG_JSONLD = {
+    "@type": "Organization",
+    "@id": "https://taimen.ai/#org",
+    "name": "Taimen Compute",
+    "url": "https://taimen.ai/",
+    "logo": "https://taimen.ai/assets/logo/taimen-mark-dark.svg",
+    "email": "hello@taimen.ai",
+    "description": (
+        "Taimen Compute builds Taimen Memory — persistent, verifiable memory for "
+        "enterprise AI agents — and fine-tunes open LLM and ASR models on your data."
+    ),
+}
+
+
+def jsonld_head(page):
+    """Блок(и) JSON-LD Schema.org. Организация — всегда; продукт — на странице продукта."""
+    graph = [ORG_JSONLD]
+    if page.get("product"):
+        graph.append({
+            "@type": "SoftwareApplication",
+            "name": "Taimen Memory",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Cloud, private cloud, on-premise",
+            "url": page_url(page["slug"]),
+            "description": page["description"],
+            "publisher": {"@id": "https://taimen.ai/#org"},
+            "offers": {"@type": "Offer", "availability": "https://schema.org/PreOrder"},
+        })
+    doc = {"@context": "https://schema.org", "@graph": graph}
+    payload = json.dumps(doc, ensure_ascii=False, separators=(",", ":"))
+    return f'<script type="application/ld+json">{payload}</script>'
+
+
 def meta_head(page):
     url = page_url(page["slug"])
-    # Индексируется только главная: остальные английские страницы ждут приёмки.
+    # Индексируется главная и страница продукта; демо и превью ждут приёмки.
     robots = page.get("robots", "noindex, nofollow")
     alternates = "\n" + HREFLANG if page["slug"] == "" else ""
     return f"""{PAGE_CSS}
@@ -142,7 +181,12 @@ def meta_head(page):
 <meta property="og:description" content="{page['description']}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="https://taimen.ai/assets/og-datacenter.jpeg">
-<meta name="twitter:card" content="summary_large_image">"""
+<meta property="og:image:alt" content="Taimen Memory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{page['title']}">
+<meta name="twitter:description" content="{page['description']}">
+<meta name="twitter:image" content="https://taimen.ai/assets/og-datacenter.jpeg">
+{jsonld_head(page)}"""
 
 
 # Патчи к исходникам из Design. Каждый обязан примениться: если исходник обновили
@@ -297,6 +341,39 @@ def build_ru():
     return out
 
 
+def indexable_urls():
+    """Адреса, которые отдаём поисковику: индексируемые страницы + русская версия."""
+    urls = [page_url(p["slug"]) for p in PAGES if "index" in p.get("robots", "")]
+    urls.append("https://taimen.ai/ru/")
+    return urls
+
+
+def build_sitemap_robots():
+    """sitemap.xml и robots.txt: без них поисковику нечего обходить."""
+    entries = "\n".join(f"  <url><loc>{u}</loc></url>" for u in indexable_urls())
+    sitemap = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{entries}\n"
+        "</urlset>\n"
+    )
+    (ROOT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+
+    # Демо-страницы и служебный API остаются вне индекса, но краулер их не обходит.
+    robots = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "Disallow: /memory-demo/\n"
+        "Disallow: /crm-demo/\n"
+        "Disallow: /operator-copilot/\n"
+        "Disallow: /demo/\n"
+        "\n"
+        "Sitemap: https://taimen.ai/sitemap.xml\n"
+    )
+    (ROOT / "robots.txt").write_text(robots, encoding="utf-8")
+    return ROOT / "sitemap.xml", ROOT / "robots.txt"
+
+
 def main():
     if not SRC.is_dir():
         sys.exit(f"build-pages: нет каталога с исходниками {SRC}")
@@ -304,6 +381,8 @@ def main():
     for page in PAGES:
         out = build(page)
         print(f"{page['src']:<26} → {out.relative_to(ROOT)}")
+    sitemap, robots = build_sitemap_robots()
+    print(f"{'sitemap + robots':<26} → {sitemap.relative_to(ROOT)}, {robots.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /memory-demo/
+Disallow: /crm-demo/
+Disallow: /operator-copilot/
+Disallow: /demo/
+
+Sitemap: https://taimen.ai/sitemap.xml
